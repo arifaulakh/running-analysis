@@ -1,0 +1,9 @@
+{
+  "name": "Personal Running Coach",
+  "short_name": "Coach",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f7f4",
+  "theme_color": "#1d211f",
+  "icons": []
+}

@@ -9,6 +9,10 @@ those persisted facts rather than recomputing them.
 
 ## Current Slice
 
+- Next.js v0 web app with home, memory, traces, chat, and dev run import.
+- Local JSON persistence at `.context/dev-data/coach.json` when Postgres is not configured.
+- Drizzle schema for the planned Postgres contract.
+- TypeScript agent scaffolding for coach, observer, planner, prompts, and trace recording.
 - SQLite schema and idempotent initialization.
 - Profile/config helpers rooted at `~/.config/coach` by default.
 - Hal Higdon Half Marathon Intermediate 2 plan encoded as data and anchored to a race date.
@@ -17,6 +21,27 @@ those persisted facts rather than recomputing them.
 - Focused unit tests for the database, plan loader, and metrics.
 
 ## Development
+
+Run the web app:
+
+```bash
+corepack yarn install
+corepack yarn dev
+```
+
+Open `http://localhost:3000`, then use **Dev Import** to import a sample run.
+That writes local state, generates a coach response, and creates a trace visible
+at `/traces`.
+
+JavaScript checks:
+
+```bash
+corepack yarn lint
+corepack yarn run check
+corepack yarn build
+```
+
+Python legacy slice:
 
 ```bash
 make setup

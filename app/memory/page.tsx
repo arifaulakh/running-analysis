@@ -1,4 +1,5 @@
 import { MemoryEditor } from "@/components/memory-editor";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getActiveMemory, getMemoryMarkdownOverride } from "@/lib/repository";
 
 export const dynamic = "force-dynamic";
@@ -23,15 +24,33 @@ export default async function MemoryPage() {
   const markdown = (await getMemoryMarkdownOverride()) ?? memoryMarkdown(memory);
 
   return (
-    <div className="grid">
-      <section className="panel panel-pad">
-        <p className="kicker">Memory</p>
-        <h1 className="headline">Readable State</h1>
-      </section>
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-2">
+        <span className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+          Memory
+        </span>
+        <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          Readable State
+        </h1>
+        <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          The coach&apos;s long-running notes and rules. Edit freely; saves persist as a
+          markdown override.
+        </p>
+      </div>
 
-      <section className="panel panel-pad">
-        <MemoryEditor markdown={markdown} />
-      </section>
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base font-semibold tracking-tight">
+            Notebook
+          </CardTitle>
+          <CardDescription>
+            Markdown is rendered as-is. Headings group sections.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <MemoryEditor markdown={markdown} />
+        </CardContent>
+      </Card>
     </div>
   );
 }

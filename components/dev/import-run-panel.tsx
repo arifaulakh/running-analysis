@@ -1,7 +1,19 @@
 "use client";
 
+import { Upload } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from "@/components/ui/card";
+import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 
 const sample = JSON.stringify(
   {
@@ -62,29 +74,51 @@ export function ImportRunPanel() {
   }
 
   return (
-    <section className="panel panel-pad">
-      <div className="row">
-        <h2 className="section-title">Dev Import</h2>
-        <button className="button" type="button" onClick={() => importRun({ sample: true })}>
-          Import Sample
-        </button>
-      </div>
-      <form className="grid" onSubmit={submit}>
-        <textarea
-          aria-label="Run JSON"
-          className="memory-editor code-editor"
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
-        />
-        <div className="row">
-          <span className={status === "error" ? "status-warn" : "muted"}>
-            {status === "importing" ? "Importing..." : message}
-          </span>
-          <button className="button" disabled={status === "importing"} type="submit">
-            Import JSON
-          </button>
+    <Card>
+      <CardHeader className="flex flex-row items-start justify-between gap-4 space-y-0">
+        <div className="flex flex-col gap-1">
+          <CardTitle className="text-base font-semibold tracking-tight">Dev Import</CardTitle>
+          <CardDescription>Paste a Strava-shaped run payload to ingest it.</CardDescription>
         </div>
-      </form>
-    </section>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          onClick={() => importRun({ sample: true })}
+          disabled={status === "importing"}
+        >
+          <Upload className="h-4 w-4" />
+          Sample
+        </Button>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={submit} className="flex flex-col gap-4">
+          <Textarea
+            aria-label="Run JSON"
+            value={value}
+            onChange={(event) => setValue(event.target.value)}
+            className="min-h-[220px] resize-vertical font-mono text-xs leading-relaxed"
+          />
+          <div className="flex items-center justify-between gap-3">
+            <span
+              className={cn(
+                "text-sm",
+                status === "error"
+                  ? "text-destructive"
+                  : status === "done"
+                    ? "text-emerald-600"
+                    : "text-muted-foreground"
+              )}
+              aria-live="polite"
+            >
+              {status === "importing" ? "Importing…" : message}
+            </span>
+            <Button type="submit" disabled={status === "importing"}>
+              Import JSON
+            </Button>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
   );
 }

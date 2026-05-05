@@ -12,6 +12,8 @@ export const seedProfile = {
   race_name: "SF Marathon Second Half",
   race_start: "2026-07-26T08:30:00-07:00",
   race_location: "Crissy Field",
+  plan_start_date: "2026-04-20",
+  plan_anchor_note: "Started the 12-week block two weeks early; 2026-05-04 is week 3.",
   goal_time: "1:35:00",
   goal_pace_mi: "7:15",
   goal_pace_km: "4:30",

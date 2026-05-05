@@ -66,6 +66,18 @@ export function anchorPlanRows(
   const weekKeys = Object.keys(plan.weeks).sort((a, b) => Number(a.split("_")[1]) - Number(b.split("_")[1]));
   const start = addDays(mondayOfRaceWeek(raceDate), -7 * (weekKeys.length - 1));
 
+  return anchorPlanRowsToStart(plan, start.toISOString().slice(0, 10));
+}
+
+export function anchorPlanRowsToStart(
+  plan: z.infer<typeof planSchema>,
+  startDateIso: string
+): AnchoredPlanRow[] {
+  const weekKeys = Object.keys(plan.weeks).sort(
+    (a, b) => Number(a.split("_")[1]) - Number(b.split("_")[1])
+  );
+  const start = new Date(`${startDateIso}T00:00:00.000Z`);
+
   return weekKeys.flatMap((weekKey, weekIndex) => {
     const weekNum = weekIndex + 1;
     const week = plan.weeks[weekKey];

@@ -27,8 +27,19 @@ import {
 } from "@/lib/db/seed";
 import { readDevStore, updateDevStore } from "@/lib/dev-store";
 import { isoDate } from "@/lib/dates";
+import { anchorPlanRowsToStart, loadHigdonPlan } from "@/lib/plan/loader";
 
 export type CoachHome = Awaited<ReturnType<typeof getHomeContext>>;
+
+async function getSeedPlanRows(): Promise<PlanDay[]> {
+  try {
+    const plan = await loadHigdonPlan();
+    const rows = anchorPlanRowsToStart(plan, seedProfile.plan_start_date);
+    return rows as PlanDay[];
+  } catch {
+    return seedPlanDays;
+  }
+}
 
 export async function getProfile(): Promise<Record<string, string>> {
   if (!hasDatabaseUrl()) return { ...seedProfile };
@@ -39,7 +50,8 @@ export async function getProfile(): Promise<Record<string, string>> {
 
 export async function getPlanForDate(date = isoDate(new Date())): Promise<PlanDay | null> {
   if (!hasDatabaseUrl()) {
-    return seedPlanDays.find((day) => day.date === date) ?? seedPlanDays[0];
+    const rows = await getSeedPlanRows();
+    return rows.find((day) => day.date === date) ?? rows[0] ?? null;
   }
 
   const [row] = await db().select().from(planDays).where(eq(planDays.date, date)).limit(1);
@@ -47,7 +59,15 @@ export async function getPlanForDate(date = isoDate(new Date())): Promise<PlanDa
 }
 
 export async function getPlanWindow(limit = 7): Promise<PlanDay[]> {
-  if (!hasDatabaseUrl()) return seedPlanDays.slice(0, limit);
+  if (!hasDatabaseUrl()) {
+    const today = isoDate(new Date());
+    const rows = await getSeedPlanRows();
+    const startIndex = Math.max(
+      0,
+      rows.findIndex((day) => day.date >= today)
+    );
+    return rows.slice(startIndex, startIndex + limit);
+  }
 
   return db().select().from(planDays).limit(limit);
 }

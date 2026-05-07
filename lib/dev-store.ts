@@ -16,6 +16,13 @@ import {
   seedTraces
 } from "@/lib/db/seed";
 
+export type StravaTokenState = {
+  accessToken: string;
+  refreshToken: string;
+  expiresAt: number;
+  updatedAt: string;
+};
+
 type JsonActivity = Omit<Activity, "startTime" | "fetchedAt"> & {
   startTime: string;
   fetchedAt: string;
@@ -52,6 +59,7 @@ export type DevStore = {
   traces: TraceEvent[];
   toolCalls: ToolCall[];
   memoryMarkdown?: string;
+  stravaToken?: StravaTokenState;
 };
 
 type JsonDevStore = {
@@ -61,6 +69,7 @@ type JsonDevStore = {
   traces: JsonTraceEvent[];
   toolCalls: JsonToolCall[];
   memoryMarkdown?: string;
+  stravaToken?: StravaTokenState;
 };
 
 const storePath = path.join(process.cwd(), ".context/dev-data/coach.json");
@@ -168,7 +177,8 @@ function toJson(store: DevStore): JsonDevStore {
     proceduralMemory: store.proceduralMemory.map(proceduralToJson),
     traces: store.traces.map(traceToJson),
     toolCalls: store.toolCalls.map(toolCallToJson),
-    memoryMarkdown: store.memoryMarkdown
+    memoryMarkdown: store.memoryMarkdown,
+    stravaToken: store.stravaToken
   };
 }
 
@@ -179,7 +189,8 @@ function fromJson(store: JsonDevStore): DevStore {
     proceduralMemory: store.proceduralMemory.map(proceduralFromJson),
     traces: store.traces.map(traceFromJson),
     toolCalls: store.toolCalls.map(toolCallFromJson),
-    memoryMarkdown: store.memoryMarkdown
+    memoryMarkdown: store.memoryMarkdown,
+    stravaToken: store.stravaToken
   };
 }
 

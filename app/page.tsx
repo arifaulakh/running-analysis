@@ -2,6 +2,7 @@ import { Activity, Calendar, Database, Target } from "lucide-react";
 
 import { ChatPanel } from "@/components/chat-panel";
 import { ImportRunPanel } from "@/components/dev/import-run-panel";
+import { SyncStravaButton } from "@/components/dev/sync-strava-button";
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -197,7 +198,10 @@ export default async function HomePage() {
           </CardContent>
         </Card>
 
-        <ImportRunPanel />
+        <div className="grid gap-4">
+          <SyncStravaButton />
+          <ImportRunPanel />
+        </div>
       </div>
 
       <ChatPanel initialMessage={latestCoachMessage} />

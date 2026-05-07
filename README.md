@@ -33,6 +33,21 @@ Open `http://localhost:3000`, then use **Dev Import** to import a sample run.
 That writes local state, generates a coach response, and creates a trace visible
 at `/traces`.
 
+To sync real Strava runs locally, create a Strava API app with callback URL
+`http://localhost:3000/api/strava/oauth`, authorize with `activity:read`
+or `activity:read_all`, then copy `.env.example` to `.env.local` and set:
+
+```bash
+STRAVA_CLIENT_ID=
+STRAVA_CLIENT_SECRET=
+STRAVA_REFRESH_TOKEN=
+```
+
+The **Strava Sync** button fetches recent runs, writes them into local dev state,
+runs the coach on the newest run, and records a trace. Strava refresh tokens
+rotate; the latest token is stored in `.context/dev-data/coach.json`, which is
+ignored by git.
+
 JavaScript checks:
 
 ```bash

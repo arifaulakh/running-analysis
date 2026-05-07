@@ -25,8 +25,8 @@ those persisted facts rather than recomputing them.
 Run the web app:
 
 ```bash
-corepack yarn install
-corepack yarn dev
+yarn install
+yarn dev
 ```
 
 Open `http://localhost:3000`, then use **Dev Import** to import a sample run.
@@ -51,9 +51,9 @@ ignored by git.
 JavaScript checks:
 
 ```bash
-corepack yarn lint
-corepack yarn run check
-corepack yarn build
+yarn lint
+yarn run check
+yarn build
 ```
 
 Python legacy slice:

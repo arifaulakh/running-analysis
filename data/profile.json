@@ -17,10 +17,12 @@
   "easy_pace_target_per_mi": "8:30+",
   "plan": "Hal Higdon Intermediate 2 (half marathon)",
   "plan_url": "https://www.halhigdon.com/training-programs/half-marathon-training/intermediate-2-half-marathon/",
-  "plan_anchored_first_day": "2026-05-04",
-  "plan_anchored_race_day": "2026-07-26",
   "training_start_date": "2026-04-20",
-  "pre_higdon_base_weeks": 2,
-  "_training_note": "Training began 2026-04-20, two weeks before Higdon Week 1 (2026-05-04). The first two weeks were base/foundation running outside the prescribed plan. Runs logged from 2026-04-20 through 2026-05-03 should be treated as base-phase context, not measured against Higdon prescriptions.",
+  "plan_anchored_first_day": "2026-04-20",
+  "plan_anchored_race_day": "2026-07-26",
+  "calendar_weeks": 14,
+  "higdon_weeks": 12,
+  "buffer_weeks": 2,
+  "_training_note": "Training began 2026-04-20 (Higdon Week 1 Mon). Higdon's 12-week plan runs through 2026-07-12 (calendar week 11 ends with the 12 mi long run; Higdon Week 12 race-week structure has been deferred). Calendar weeks 12-13 (2026-07-06 to 2026-07-19) are buffer/extended taper. Calendar week 14 (2026-07-20 to 2026-07-26) is the actual race week using Higdon's Week 12 schedule.",
   "_notes": "Fill age and the coach will compute max_hr_estimated automatically. Update the easy_pace_target if procedural memory says otherwise."
 }

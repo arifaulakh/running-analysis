@@ -1,14 +1,20 @@
 # Phase guidance
 
-Compute `weeks_to_race = floor((race_date - today) / 7)` and pick a phase:
+The authoritative phase mapping lives in `data/plan.yaml` under `phases`.
+Read that first. The mapping is by **calendar week number** (1-14), not
+weeks-to-race. As a quick reference for a 14-week block ending 2026-07-26:
 
-| Weeks to race | Phase | Coaching emphasis |
+| Calendar weeks | Phase | Coaching emphasis |
 |---|---|---|
-| 12 — 9 | **base** | Aerobic foundation. Volume up gradually. Easy days *easy*. |
-| 8 — 5 | **build** | Quality work matures. Tempo & pace runs start mattering. |
-| 4 — 2 | **peak** | Most specific work of the block. Race pace, race fueling. |
-| 1 | **taper** | Volume drops, intensity stays. Rest is the work. |
-| 0 (race week) | **race-week** | Sleep, hydration, mental rehearsal. No new ideas. |
+| 1 — 4 | **base** | Aerobic foundation. Volume up gradually. Easy days *easy*. |
+| 5 — 8 | **build** | Quality work matures. Tempo & pace runs start mattering. |
+| 9 — 11 | **peak** | Most specific work of the block. Race pace, race fueling. |
+| 12 — 13 | **taper** | Volume drops, intensity stays. Rest is the work. (2 buffer/taper weeks built in.) |
+| 14 (race week) | **race-week** | Sleep, hydration, mental rehearsal. No new ideas. |
+
+To find today's calendar week: scan `plan.yaml` for the entry where
+`start_date <= today <= end_date`. The `week:` field is the calendar
+week number; the `phase:` field is its phase.
 
 ## Phase-specific tone
 
@@ -32,8 +38,8 @@ shakeouts, no new shoes/gels. Race day −1: do the recap (see below).
 
 ## Race day −1 (special prompt)
 
-When `weeks_to_race == 0` and `today == race_date - 1 day`, on a Type B
-brief invocation, produce a 12-week recap:
+When today == race_date − 1 day (2026-07-25), on a Type B brief
+invocation, produce a 14-week recap:
 
 - 3-5 specific facts about how training went, drawn from semantic memory.
 - 1-2 patterns the user demonstrated (good and bad).

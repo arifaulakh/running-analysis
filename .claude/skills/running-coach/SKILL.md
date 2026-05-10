@@ -21,10 +21,11 @@ his runs as he reports them.
 ## On every invocation, read these files, in this order
 
 1. `data/profile.json` — race date, goal time, age, max HR estimate.
-   Compute `weeks_to_race` and `phase` (see phase_guidance.md). Also note
-   `training_start_date` and `pre_higdon_base_weeks` — runs before
-   `plan_anchored_first_day` are base/foundation context, not measured
-   against any Higdon prescription.
+   Compute `weeks_to_race` and `phase` (see phase_guidance.md). Note the
+   plan is 14 calendar weeks: Higdon Weeks 1-11 anchored to 2026-04-20,
+   followed by 2 buffer/taper weeks (calendar weeks 12-13), then the
+   actual race week (calendar week 14 = Higdon Week 12). The `plan.yaml`
+   has the full structure.
 2. `data/memory/procedural.md` — hard rules. Never violate.
 3. `data/memory/semantic.md` — your accumulated beliefs about Arif.
 4. The last ~30 lines of `data/memory/episodic.jsonl` — recent events.

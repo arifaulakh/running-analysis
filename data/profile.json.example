@@ -1,0 +1,28 @@
+{
+  "name": "<your name>",
+  "race": {
+    "name": "<race name, e.g. SF Marathon Second Half>",
+    "date": "YYYY-MM-DD",
+    "start_time_local": "HH:MM",
+    "location": "<start → finish>",
+    "distance": "half marathon",
+    "url": ""
+  },
+  "goal_time": "H:MM:SS",
+  "goal_pace_per_mi": "M:SS",
+  "goal_pace_per_km": "M:SS",
+  "age": null,
+  "max_hr_estimated": null,
+  "_max_hr_method": "set when age is filled: 220 - age",
+  "easy_pace_target_per_mi": "M:SS+",
+  "plan": "Hal Higdon Intermediate 2 (half marathon)",
+  "plan_url": "https://www.halhigdon.com/training-programs/half-marathon-training/intermediate-2-half-marathon/",
+  "training_start_date": "YYYY-MM-DD",
+  "plan_anchored_first_day": "YYYY-MM-DD",
+  "plan_anchored_race_day": "YYYY-MM-DD",
+  "calendar_weeks": 12,
+  "higdon_weeks": 12,
+  "buffer_weeks": 0,
+  "_training_note": "Optional: explain any deviation from a vanilla 12-week Higdon block (extra base weeks, buffer/taper weeks, etc.).",
+  "_notes": "Copy this file to data/profile.json and fill in your values. Set `age` and the coach will compute `max_hr_estimated` automatically (220 − age). Adjust calendar_weeks/buffer_weeks if your block is longer than 12 weeks."
+}

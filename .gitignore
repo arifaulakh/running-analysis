@@ -19,3 +19,11 @@ traces/*.txt
 traces/*.log
 .data.backup/
 evals/.baseline.json
+
+# Personal training data — never commit; .example versions are tracked
+data/profile.json
+data/runs.jsonl
+data/memory/episodic.jsonl
+data/memory/semantic.md
+data/memory/procedural.md
+data/memory/observer_state.json

@@ -1,0 +1,26 @@
+{
+  "name": "Arif",
+  "race": {
+    "name": "SF Marathon Second Half",
+    "date": "2026-07-26",
+    "start_time_local": "08:30",
+    "location": "Crissy Field → Embarcadero, San Francisco",
+    "distance": "half marathon",
+    "url": "https://www.thesfmarathon.com/2nd-half-marathon/"
+  },
+  "goal_time": "1:35:00",
+  "goal_pace_per_mi": "7:15",
+  "goal_pace_per_km": "4:30",
+  "age": null,
+  "max_hr_estimated": null,
+  "_max_hr_method": "set when age is filled: 220 - age",
+  "easy_pace_target_per_mi": "8:30+",
+  "plan": "Hal Higdon Intermediate 2 (half marathon)",
+  "plan_url": "https://www.halhigdon.com/training-programs/half-marathon-training/intermediate-2-half-marathon/",
+  "plan_anchored_first_day": "2026-05-04",
+  "plan_anchored_race_day": "2026-07-26",
+  "training_start_date": "2026-04-20",
+  "pre_higdon_base_weeks": 2,
+  "_training_note": "Training began 2026-04-20, two weeks before Higdon Week 1 (2026-05-04). The first two weeks were base/foundation running outside the prescribed plan. Runs logged from 2026-04-20 through 2026-05-03 should be treated as base-phase context, not measured against Higdon prescriptions.",
+  "_notes": "Fill age and the coach will compute max_hr_estimated automatically. Update the easy_pace_target if procedural memory says otherwise."
+}

@@ -12,3 +12,10 @@ dist/
 coverage/
 tsconfig.tsbuildinfo
 .context/dev-data/
+
+# v0 — Skills-based runtime
+traces/*.json
+traces/*.txt
+traces/*.log
+.data.backup/
+evals/.baseline.json

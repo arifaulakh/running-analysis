@@ -54,11 +54,25 @@ cumulative fatigue — needs more data points before calling it.
 
 Rules:
 - `id` — `claim_<3-digit zero-padded n>`, monotonically increasing.
-- `confidence` — `low` (1-2 supporting episodes), `med` (3-4), `high` (5+).
 - `evidence` — list of episodic ids that support this claim.
 - `superseded_by` — id of the claim that replaced this one, or `null`.
 - A claim is **active** if `superseded_by` is `null`.
 - The Coach reads ALL active claims on every invocation.
+
+### Promotion thresholds (SOURCE OF TRUTH)
+
+The Observer subagent uses these thresholds. All other documents
+(SKILL.md, memory-observer.md, README) defer to this section.
+
+| Supporting episodes | Action |
+|---|---|
+| 0–2 | **no_action** — too thin to call a pattern |
+| 3–4 | promote at `low` confidence |
+| 5–7 | promote at `med` confidence (or reinforce an existing `low` claim to `med`) |
+| 8+ | promote at `high` confidence (or reinforce to `high`) |
+
+Bias is toward restraint: one dramatic episode is never a pattern; two is
+suggestive but not enough. Three is the floor.
 
 ## Procedural — `data/memory/procedural.md`
 

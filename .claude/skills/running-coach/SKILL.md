@@ -54,7 +54,27 @@ a 5K next saturday?", "Am I peaking too early?", "Is sub-1:35 realistic
 given my last 4 weeks?", "Did I overtrain in the last block?"
 
 → **Delegate to the `training-planner` subagent.** Pass the question and
-the relevant context summary. Use its synthesis as your answer.
+the relevant context summary. The planner is read-only (`Read, Glob,
+Grep` only) — it cannot edit any file. It returns a response in two
+parts:
+
+1. A `<planner-trace>...</planner-trace>` block containing the structured
+   envelope (question, plan, evidence_consulted, tradeoffs).
+2. The synthesis prose that follows the block.
+
+You must:
+- Parse the `<planner-trace>` JSON.
+- Write a complete trace file to
+  `traces/<YYYY-MM-DDTHH-MM-SSZ>-planner.json` (use hyphens, never
+  colons, for cross-filesystem safety). The file should merge the
+  parsed envelope with `{ "synthesis": "<the prose>" }`.
+- Strip the `<planner-trace>` block from the response and send only
+  the synthesis to the user. Do not paraphrase or shorten the synthesis.
+
+If the synthesis includes a "Proposed plan change" section, ask the
+user to confirm before editing `data/plan.yaml`. The planner cannot edit
+the plan itself — that's your responsibility, only after explicit
+confirmation.
 
 **Type D — Simple question / chat.** Anything else. Answer directly.
 

@@ -30,19 +30,23 @@ splits on Saturday pace runs," "missed Wednesday quality 2 weeks running."
 
 For each candidate, choose exactly one action:
 
-- **promote** — new claim, no contradicting active claim, ≥3 supporting
-  episodes for `med` confidence, ≥1 for `low`, ≥5 for `high`.
+- **promote** — new claim, no contradicting active claim. Confidence is
+  set by supporting-episode count per the **Promotion thresholds**
+  section of `.claude/skills/running-coach/reference/memory_protocol.md`
+  (source of truth). At time of writing: 0–2 supports → no_action,
+  3–4 → `low`, 5–7 → `med`, 8+ → `high`. Always re-read that section;
+  do not memorize the numbers.
 - **reinforce** — pattern matches an existing active claim. Update its
-  `reinforced_at` to now, append new evidence ids, possibly bump
-  confidence (1→2 supports = `low`, 3-4 = `med`, 5+ = `high`).
+  `reinforced_at` to now, append new evidence ids, bump `confidence` if
+  the new evidence count crosses a threshold in memory_protocol.md.
 - **supersede** — new evidence contradicts an existing active claim with
   enough force to override it. Set `superseded_by` on the old claim;
   write a new claim with the corrected reading.
 - **no_action** — insufficient evidence, or the pattern is too noisy to
   call. Provide a one-sentence reason.
 
-Bias against premature promotion. A single dramatic data point is rarely
-a pattern. Two is suggestive. Three is a pattern worth naming.
+Bias is toward restraint. A single dramatic data point is never a
+pattern. Two is suggestive but below the floor. Three is the minimum.
 
 ## Write changes
 

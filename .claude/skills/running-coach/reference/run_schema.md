@@ -27,7 +27,7 @@ what the user gives you; leave missing fields `null`. Never invent values.
 ## Field rules
 
 - **id** — `"run_" + Math.floor(Date.now() / 1000)`. Always generate fresh.
-- **date** — ISO date (YYYY-MM-DD). Default to today UTC if not given.
+- **date** — ISO date (YYYY-MM-DD). Default to today in the user's local timezone (`profile.timezone` = America/Los_Angeles), not UTC. A run logged at 9pm PST is still that calendar day, not the next UTC day.
 - **distance_mi / distance_km** — fill whichever the user gives; convert
   to fill the other (1 mi = 1.609344 km). Round to 2 decimals.
 - **moving_time_s** — integer seconds. Convert from "1:42" or "1h 42m" etc.

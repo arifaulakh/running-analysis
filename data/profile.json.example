@@ -23,6 +23,6 @@
   "calendar_weeks": 12,
   "higdon_weeks": 12,
   "buffer_weeks": 0,
-  "_training_note": "Optional: explain any deviation from a vanilla 12-week Higdon block (extra base weeks, buffer/taper weeks, etc.).",
-  "_notes": "Copy this file to data/profile.json and fill in your values. Set `age` and the coach will compute `max_hr_estimated` automatically (220 − age). Adjust calendar_weeks/buffer_weeks if your block is longer than 12 weeks."
+  "_training_note": "Optional: explain any deviation from the vanilla Higdon block length (extra base weeks, buffer/taper weeks, etc.).",
+  "_notes": "Copy this file to data/profile.json and fill in your values. Set `age` and the coach will compute `max_hr_estimated` automatically (220 − age). Adjust calendar_weeks/buffer_weeks if your block extends beyond the source plan's length."
 }

@@ -14,13 +14,18 @@ and you decide what (if anything) should change in semantic memory.
 
 ## Process
 
-1. Read `data/memory/observer_state.json`. Read its `last_run_at` field.
-   If the file doesn't exist, treat `last_run_at` as `null` (process all
+1. Read `data/memory/observer_state.json`. Read its
+   `last_processed_episodic_id` field. If the file doesn't exist, or
+   the field is `null`, treat as "no prior processing" (process all
    episodic entries).
-2. Read `data/memory/episodic.jsonl`. Filter to entries where
-   `occurred_at > last_run_at` (or all entries if `last_run_at` is null).
+2. Read `data/memory/episodic.jsonl`. Filter to entries whose `id`
+   sorts strictly greater than `last_processed_episodic_id`. (Episodic
+   ids are `ep_<unix_ms>`; lexical compare on the numeric suffix.)
 3. Read `data/memory/semantic.md`. Parse the active claims (those where
    `superseded_by` is null).
+
+Watermark is by id, not wall-clock time. Same-second invocations would
+make `last_run_at` non-deterministic; the id watermark is monotone.
 
 ## Decide for each candidate pattern
 
@@ -33,9 +38,8 @@ For each candidate, choose exactly one action:
 - **promote** — new claim, no contradicting active claim. Confidence is
   set by supporting-episode count per the **Promotion thresholds**
   section of `.claude/skills/running-coach/reference/memory_protocol.md`
-  (source of truth). At time of writing: 0–2 supports → no_action,
-  3–4 → `low`, 5–7 → `med`, 8+ → `high`. Always re-read that section;
-  do not memorize the numbers.
+  (source of truth). Re-read that section on each invocation; do not
+  memorize the numbers.
 - **reinforce** — pattern matches an existing active claim. Update its
   `reinforced_at` to now, append new evidence ids, bump `confidence` if
   the new evidence count crosses a threshold in memory_protocol.md.
@@ -45,16 +49,29 @@ For each candidate, choose exactly one action:
 - **no_action** — insufficient evidence, or the pattern is too noisy to
   call. Provide a one-sentence reason.
 
-Bias is toward restraint. A single dramatic data point is never a
-pattern. Two is suggestive but below the floor. Three is the minimum.
+Bias is toward restraint. A single dramatic data point is suggestive
+but should be flagged as preliminary.
+
+## Lift events are running context, not coached claims
+
+Lift entries (`source: "lift"` in episodic) are persisted so the Coach
+can interpret runs against residual muscular fatigue and scheduling.
+**Do not promote pure-strength patterns** (e.g., "pull-up assist weight
+is decreasing"). Promote only claims whose subject is running, or claims
+that link strength events to running outcomes (e.g., "Tuesday HR runs
+elevated when same-day or day-after push day").
+
+`claim_8` (pull-up progression) already exists; leave it as-is. No new
+claims of that shape.
 
 ## Write changes
 
 For **promote**: append a new frontmatter block to
 `data/memory/semantic.md` with a fresh `claim_<n>` id (next integer
-after the highest existing id), confidence per the rules above, evidence
-list of episodic ids, `created_at` and `reinforced_at` set to now,
-`superseded_by: null`.
+after the highest existing id; unpadded), confidence per the rules
+above, evidence list of episodic ids (canonical 13-digit ms form),
+`created_at` and `reinforced_at` set to now, `superseded_by: null`. The
+claim text lives inside frontmatter as the `claim:` field.
 
 For **reinforce**: edit the existing claim's frontmatter. Update
 `reinforced_at`, append new evidence ids, update `confidence` if
@@ -69,6 +86,7 @@ Write `data/memory/observer_state.json`:
 
 ```json
 {
+  "last_processed_episodic_id": "ep_<unix_ms>",
   "last_run_at": "<iso, current invocation time>",
   "last_changes": {
     "promotions": <n>,
@@ -79,15 +97,19 @@ Write `data/memory/observer_state.json`:
 }
 ```
 
+Set `last_processed_episodic_id` to the maximum id you actually
+processed in this invocation. `last_run_at` is kept as a human-readable
+breadcrumb but is not authoritative; the id is.
+
 ## Output
 
 Print this JSON to stdout — and only this JSON:
 
 ```json
 {
-  "promotions": [{"claim_id": "claim_007", "summary": "..."}],
-  "reinforcements": [{"claim_id": "claim_003", "summary": "..."}],
-  "supersessions": [{"old": "claim_002", "new": "claim_008", "reason": "..."}],
+  "promotions": [{"claim_id": "claim_7", "summary": "..."}],
+  "reinforcements": [{"claim_id": "claim_3", "summary": "..."}],
+  "supersessions": [{"old": "claim_2", "new": "claim_8", "reason": "..."}],
   "no_actions": [{"pattern": "...", "reason": "..."}]
 }
 ```
@@ -101,7 +123,7 @@ but does not show it to the user unless explicitly asked.
   promotions based on whatever's there. Likely most patterns will be
   `low` confidence; that's fine.
 - **No new episodic entries since last run.** Output an empty result
-  with all four arrays empty. Don't update `last_run_at`.
+  with all four arrays empty. Don't update `last_processed_episodic_id`.
 - **Claim text would be redundant** with an existing active claim but
   the wording differs slightly. Reinforce, don't promote a near-duplicate.
 - **Procedural rule contradicts a candidate semantic claim.** Don't

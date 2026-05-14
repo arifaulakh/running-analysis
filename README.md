@@ -78,15 +78,15 @@ each into one of four trigger types:
 
 Each tier has different read/write semantics:
 
-| Tier | File | Writers | Promotion |
+| Tier | File | Writers | Notes |
 |---|---|---|---|
 | Episodic | `episodic.jsonl` | Coach (every invocation) | Append-only, never edited. |
-| Semantic | `semantic.md` | **Only** the Observer subagent | Bias against premature promotion: ≥3 supporting episodes for `low` confidence, ≥5 for `med`, ≥8 for `high`. |
+| Semantic | `semantic.md` | **Only** the Observer subagent | Promotion thresholds and frontmatter shape live in [`reference/memory_protocol.md`](.claude/skills/running-coach/reference/memory_protocol.md) — that doc is the source of truth. |
 | Procedural | `procedural.md` | User-set or Coach-confirmed | Rules win over semantic claims; claims win over inferred patterns. |
 
 The Observer's promotion logic is the agent-engineering centerpiece — it
 runs after every Type A ingestion, reads new episodic entries since its
-`last_run_at`, compares against existing claims, and decides per pattern:
+`last_processed_episodic_id` watermark, compares against existing claims, and decides per pattern:
 *promote*, *reinforce*, *supersede*, or *no_action* (with reason).
 Output is structured JSON with full evidence provenance.
 

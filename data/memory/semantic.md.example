@@ -10,24 +10,21 @@ A claim is **active** if `superseded_by: null`. The Coach reads all
 active claims.
 
 ---
-id: claim_001
+id: claim_1
+claim: "Tendency to run easy days at 4:53/km when the plan prescribes 5:17/km or slower. Three instances over two weeks. Possibly a pacing-discipline issue rather than fitness leak — HR on these runs sits in low Z2."
 confidence: med
-evidence: [ep_1746234567000, ep_1746492801000, ep_1746750132000]
-created_at: 2026-05-09T08:00:00Z
-reinforced_at: 2026-05-26T08:00:00Z
+evidence: ["ep_1746234567000", "ep_1746492801000", "ep_1746750132000"]
+created_at: "2026-05-09T08:00:00Z"
+reinforced_at: "2026-05-26T08:00:00Z"
 superseded_by: null
 ---
-Tendency to run easy days at 7:50/mi when the plan prescribes 8:30+.
-Three instances over two weeks. Possibly a pacing-discipline issue
-rather than fitness leak — HR on these runs sits in low Z2.
 
 ---
-id: claim_002
+id: claim_2
+claim: "Right calf tightness flagged by user during/after one long run. Single instance — watch for recurrence before treating as a pattern."
 confidence: low
-evidence: [ep_1747234500000]
-created_at: 2026-05-15T08:00:00Z
-reinforced_at: 2026-05-15T08:00:00Z
+evidence: ["ep_1747234500000"]
+created_at: "2026-05-15T08:00:00Z"
+reinforced_at: "2026-05-15T08:00:00Z"
 superseded_by: null
 ---
-Right calf tightness flagged by user during/after one long run.
-Single instance — watch for recurrence before treating as a pattern.

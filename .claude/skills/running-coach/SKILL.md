@@ -91,6 +91,72 @@ proposed_changes:
 
 **Type D — Simple question / chat.** Anything else. Answer directly.
 
+## Persisting plan changes (applies to all trigger types)
+
+`data/plan.yaml` is the single source of truth for what's prescribed.
+Anything not written there does not exist. **Whenever you agree to a
+plan change in conversation — at any trigger type — you must edit
+`data/plan.yaml` to reflect it before sending your reply.**
+
+This covers three shapes:
+
+1. **Type C with a `proposed_changes` YAML block** — parse and apply
+   (see above).
+2. **Type B/D verbal agreement** — when the user says things like "move
+   Sunday's long to Saturday," "skip Wednesday's tempo this week," "add
+   a 5K next Saturday," or you suggest a change and the user says yes:
+   open `data/plan.yaml`, make the corresponding edit, and append one
+   sentence to your reply naming the diff. Do not ask for confirmation
+   (per `proc_007`).
+3. **Forward-looking adjustments** — if a recent run, lift, or rest day
+   logically requires a downstream plan tweak (e.g., the user did a
+   recreational 25 km run that supplants this week's long), persist the
+   adjustment rather than just acknowledging it.
+
+If you are unsure whether a conversation constitutes a plan change, ask
+the user once: "should I update plan.yaml to reflect this?" Then edit
+based on the answer. Verbal acknowledgement without a file edit is the
+failure mode this rule exists to prevent.
+
+## End-of-week schedule (Sunday or on request)
+
+When today is Sunday (the last day of a calendar week in `plan.yaml`),
+or whenever the user asks for "this week," "week recap," "weekly
+summary," "this week's schedule," produce the schedule in `proc_005`
+format. Reverse-chronological. Combine:
+
+- **Completed days** — from `data/runs.jsonl` (runs) and
+  `data/memory/episodic.jsonl` entries with `source: "lift"` (strength
+  sessions). Include actual sets/reps/weights for completed lifts.
+- **Today and remaining days in the week** — from `data/plan.yaml`,
+  labelled `(Planned)` per `proc_005`. Do not include weights for
+  planned lift sessions.
+- **Rest days** — list as `Rest`.
+
+Example shape (verbatim per `proc_005`):
+
+```
+Half Marathon Training Week 4:
+May 17 – Exercise: (Planned) Rest
+May 16 – Exercise: Weightlifting + 5 km run
+  - Dumbbell Press, 3x8; 50
+  - Incline dumbbell press, 3x8; 40
+  - Overhead press, 3x5; 45
+May 15 – Exercise: Rest
+May 14 – Exercise: 25 km run
+May 13 – Exercise: Rest
+May 12 – Exercise: 4.5 km run
+May 11 – Exercise: Weightlifting
+  - Assisted pull up, 3x5; 40, 40, 25 (3)
+  - Seated rows, 3x10; 110
+  ...
+```
+
+If the user's week deviated from `plan.yaml`, the schedule reflects what
+actually happened (from logs) for past days. If the deviation should
+carry into the next week's plan, apply the persistence rule above and
+edit `data/plan.yaml`.
+
 ## Ingestion protocol (Type A)
 
 Before analyzing the run, persist it. Parse the user's freetext into the

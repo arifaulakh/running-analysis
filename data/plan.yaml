@@ -103,15 +103,15 @@ weeks:
     end_date:   2026-05-31
     phase: build
     higdon_week: 5
-    notes: "W5 repeat — illness recovery week. W5 (May 18-24) was lost to cold. Long run on May 31 reschedules the missed W5 long run. One buffer week consumed; one remains (W13)."
+    notes: "Higdon W5 shifted 1 week — W5 (May 18-24) was lost to illness. One buffer week consumed; W13 (Jul 13-19) is the single remaining buffer."
     days:
-      monday:    {date: 2026-05-25, type: rest,                                             notes: "rest — post-illness"}
-      tuesday:   {date: 2026-05-26, type: easy,     distance_km: 4.8,                      notes: "return-to-running: 6:30-6:50/km, HR<145"}
-      wednesday: {date: 2026-05-27, type: pace,     distance_km: 4.8,                      notes: "5:10-5:25/km, HR 150-165 — only if Tuesday felt clean"}
-      thursday:  {date: 2026-05-28, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-05-29, type: rest}
-      saturday:  {date: 2026-05-30, type: rest}
-      sunday:    {date: 2026-05-31, type: long,     distance_km: 12.9,                     notes: "6:20-6:35/km, HR 140-155 — dial back to 10km if not fully recovered"}
+      monday:    {date: 2026-05-25, type: rest}
+      tuesday:   {date: 2026-05-26, type: cross,                                            notes: "push day — bench/incline/OHP/tricep. No run."}
+      wednesday: {date: 2026-05-27, type: cross,                                            notes: "basketball or easy cross. Dial back if not fully recovered."}
+      thursday:  {date: 2026-05-28, type: pace,     distance_km: 5.0,                      notes: "5:10-5:25/km, HR 150-165 — skip if still symptomatic"}
+      friday:    {date: 2026-05-29, type: easy,     distance_km: 6.5,                      notes: "6:20-6:35/km, HR<150 + pull day"}
+      saturday:  {date: 2026-05-30, type: interval, intervals: "7 x 400m at 5K pace",      notes: "target 4:05-4:15/km per rep, 2 min rest. Upper body gym same day."}
+      sunday:    {date: 2026-05-31, type: long,     distance_km: 12.9,                     notes: "6:20-6:35/km, HR 140-155"}
 
   - week: 7
     start_date: 2026-06-01

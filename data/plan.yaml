@@ -102,107 +102,107 @@ weeks:
     start_date: 2026-05-25
     end_date:   2026-05-31
     phase: build
-    higdon_week: 6
+    higdon_week: 5
+    notes: "W5 repeat — illness recovery week. W5 (May 18-24) was lost to cold. Long run on May 31 reschedules the missed W5 long run. One buffer week consumed; one remains (W13)."
     days:
-      monday:    {date: 2026-05-25, type: cross,    duration_min: 50}
-      tuesday:   {date: 2026-05-26, type: easy,     distance_km: 6.4}
-      wednesday: {date: 2026-05-27, type: tempo,    duration_min: 40}
+      monday:    {date: 2026-05-25, type: rest,                                             notes: "rest — post-illness"}
+      tuesday:   {date: 2026-05-26, type: easy,     distance_km: 4.8,                      notes: "return-to-running: 6:30-6:50/km, HR<145"}
+      wednesday: {date: 2026-05-27, type: pace,     distance_km: 4.8,                      notes: "5:10-5:25/km, HR 150-165 — only if Tuesday felt clean"}
       thursday:  {date: 2026-05-28, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-05-29, type: easy,     distance_km: 3.2,                  notes: "rest or easy"}
+      friday:    {date: 2026-05-29, type: rest}
       saturday:  {date: 2026-05-30, type: rest}
-      sunday:    {date: 2026-05-31, type: race,     race_distance: "10K",              notes: "10K race — fitness check"}
+      sunday:    {date: 2026-05-31, type: long,     distance_km: 12.9,                     notes: "6:20-6:35/km, HR 140-155 — dial back to 10km if not fully recovered"}
 
   - week: 7
     start_date: 2026-06-01
     end_date:   2026-06-07
     phase: build
-    higdon_week: 7
+    higdon_week: 6
     days:
-      monday:    {date: 2026-06-01, type: rest}
-      tuesday:   {date: 2026-06-02, type: easy,     distance_km: 7.2}
-      wednesday: {date: 2026-06-03, type: interval, intervals: "8 x 400m at 5K pace"}
+      monday:    {date: 2026-06-01, type: cross,    duration_min: 50}
+      tuesday:   {date: 2026-06-02, type: easy,     distance_km: 6.4}
+      wednesday: {date: 2026-06-03, type: tempo,    duration_min: 40}
       thursday:  {date: 2026-06-04, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-06-05, type: rest}
-      saturday:  {date: 2026-06-06, type: pace,     distance_km: 6.4}
-      sunday:    {date: 2026-06-07, type: long,     distance_km: 14.5}
+      friday:    {date: 2026-06-05, type: easy,     distance_km: 3.2,                  notes: "rest or easy"}
+      saturday:  {date: 2026-06-06, type: rest}
+      sunday:    {date: 2026-06-07, type: race,     race_distance: "10K",              notes: "10K race — fitness check (calibration gate 1, sub-47:00 target)"}
 
   - week: 8
     start_date: 2026-06-08
     end_date:   2026-06-14
     phase: build
-    higdon_week: 8
+    higdon_week: 7
     days:
-      monday:    {date: 2026-06-08, type: cross,    duration_min: 50}
+      monday:    {date: 2026-06-08, type: rest}
       tuesday:   {date: 2026-06-09, type: easy,     distance_km: 7.2}
-      wednesday: {date: 2026-06-10, type: tempo,    duration_min: 40}
+      wednesday: {date: 2026-06-10, type: interval, intervals: "8 x 400m at 5K pace"}
       thursday:  {date: 2026-06-11, type: easy,     distance_km: 4.8}
       friday:    {date: 2026-06-12, type: rest}
-      saturday:  {date: 2026-06-13, type: pace,     distance_km: 8.0}
-      sunday:    {date: 2026-06-14, type: long,     distance_km: 16.1}
+      saturday:  {date: 2026-06-13, type: pace,     distance_km: 6.4}
+      sunday:    {date: 2026-06-14, type: long,     distance_km: 14.5}
 
   - week: 9
     start_date: 2026-06-15
     end_date:   2026-06-21
-    phase: peak
-    higdon_week: 9
+    phase: build
+    higdon_week: 8
     days:
-      monday:    {date: 2026-06-15, type: cross,    duration_min: 60}
-      tuesday:   {date: 2026-06-16, type: easy,     distance_km: 8.0}
-      wednesday: {date: 2026-06-17, type: interval, intervals: "9 x 400m at 5K pace"}
+      monday:    {date: 2026-06-15, type: cross,    duration_min: 50}
+      tuesday:   {date: 2026-06-16, type: easy,     distance_km: 7.2}
+      wednesday: {date: 2026-06-17, type: tempo,    duration_min: 40}
       thursday:  {date: 2026-06-18, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-06-19, type: easy,     distance_km: 3.2,                  notes: "rest or easy"}
-      saturday:  {date: 2026-06-20, type: rest}
-      sunday:    {date: 2026-06-21, type: race,     race_distance: "15K",              notes: "15K race — fitness check"}
+      friday:    {date: 2026-06-19, type: rest}
+      saturday:  {date: 2026-06-20, type: pace,     distance_km: 8.0}
+      sunday:    {date: 2026-06-21, type: long,     distance_km: 16.1}
 
   - week: 10
     start_date: 2026-06-22
     end_date:   2026-06-28
     phase: peak
-    higdon_week: 10
+    higdon_week: 9
     days:
-      monday:    {date: 2026-06-22, type: rest}
+      monday:    {date: 2026-06-22, type: cross,    duration_min: 60}
       tuesday:   {date: 2026-06-23, type: easy,     distance_km: 8.0}
-      wednesday: {date: 2026-06-24, type: tempo,    duration_min: 45}
+      wednesday: {date: 2026-06-24, type: interval, intervals: "9 x 400m at 5K pace"}
       thursday:  {date: 2026-06-25, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-06-26, type: rest}
-      saturday:  {date: 2026-06-27, type: pace,     distance_km: 8.0}
-      sunday:    {date: 2026-06-28, type: long,     distance_km: 17.7}
+      friday:    {date: 2026-06-26, type: easy,     distance_km: 3.2,                  notes: "rest or easy"}
+      saturday:  {date: 2026-06-27, type: rest}
+      sunday:    {date: 2026-06-28, type: race,     race_distance: "15K",              notes: "15K race — fitness check (calibration gate 2, shifted from Jun 21)"}
 
   - week: 11
     start_date: 2026-06-29
     end_date:   2026-07-05
     phase: peak
-    higdon_week: 11
+    higdon_week: 10
     days:
-      monday:    {date: 2026-06-29, type: cross,    duration_min: 60}
+      monday:    {date: 2026-06-29, type: rest}
       tuesday:   {date: 2026-06-30, type: easy,     distance_km: 8.0}
-      wednesday: {date: 2026-07-01, type: interval, intervals: "10 x 400m at 5K pace"}
+      wednesday: {date: 2026-07-01, type: tempo,    duration_min: 45}
       thursday:  {date: 2026-07-02, type: easy,     distance_km: 4.8}
       friday:    {date: 2026-07-03, type: rest}
-      saturday:  {date: 2026-07-04, type: pace,     distance_km: 4.8}
-      sunday:    {date: 2026-07-05, type: long,     distance_km: 19.3,                 notes: "longest run of the block"}
+      saturday:  {date: 2026-07-04, type: pace,     distance_km: 8.0}
+      sunday:    {date: 2026-07-05, type: long,     distance_km: 17.7}
 
   - week: 12
     start_date: 2026-07-06
     end_date:   2026-07-12
-    phase: taper
-    higdon_week: null
-    notes: "Buffer/extended-taper week 1 of 2. Volume ~70% of week 11; preserve some intensity but no new ideas. Coach should suggest specifics based on how training landed."
+    phase: peak
+    higdon_week: 11
     days:
-      monday:    {date: 2026-07-06, type: cross,    duration_min: 50}
-      tuesday:   {date: 2026-07-07, type: easy,     distance_km: 6.4}
-      wednesday: {date: 2026-07-08, type: interval, intervals: "5 x 400m at 5K pace",  notes: "shorter session, freshness"}
+      monday:    {date: 2026-07-06, type: cross,    duration_min: 60}
+      tuesday:   {date: 2026-07-07, type: easy,     distance_km: 8.0}
+      wednesday: {date: 2026-07-08, type: interval, intervals: "10 x 400m at 5K pace"}
       thursday:  {date: 2026-07-09, type: easy,     distance_km: 4.8}
       friday:    {date: 2026-07-10, type: rest}
       saturday:  {date: 2026-07-11, type: pace,     distance_km: 4.8}
-      sunday:    {date: 2026-07-12, type: long,     distance_km: 12.9,                 notes: "shorter long run; cap at ~13 km"}
+      sunday:    {date: 2026-07-12, type: long,     distance_km: 19.3,                 notes: "longest run of the block — 14 days to race"}
 
   - week: 13
     start_date: 2026-07-13
     end_date:   2026-07-19
     phase: taper
     higdon_week: null
-    notes: "Buffer/extended-taper week 2 of 2. Volume drops further; rest is the work. Approximately a softer dry-run of race week."
+    notes: "Taper week (1 buffer week remaining after W5 illness used the second). Volume drops; rest is the work."
     days:
       monday:    {date: 2026-07-13, type: rest}
       tuesday:   {date: 2026-07-14, type: easy,     distance_km: 4.8}
@@ -210,7 +210,7 @@ weeks:
       thursday:  {date: 2026-07-16, type: easy,     distance_km: 4.8}
       friday:    {date: 2026-07-17, type: rest}
       saturday:  {date: 2026-07-18, type: easy,     distance_km: 3.2}
-      sunday:    {date: 2026-07-19, type: long,     distance_km: 9.7,                  notes: "easy 9.7 km; controlled"}
+      sunday:    {date: 2026-07-19, type: easy,     distance_km: 9.7,                  notes: "easy 9.7 km; controlled"}
 
   - week: 14
     start_date: 2026-07-20

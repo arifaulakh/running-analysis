@@ -90,13 +90,13 @@ weeks:
     phase: build
     higdon_week: 5
     days:
-      monday:    {date: 2026-05-18, type: cross,    duration_min: 40}
-      tuesday:   {date: 2026-05-19, type: easy,     distance_km: 6.4}
-      wednesday: {date: 2026-05-20, type: interval, intervals: "7 x 400m at 5K pace"}
-      thursday:  {date: 2026-05-21, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-05-22, type: rest}
-      saturday:  {date: 2026-05-23, type: pace,     distance_km: 4.8}
-      sunday:    {date: 2026-05-24, type: long,     distance_km: 12.9}
+      monday:    {date: 2026-05-18, type: rest,                                            notes: "rest"}
+      tuesday:   {date: 2026-05-19, type: cross,                                           notes: "push day only — bench/incline/OHP/tricep/dead hang. No run."}
+      wednesday: {date: 2026-05-20, type: cross,                                           notes: "basketball only. Easy run moved to Fri."}
+      thursday:  {date: 2026-05-21, type: rest,                                            notes: "rest — sick (cold). Pace run missed."}
+      friday:    {date: 2026-05-22, type: rest,                                            notes: "rest — recovering from cold. Easy run + pull day skipped."}
+      saturday:  {date: 2026-05-23, type: interval, intervals: "7 x 400m at 5K pace",     notes: "target 4:05-4:15/km per rep, 2 min rest. Pull day same day (moved from Fri)."}
+      sunday:    {date: 2026-05-24, type: long,     distance_km: 12.9,                    notes: "6:20-6:35/km, HR 140-155; dial to 6:35-6:45/km if heavy from Sat intervals. Upper body gym same day."}
 
   - week: 6
     start_date: 2026-05-25

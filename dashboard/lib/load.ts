@@ -90,12 +90,23 @@ function normalizeProfile(rawProfile: Partial<Profile>, plan: Plan): Profile {
 }
 
 function parseRuns(text: string): Run[] {
-  return text
+  const runs: Run[] = [];
+
+  text
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter(Boolean)
-    .map((line) => JSON.parse(line) as Run)
-    .sort((a, b) => a.date.localeCompare(b.date));
+    .forEach((line, index) => {
+      try {
+        runs.push(JSON.parse(line) as Run);
+      } catch (error) {
+        // A single malformed line (e.g. a run logged with raw multi-line notes)
+        // should not take down the whole dashboard — skip it and keep going.
+        console.warn(`Skipping unparseable run on line ${index + 1}: ${(error as Error).message}`);
+      }
+    });
+
+  return runs.sort((a, b) => a.date.localeCompare(b.date));
 }
 
 function parseSemantic(text: string): MemoryClaim[] {

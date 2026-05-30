@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --field: #f8f9f7;
+  --ink: #17211f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--field);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: linear-gradient(180deg, #f4f6f4 0%, var(--field) 260px);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+@layer components {
+  .chart-panel {
+    @apply rounded-lg border border-line/80 bg-paper p-4 shadow-soft sm:p-5;
+  }
+
+  .chart-panel:hover {
+    @apply border-line;
+  }
+
+  .trust-panel {
+    @apply border-y border-line/80 bg-paper/70 py-5 sm:py-6;
+  }
+
+  .eyebrow {
+    @apply text-[0.7rem] font-semibold uppercase text-moss;
+  }
+
+  .panel-title {
+    @apply mt-1.5 text-lg font-semibold text-ink;
+  }
+
+  .stat-num {
+    @apply tabular-nums text-ink;
+  }
+}
+
+/* Recharts polish */
+.recharts-cartesian-axis-tick text {
+  fill: #7c837d;
+}
+
+.recharts-surface:focus-visible {
+  outline: 2px solid #17211f;
+  outline-offset: 2px;
+}

@@ -105,11 +105,11 @@ weeks:
     higdon_week: 5
     notes: "Higdon W5 shifted 1 week — W5 (May 18-24) was lost to illness. One buffer week consumed; W13 (Jul 13-19) is the single remaining buffer."
     days:
-      monday:    {date: 2026-05-25, type: easy,     distance_km: 6.5,                      notes: "6:20-6:35/km, HR<150 — holiday easy run"}
-      tuesday:   {date: 2026-05-26, type: cross,                                            notes: "push day — bench/incline/OHP/tricep/Egyptians/dead hang. No run."}
-      wednesday: {date: 2026-05-27, type: pace,     distance_km: 5.0,                      notes: "5:10-5:25/km, HR 150-165"}
-      thursday:  {date: 2026-05-28, type: cross,                                            notes: "pull day — pull-ups/rows/lat pulldown/curls/face pulls. No run."}
-      friday:    {date: 2026-05-29, type: rest}
+      monday:    {date: 2026-05-25, type: easy,     distance_km: 6.5,                      notes: "6:20-6:35/km, HR<150 — holiday easy run. Push day same session."}
+      tuesday:   {date: 2026-05-26, type: rest,                                             notes: "rest"}
+      wednesday: {date: 2026-05-27, type: easy,     distance_km: 5.0,                      notes: "5km easy + pull day (pull-ups/rows/lat pulldown/curls/face pulls)"}
+      thursday:  {date: 2026-05-28, type: pace,     distance_km: 5.0,                      notes: "5:10-5:25/km, HR 150-165"}
+      friday:    {date: 2026-05-29, type: cross,                                            notes: "indoor cycling — keep easy (zone 2) between Thu pace and Sat intervals"}
       saturday:  {date: 2026-05-30, type: interval, intervals: "7 x 400m at 5K pace",      notes: "target 4:05-4:15/km per rep, 2 min rest. Push day same day."}
       sunday:    {date: 2026-05-31, type: long,     distance_km: 12.9,                     notes: "6:20-6:35/km, HR 140-155. Pull day same day."}
 

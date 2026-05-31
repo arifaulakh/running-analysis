@@ -58,11 +58,21 @@ export function RaceArcHeader({ metrics, data }: { metrics: DashboardMetrics; da
           </div>
           <div className="bg-paper p-4">
             <p className="eyebrow text-ink/65">This week</p>
-            <p className="mt-2 stat-num text-xl font-semibold leading-none">
-              {metrics.currentWeekVolume
-                ? `${metrics.currentWeekVolume.completedKm}/${metrics.currentWeekVolume.prescribedKm} km`
-                : "n/a"}
-            </p>
+            {metrics.currentWeekSessions ? (
+              <>
+                <p className="mt-2 stat-num text-xl font-semibold leading-none">
+                  {metrics.currentWeekSessions.completed}
+                  <span className="text-ink/40">/{metrics.currentWeekSessions.planned}</span> sessions
+                </p>
+                <p className="mt-2 line-clamp-1 text-xs text-ink/65">
+                  {metrics.currentWeekSessions.next
+                    ? `Next: ${metrics.currentWeekSessions.next.label}`
+                    : "All sessions done"}
+                </p>
+              </>
+            ) : (
+              <p className="mt-2 stat-num text-xl font-semibold leading-none">n/a</p>
+            )}
           </div>
           <div className="bg-paper p-4">
             <p className="eyebrow text-ink/65">Long run gap</p>

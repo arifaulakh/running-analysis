@@ -4,10 +4,12 @@ import type {
   LongRunPoint,
   MemoryClaim,
   PacePoint,
+  PlanDay,
   PlanWeek,
   RecentRun,
   Run,
-  WeeklyVolume
+  WeeklyVolume,
+  WeekSessions
 } from "./types";
 import { formatPace, parsePace } from "./pace";
 
@@ -154,6 +156,52 @@ function buildRecentRuns(runs: Run[]): RecentRun[] {
     }));
 }
 
+function sessionLabel(day: PlanDay): string {
+  const dist = typeof day.distance_km === "number" ? `${rounded(day.distance_km)} km` : null;
+  if (day.race_distance) {
+    return `race · ${day.race_distance}`;
+  }
+  switch (day.type) {
+    case "long":
+      return dist ? `long run · ${dist}` : "long run";
+    case "interval":
+      return day.intervals ? `intervals · ${day.intervals}` : "intervals";
+    case "cross":
+      return "cross-training";
+    case "tempo":
+      return dist ? `tempo · ${dist}` : "tempo run";
+    case "pace":
+      return dist ? `pace · ${dist}` : "pace run";
+    case "easy":
+      return dist ? `easy · ${dist}` : "easy run";
+    default:
+      return dist ? `${day.type} · ${dist}` : day.type;
+  }
+}
+
+function buildWeekSessions(runs: Run[], week: PlanWeek | undefined): WeekSessions | null {
+  if (!week) {
+    return null;
+  }
+  // A planned session counts as done if any run was logged on that date. This
+  // sidesteps the prescribed-vs-completed km mismatch: interval/cross days have
+  // no distance in the plan, so a distance ratio under/over-counts them.
+  const runDates = new Set(runs.map((run) => run.date));
+  const sessions = Object.values(week.days || {})
+    .filter((day): day is PlanDay & { date: string | Date } => day.type !== "rest" && day.date != null)
+    .map((day) => {
+      const date = asDateString(day.date);
+      return { date, type: day.type, label: sessionLabel(day), done: runDates.has(date) };
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  return {
+    completed: sessions.filter((session) => session.done).length,
+    planned: sessions.length,
+    next: sessions.find((session) => !session.done) ?? null
+  };
+}
+
 function buildWatchpoints(claims: MemoryClaim[], easyTargetSec: number) {
   return claims
     .filter((claim) => claim.superseded_by === null)
@@ -248,6 +296,7 @@ export function computeMetrics(data: DashboardData): DashboardMetrics {
     goalPaceSec,
     easyTargetSec,
     currentWeekVolume,
+    currentWeekSessions: buildWeekSessions(data.runs, currentWeek),
     bestLongRunKm,
     longRunGapKm,
     insights: buildInsights({ currentWeekVolume, paceSeries, bestLongRunKm, longRunGapKm, hrSeries, easyTargetSec }),

@@ -98,6 +98,19 @@ export type WeeklyVolume = {
   completedKm: number;
 };
 
+export type WeekSession = {
+  date: string;
+  type: string;
+  label: string;
+  done: boolean;
+};
+
+export type WeekSessions = {
+  completed: number;
+  planned: number;
+  next: WeekSession | null;
+};
+
 export type PacePoint = {
   date: string;
   label: string;
@@ -143,6 +156,7 @@ export type DashboardMetrics = {
   goalPaceSec: number;
   easyTargetSec: number;
   currentWeekVolume: WeeklyVolume | null;
+  currentWeekSessions: WeekSessions | null;
   bestLongRunKm: number;
   longRunGapKm: number;
   insights: {

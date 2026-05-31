@@ -34,7 +34,15 @@ function formatDateLabel(date: string) {
 }
 
 function getToday() {
-  return process.env.DASHBOARD_TODAY || new Date().toISOString().slice(0, 10);
+  if (process.env.DASHBOARD_TODAY) {
+    return process.env.DASHBOARD_TODAY;
+  }
+  // Use the local calendar date, not the UTC date. toISOString() returns UTC,
+  // which rolls over a day early in the evening for negative-offset zones (e.g.
+  // PT), making "today" — and therefore days-to-race and the current week — off
+  // by one.
+  const now = new Date();
+  return new Date(now.getTime() - now.getTimezoneOffset() * 60_000).toISOString().slice(0, 10);
 }
 
 function daysBetween(start: string, end: string) {

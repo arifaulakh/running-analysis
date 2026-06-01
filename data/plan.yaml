@@ -119,12 +119,12 @@ weeks:
     phase: build
     higdon_week: 6
     days:
-      monday:    {date: 2026-06-01, type: cross,    duration_min: 50}
+      monday:    {date: 2026-06-01, type: cross,    notes: "push day (weightlifting) — replaces 50 min generic cross. Upper body, keeps legs fresh for the week into the Jun 7 10K."}
       tuesday:   {date: 2026-06-02, type: easy,     distance_km: 6.4}
       wednesday: {date: 2026-06-03, type: tempo,    duration_min: 40}
-      thursday:  {date: 2026-06-04, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-06-05, type: easy,     distance_km: 3.2,                  notes: "rest or easy"}
-      saturday:  {date: 2026-06-06, type: rest}
+      thursday:  {date: 2026-06-04, type: easy,     distance_km: 4.8,                  notes: "easy 4.8 km + weightlifting"}
+      friday:    {date: 2026-06-05, type: easy,     distance_km: 3.2,                  notes: "easy 3.2 km + weightlifting"}
+      saturday:  {date: 2026-06-06, type: cross,                                       notes: "weightlifting (was rest). Race day -1 — keep upper-body/light to protect legs for the Jun 7 10K."}
       sunday:    {date: 2026-06-07, type: race,     race_distance: "10K",              notes: "10K race — fitness check (calibration gate 1, sub-47:00 target)"}
 
   - week: 8

@@ -30,3 +30,4 @@ data/memory/episodic.jsonl
 data/memory/semantic.md
 data/memory/procedural.md
 data/memory/observer_state.json
+data/strava_state.json

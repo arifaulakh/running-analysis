@@ -40,10 +40,13 @@ and a documented failure-mode log.
     ├── memory-observer.md      # promotes episodic → semantic memory
     └── training-planner.md     # ReAct decomposition for hard questions
 
+.mcp.json                       # registers the Strava read-only MCP server
+
 data/
 ├── profile.json                # race + goal config (gitignored)
 ├── plan.yaml                   # Higdon Int-2, anchored to race date
-├── runs.jsonl                  # freetext-extracted run log (gitignored)
+├── runs.jsonl                  # run log: Strava-synced + freetext (gitignored)
+├── strava_state.json           # Strava sync watermark (gitignored)
 └── memory/
     ├── episodic.jsonl          # append-only log (gitignored)
     ├── semantic.md             # curated claims with provenance (gitignored)
@@ -120,6 +123,7 @@ cp data/memory/episodic.jsonl.example data/memory/episodic.jsonl  # or empty
 cp data/memory/semantic.md.example data/memory/semantic.md
 cp data/memory/procedural.md.example data/memory/procedural.md
 cp data/memory/observer_state.json.example data/memory/observer_state.json
+cp data/strava_state.json.example data/strava_state.json  # optional, for Strava sync
 
 # Edit profile.json with your race date, goal time, age, etc.
 # Edit plan.yaml to anchor the Higdon plan dates to your race
@@ -133,6 +137,47 @@ claude
 ```
 
 The skill auto-invokes; the rest is conversation.
+
+## Strava sync (optional)
+
+The Coach can pull the **quantitative** layer of each run — distance,
+moving time, pace, average/max HR, per-km splits, elevation — straight
+from Strava's read-only [MCP connector][strava-mcp], so you only type the
+**qualitative** part ("felt strong, calf tight"). Strava numbers and your
+freetext merge into a single `runs.jsonl` entry, deduped on
+`strava_activity_id`.
+
+The MCP server is registered for the project in [`.mcp.json`](.mcp.json)
+(committed, no secrets). Tokens live in Claude Code's OAuth store, not the
+repo. To connect:
+
+```bash
+# .mcp.json registers the server automatically; authenticate the OAuth
+# flow from inside Claude Code:
+claude
+> /mcp            # select strava-mcp, complete the browser OAuth flow
+```
+
+Then enable sync (`data/strava_state.json`, gitignored):
+
+```json
+{ "sync_enabled": true, "last_synced_at": null, "last_activity_id": null }
+```
+
+On every Coach invocation, with `sync_enabled: true`, the skill pulls runs
+newer than `last_synced_at`, maps them via the **Strava → schema mapping**
+in [`run_schema.md`](.claude/skills/running-coach/reference/run_schema.md),
+and logs any not already present. To catch up the whole block once, say
+"backfill Strava since 2026-04-20".
+
+**Rollout note:** Strava is granting MCP access gradually. If
+`mcp__strava-mcp__eligibility` reports `eligible: false`, the activity
+tools aren't live for your account yet — auto-sync silently no-ops and the
+Coach falls back to the freetext workflow until access lands. Setting
+`sync_enabled: false` (or omitting the state file, as the eval golden
+snapshots do) keeps `claude -p` fully offline.
+
+[strava-mcp]: https://press.strava.com/articles/strava-launches-mcp-connector
 
 ## Running the eval suite
 

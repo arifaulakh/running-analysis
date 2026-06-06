@@ -49,6 +49,7 @@ export type Plan = {
 
 export type Run = {
   id: string;
+  strava_activity_id?: number | null;
   date: string;
   distance_km?: number | null;
   distance_mi?: number | null;

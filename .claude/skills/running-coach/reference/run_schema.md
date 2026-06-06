@@ -11,6 +11,7 @@ both forms are read-tolerant; the agent will accept either.
 ```json
 {
   "id": "run_<unix_seconds>",
+  "strava_activity_id": null,
   "date": "2026-05-26",
   "distance_km": 12.87,
   "moving_time_s": 3720,
@@ -29,6 +30,10 @@ both forms are read-tolerant; the agent will accept either.
 ## Field rules
 
 - **id** — `"run_" + Math.floor(Date.now() / 1000)`. Always generate fresh.
+- **strava_activity_id** — integer Strava activity id for runs pulled from
+  the Strava MCP connector, or `null` for freetext-only runs. This is the
+  **dedup/merge key**: never write two `runs.jsonl` lines with the same
+  non-null `strava_activity_id`. See the mapping table below.
 - **date** — ISO date (YYYY-MM-DD). Default to today in the user's
   local timezone (`profile.timezone` = America/Los_Angeles), not UTC.
   A run logged at 9pm PST is still that calendar day, not the next UTC day.
@@ -48,6 +53,38 @@ both forms are read-tolerant; the agent will accept either.
   included. Keep verbatim where short; summarize when long.
 - **raw_input** — the user's exact freetext, preserved for re-parsing.
 - **logged_at** — ISO timestamp at the moment of logging.
+
+## Strava → schema mapping
+
+When a run is sourced from the Strava MCP connector (see `## Strava sync`
+in `SKILL.md`), map the activity's fields into the schema like this. The
+schema is already km-primary, so the mapping is close to 1:1.
+
+| Strava field | run field | transform |
+|---|---|---|
+| `id` | `strava_activity_id` | as-is (integer) |
+| `distance` (m) | `distance_km` | `/1000`, round 2 |
+| `moving_time` (s) | `moving_time_s` | as-is (integer) |
+| `average_speed` (m/s) | `avg_pace_per_km` | `1000/speed` seconds → `"M:SS"` |
+| `average_heartrate` | `avg_hr` | round to integer |
+| `max_heartrate` | `max_hr` | round to integer |
+| `total_elevation_gain` (m) | `elevation_gain_m` | round to integer |
+| `splits_metric[].average_speed` (m/s) | `splits_per_km` | each → pace decimal (`1000/speed/60`, round 2) |
+| `start_date_local` | `date` | take `YYYY-MM-DD` (already local — do not re-offset) |
+| `name` | `raw_input` | the activity name (Strava has no freetext to preserve) |
+| `description` | `notes` | only if present; otherwise leave for user freetext |
+
+Notes:
+
+- **`type_inferred`** — infer the same way as for freetext (distance, pace,
+  day-of-week vs the plan). Strava's `workout_type` (1 = race, 2 = long
+  run) may be used as a *hint* only, never as the sole determinant.
+- **`avg_pace_per_km` from `average_speed`**: pace seconds per km =
+  `1000 / average_speed`; format as `"M:SS"` (e.g. `3.47 m/s` →
+  `288s` → `"4:48"`).
+- **`splits_per_km` pace decimals**: a split's `average_speed` of
+  `3.47 m/s` → `1000 / 3.47 / 60 = 4.80` minutes per km.
+- Leave any field Strava doesn't provide as `null`. Never invent values.
 
 ### Legacy fields (read-tolerant, do not write)
 

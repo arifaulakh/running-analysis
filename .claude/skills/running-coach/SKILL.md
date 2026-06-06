@@ -34,6 +34,42 @@ his runs as he reports them.
 
 If any of these don't exist or are empty, that's fine. It's a fresh start.
 
+## Strava sync (auto, on every invocation)
+
+Strava is the **quantitative** source of truth (distance, time, pace, HR,
+splits, elevation); freetext is the **qualitative** layer. They merge into
+a single run entry — never two. Do this step *before* classifying the
+trigger, so a freshly-synced run is available to the analysis below.
+
+1. Read `data/strava_state.json`. If the file is missing or
+   `sync_enabled` is `false`, **skip this whole section** (no-op). This is
+   what keeps evals/CI hermetic — golden snapshots have no state file, so
+   `claude -p` makes zero network/OAuth calls.
+2. If `sync_enabled` is `true`, call `mcp__strava-mcp__eligibility` first.
+   If it returns `eligible: false` (the connector is still rolling out) or
+   the Strava activity tools are otherwise unavailable, **skip silently** —
+   do not nag the user every invocation, and do not touch
+   `strava_state.json`. Fall back to the freetext workflow.
+3. If eligible, call the Strava MCP **list-activities** tool (namespaced
+   `mcp__strava-mcp__*`; confirm the exact name via `/mcp`) for runs
+   **after `last_synced_at`** — bounded, not the whole history. Filter to
+   running activities only (ignore rides/other sports).
+4. For each activity whose `id` is **not already present** as a
+   `strava_activity_id` in `data/runs.jsonl`:
+   - Fetch its detail (the **get-activity** tool) to get `splits_metric`.
+   - Map it via the **Strava → schema mapping** in `reference/run_schema.md`.
+   - Append a new run line with `strava_activity_id` set and `notes` left
+     empty (it'll be filled later if the user adds freetext).
+   - Treat it as a **Type A ingestion**: append an episodic entry and run
+     the `memory-observer` (per `## After responding`).
+   - Briefly surface it: "I see a 12.4 km on Strava from yesterday —
+     4:48/km, HR 152/171. Logged it."
+5. Update `last_synced_at` (now, ISO) and `last_activity_id` (the newest
+   activity id seen) in `data/strava_state.json`.
+
+If list-activities returns nothing new, this section is a silent no-op and
+you proceed to the trigger classification normally.
+
 ## Decide what kind of trigger this is
 
 **Type A — User shared run data.** Their message contains any of:
@@ -160,7 +196,20 @@ edit `data/plan.yaml`.
 ## Ingestion protocol (Type A)
 
 Before analyzing the run, persist it. Parse the user's freetext into the
-schema in `reference/run_schema.md`:
+schema in `reference/run_schema.md`.
+
+**Merge first (Strava dedup).** Before appending, check whether this run
+already exists from a Strava sync. Match on `strava_activity_id` if the
+user names it, else on **date + distance within tolerance** (~0.3 km, same
+calendar day). If a match is found, the user's freetext is the
+*qualitative* layer for an already-quantified run: **update the existing
+entry in place** — fill `notes` from their feeling/symptom phrases and set
+`raw_input` to their exact text — rather than appending a second line.
+This is the dedup guarantee: one run, one line. Then proceed to analysis
+using the merged entry.
+
+Only if there is **no** Strava match do you append a new line (a
+freetext-only run), following these steps with `strava_activity_id: null`:
 
 1. Generate `id` = `"run_" + Math.floor(Date.now() / 1000)`.
 2. Default `date` to today in `profile.timezone` (America/Los_Angeles) if not specified.
@@ -172,6 +221,28 @@ schema in `reference/run_schema.md`:
 6. Append the JSON line to `data/runs.jsonl`.
 
 Then proceed to analysis.
+
+## Strava backfill (manual)
+
+Triggered **only** by an explicit phrase from the user, e.g. "backfill
+Strava since 2026-04-20" or "import my Strava history for this block".
+Never auto-triggered — the auto-sync above only looks forward from
+`last_synced_at`; this is the one-time catch-up for the training block.
+
+1. Confirm eligibility (`mcp__strava-mcp__eligibility`). If not eligible /
+   tools unavailable, tell the user the connector isn't live for their
+   account yet and stop.
+2. Call **list-activities** with `after` = the date in the user's phrase
+   (default: training start, `2026-04-20`). Page through if needed.
+   Running activities only.
+3. For every activity whose `id` is **not already** a
+   `strava_activity_id` in `data/runs.jsonl`, fetch detail, map via the
+   **Strava → schema mapping** in `reference/run_schema.md`, and append a
+   line. Dedup strictly on `strava_activity_id` — no duplicates.
+4. Update `last_synced_at` / `last_activity_id` in `data/strava_state.json`.
+5. Run the `memory-observer` subagent **once at the end**, not per
+   activity, then give the user a one-line summary ("Backfilled 18 runs
+   from Apr 20–Jun 5; no duplicates.").
 
 ## Voice rules
 

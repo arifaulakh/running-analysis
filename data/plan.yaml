@@ -134,12 +134,12 @@ weeks:
     higdon_week: 7
     days:
       monday:    {date: 2026-06-08, type: rest}
-      tuesday:   {date: 2026-06-09, type: easy,     distance_km: 7.2}
-      wednesday: {date: 2026-06-10, type: interval, intervals: "8 x 400m at 5K pace"}
-      thursday:  {date: 2026-06-11, type: easy,     distance_km: 4.8}
+      tuesday:   {date: 2026-06-09, type: easy,     distance_km: 7.2,                  notes: "easy 7.2 km (HR<150) + PULL day (upper, weightlifting). Lift 1 of 4."}
+      wednesday: {date: 2026-06-10, type: interval, intervals: "8 x 400m at 5K pace",   notes: "8 x 400m @ 5K pace (4:05-4:15/km band, do NOT redline) + PUSH day (upper). Lift 2 of 4 — upper-only so legs stay fresh for the reps (precedent: push+intervals May 30 = PRs)."}
+      thursday:  {date: 2026-06-11, type: easy,     distance_km: 4.8,                  notes: "easy 4.8 km recovery, no lift."}
       friday:    {date: 2026-06-12, type: rest}
-      saturday:  {date: 2026-06-13, type: pace,     distance_km: 6.4}
-      sunday:    {date: 2026-06-14, type: long,     distance_km: 14.5}
+      saturday:  {date: 2026-06-13, type: pace,     distance_km: 6.4,                  notes: "pace 6.4 km @ ~4:40/km + PUSH day (upper). Lift 3 of 4."}
+      sunday:    {date: 2026-06-14, type: long,     distance_km: 14.5,                 notes: "long 14.5 km easy (HR<150) + PULL day (upper). Lift 4 of 4 (pairs with long run as in prior weeks)."}
 
   - week: 9
     start_date: 2026-06-15

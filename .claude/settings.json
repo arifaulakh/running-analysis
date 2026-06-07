@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "statusMessage": "Pushing plan update to main...",
+            "command": "jq -r '.tool_input.file_path // .tool_response.filePath // empty' | { read -r f; case \"$f\" in */data/plan.yaml|data/plan.yaml) cd \"$(git rev-parse --show-toplevel)\" && git add data/plan.yaml && { git diff --cached --quiet || { git commit -q -m 'Update plan' && git push -q origin HEAD:main; }; } ;; esac; } 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}

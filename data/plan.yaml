@@ -149,11 +149,11 @@ weeks:
     days:
       monday:    {date: 2026-06-15, type: cross,    duration_min: 50}
       tuesday:   {date: 2026-06-16, type: easy,     distance_km: 7.2}
-      wednesday: {date: 2026-06-17, type: tempo,    duration_min: 40}
+      wednesday: {date: 2026-06-17, type: tempo,    duration_min: 40,                  notes: "Goal-pace threshold (was generic 40-min tempo): 15 min easy warm-up, then 4 x 1.6 km at 4:30-4:40/km, HR cap 172-176 (NOT max), 90 sec jog between. This is the key new stimulus — sustained time at goal HM pace. Hold the band, do not run it hot."}
       thursday:  {date: 2026-06-18, type: easy,     distance_km: 4.8}
       friday:    {date: 2026-06-19, type: rest}
       saturday:  {date: 2026-06-20, type: pace,     distance_km: 8.0}
-      sunday:    {date: 2026-06-21, type: long,     distance_km: 16.1}
+      sunday:    {date: 2026-06-21, type: long,     distance_km: 16.1,                 notes: "16.1 km long run: first 12 km easy 6:10-6:30/km HR<150, final 4 km at HM pace 4:35-4:45/km. Practice goal pace on tired legs."}
 
   - week: 10
     start_date: 2026-06-22
@@ -167,7 +167,7 @@ weeks:
       thursday:  {date: 2026-06-25, type: easy,     distance_km: 4.8}
       friday:    {date: 2026-06-26, type: easy,     distance_km: 3.2,                  notes: "rest or easy"}
       saturday:  {date: 2026-06-27, type: rest}
-      sunday:    {date: 2026-06-28, type: race,     race_distance: "15K",              notes: "15K race — fitness check (calibration gate 2, shifted from Jun 21)"}
+      sunday:    {date: 2026-06-28, type: race,     race_distance: "15K",              notes: "15K race — calibration gate 2. Pace EVENLY from km1 at ~4:40/km (no conservative opener — that cost the Jun 7 10K). Target a flat 15K, not a negative split. Result sets the SF Half pacing tier (sub-1:38 vs sub-1:40)."}
 
   - week: 11
     start_date: 2026-06-29
@@ -177,11 +177,11 @@ weeks:
     days:
       monday:    {date: 2026-06-29, type: rest}
       tuesday:   {date: 2026-06-30, type: easy,     distance_km: 8.0}
-      wednesday: {date: 2026-07-01, type: tempo,    duration_min: 45}
+      wednesday: {date: 2026-07-01, type: tempo,    duration_min: 45,                  notes: "Goal-pace threshold (was generic 45-min tempo): 15 min easy warm-up, then 5 x 1.6 km at 4:30-4:38/km, HR cap 174-178, 90 sec jog between. Progression from W9's 4x1.6km. This is the primary HM-specific session of the block."}
       thursday:  {date: 2026-07-02, type: easy,     distance_km: 4.8}
       friday:    {date: 2026-07-03, type: rest}
       saturday:  {date: 2026-07-04, type: pace,     distance_km: 8.0}
-      sunday:    {date: 2026-07-05, type: long,     distance_km: 17.7}
+      sunday:    {date: 2026-07-05, type: long,     distance_km: 17.7,                 notes: "17.7 km long run: first 12 km easy HR<150, final 5-6 km at HM goal pace 4:30-4:45/km from the first of those km (no slow lead-in). Pacing-discipline rep: hit pace immediately and hold flat."}
 
   - week: 12
     start_date: 2026-07-06

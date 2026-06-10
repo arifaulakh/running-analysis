@@ -133,11 +133,11 @@ weeks:
     phase: build
     higdon_week: 7
     days:
-      monday:    {date: 2026-06-08, type: rest}
-      tuesday:   {date: 2026-06-09, type: easy,     distance_km: 7.2,                  notes: "easy 7.2 km (HR<150) + PULL day (upper, weightlifting). Lift 1 of 4."}
-      wednesday: {date: 2026-06-10, type: interval, intervals: "8 x 400m at 5K pace",   notes: "8 x 400m @ 5K pace (4:05-4:15/km band, do NOT redline) + PUSH day (upper). Lift 2 of 4 — upper-only so legs stay fresh for the reps (precedent: push+intervals May 30 = PRs)."}
-      thursday:  {date: 2026-06-11, type: easy,     distance_km: 4.8,                  notes: "easy 4.8 km recovery, no lift."}
-      friday:    {date: 2026-06-12, type: rest}
+      monday:    {date: 2026-06-08, type: cross,    notes: "PUSH day (weightlifting) + 20 min cycling — done. Was rest; Arif front-loaded the push here. Lift 1 of 4."}
+      tuesday:   {date: 2026-06-09, type: cross,    notes: "PULL day (weightlifting), no run — done. Easy 7.2 km moved to Wed Jun 10. Lift 2 of 4."}
+      wednesday: {date: 2026-06-10, type: easy,     distance_km: 7.2,                  notes: "easy 7.2 km (HR<150), no lift. Moved from Tue."}
+      thursday:  {date: 2026-06-11, type: interval, intervals: "8 x 400m at 5K pace",   notes: "8 x 400m @ 5K pace (4:05-4:15/km band, do NOT redline), no lift. Moved from Wed."}
+      friday:    {date: 2026-06-12, type: easy,     distance_km: 4.8,                  notes: "easy 4.8 km recovery, no lift. Moved from Thu."}
       saturday:  {date: 2026-06-13, type: pace,     distance_km: 6.4,                  notes: "pace 6.4 km @ ~4:40/km + PUSH day (upper). Lift 3 of 4."}
       sunday:    {date: 2026-06-14, type: long,     distance_km: 14.5,                 notes: "long 14.5 km easy (HR<150) + PULL day (upper). Lift 4 of 4 (pairs with long run as in prior weeks)."}
 

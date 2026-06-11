@@ -30,6 +30,7 @@ and a documented failure-mode log.
 
 ```
 .claude/
+├── settings.json               # pre-approves the Strava project MCP server
 ├── skills/running-coach/       # the Coach itself
 │   ├── SKILL.md                # ~150 lines: persona + protocol
 │   └── reference/
@@ -147,18 +148,49 @@ from Strava's read-only [MCP connector][strava-mcp], so you only type the
 freetext merge into a single `runs.jsonl` entry, deduped on
 `strava_activity_id`.
 
-The MCP server is registered for the project in [`.mcp.json`](.mcp.json)
-(committed, no secrets). Tokens live in Claude Code's OAuth store, not the
-repo. To connect:
+### How the connector is hooked up
+
+Two committed files wire it in — no secrets in either:
+
+1. **[`.mcp.json`](.mcp.json)** registers Strava's remote MCP server with
+   the project, so it loads for anyone who clones (the durable alternative
+   to a machine-local `claude mcp add`):
+
+   ```json
+   {
+     "mcpServers": {
+       "strava-mcp": { "type": "http", "url": "https://mcp.strava.com/mcp" }
+     }
+   }
+   ```
+
+2. **[`.claude/settings.json`](.claude/settings.json)** pre-approves that
+   server via `enabledMcpjsonServers: ["strava-mcp"]`, so Claude Code
+   doesn't prompt to trust the project MCP server on every session.
+
+OAuth tokens are held in Claude Code's own credential store, never in the
+repo. The one manual step is authenticating once:
 
 ```bash
-# .mcp.json registers the server automatically; authenticate the OAuth
-# flow from inside Claude Code:
 claude
-> /mcp            # select strava-mcp, complete the browser OAuth flow
+> /mcp            # select strava-mcp → complete the browser OAuth flow
 ```
 
-Then enable sync (`data/strava_state.json`, gitignored):
+After that, the Coach has these read-only Strava tools (all namespaced
+`mcp__strava-mcp__*`):
+
+| Tool | Used for |
+|---|---|
+| `eligibility` / `health` | gate the sync; confirm the connector is reachable |
+| `list_activities` | enumerate runs in a date range (cursor-paginated) |
+| `get_activity_performance` | avg/max HR, cadence, calories, laps, best efforts |
+| `get_activity_streams` | per-point time-series (HR, distance, velocity, …) |
+| `get_athlete_profile` | measurement preference (metric vs imperial) |
+
+### Enabling sync
+
+Turn it on in `data/strava_state.json` (gitignored; copy from the
+`.example`):
 
 ```json
 { "sync_enabled": true, "last_synced_at": null, "last_activity_id": null }
@@ -167,15 +199,16 @@ Then enable sync (`data/strava_state.json`, gitignored):
 On every Coach invocation, with `sync_enabled: true`, the skill pulls runs
 newer than `last_synced_at`, maps them via the **Strava → schema mapping**
 in [`run_schema.md`](.claude/skills/running-coach/reference/run_schema.md),
-and logs any not already present. To catch up the whole block once, say
-"backfill Strava since 2026-04-20".
+and logs any not already present (deduped on `strava_activity_id`). To
+catch up the whole block once, say "backfill Strava since 2026-04-20".
 
-**Rollout note:** Strava is granting MCP access gradually. If
-`mcp__strava-mcp__eligibility` reports `eligible: false`, the activity
-tools aren't live for your account yet — auto-sync silently no-ops and the
-Coach falls back to the freetext workflow until access lands. Setting
-`sync_enabled: false` (or omitting the state file, as the eval golden
-snapshots do) keeps `claude -p` fully offline.
+**Graceful degradation.** Strava granted MCP access in a gradual rollout;
+the sync is gated on `mcp__strava-mcp__eligibility`. If it reports
+`eligible: false`, the activity tools aren't live for that account yet —
+auto-sync silently no-ops and the Coach falls back to the freetext
+workflow until access lands. Setting `sync_enabled: false` (or omitting
+the state file, as the eval golden snapshots do) keeps `claude -p` fully
+offline and the eval suite hermetic.
 
 [strava-mcp]: https://press.strava.com/articles/strava-launches-mcp-connector
 

@@ -136,7 +136,7 @@ weeks:
       monday:    {date: 2026-06-08, type: cross,    notes: "PUSH day (weightlifting) + 20 min cycling — done. Was rest; Arif front-loaded the push here. Lift 1 of 4."}
       tuesday:   {date: 2026-06-09, type: cross,    notes: "PULL day (weightlifting), no run — done. Easy 7.2 km moved to Wed Jun 10. Lift 2 of 4."}
       wednesday: {date: 2026-06-10, type: easy,     distance_km: 5.0,                  notes: "easy run done — 5.0 km @ 6:01/km, HR 141 (peak 159). Plan was 7.2 km; ran 5.0, 2.2 km short. No lift, fresh legs. Moved from Tue."}
-      thursday:  {date: 2026-06-11, type: easy,     distance_km: 7.0,                  notes: "easy 7 km run (HR<150), no lift. Reorder: intervals moved to Sat Jun 13."}
+      thursday:  {date: 2026-06-11, type: rest,                                        notes: "SKIPPED easy 7 km — under the weather (headache). Lowest-value run of the week; dropped to protect Fri pace / Sat intervals / Sun long. Intervals already moved to Sat Jun 13."}
       friday:    {date: 2026-06-12, type: pace,     distance_km: 6.4,                  notes: "pace 6.4 km @ ~4:40/km, no lift. Moved from Sat."}
       saturday:  {date: 2026-06-13, type: interval, intervals: "8 x 400m at 5K pace",  notes: "8 x 400m @ 5K pace (4:05-4:15/km band, do NOT redline) + PUSH day (upper). Lift 3 of 4. Intervals moved from Thu."}
       sunday:    {date: 2026-06-14, type: long,     distance_km: 14.5,                 notes: "long 14.5 km easy (HR<150) + PULL day (upper). Lift 4 of 4 (pairs with long run as in prior weeks)."}

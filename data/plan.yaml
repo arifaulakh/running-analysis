@@ -138,8 +138,8 @@ weeks:
       wednesday: {date: 2026-06-10, type: easy,     distance_km: 5.0,                  notes: "easy run done — 5.0 km @ 6:01/km, HR 141 (peak 159). Plan was 7.2 km; ran 5.0, 2.2 km short. No lift, fresh legs. Moved from Tue."}
       thursday:  {date: 2026-06-11, type: rest,                                        notes: "SKIPPED easy 7 km — under the weather (headache). Lowest-value run of the week; dropped to protect Fri pace / Sat intervals / Sun long. Intervals already moved to Sat Jun 13."}
       friday:    {date: 2026-06-12, type: pace,     distance_km: 6.4,                  notes: "pace 6.4 km @ ~4:40/km, no lift. Moved from Sat."}
-      saturday:  {date: 2026-06-13, type: interval, intervals: "8 x 400m at 5K pace",  notes: "8 x 400m @ 5K pace (4:05-4:15/km band, do NOT redline) + PUSH day (upper). Lift 3 of 4. Intervals moved from Thu."}
-      sunday:    {date: 2026-06-14, type: long,     distance_km: 14.5,                 notes: "long 14.5 km easy (HR<150) + PULL day (upper). Lift 4 of 4 (pairs with long run as in prior weeks)."}
+      saturday:  {date: 2026-06-13, type: long,     distance_km: 14.5,                 notes: "long 14.5 km easy (HR<150) + PULL day (upper). Swapped with Sun intervals at Arif's request. Lift pairs with long run as in prior weeks."}
+      sunday:    {date: 2026-06-14, type: interval, intervals: "8 x 400m at 5K pace",  notes: "8 x 400m @ 5K pace (4:05-4:15/km band, do NOT redline) + PUSH day (upper). Swapped from Sat — these now land the day AFTER the 14.5 km long run, so legs will be pre-fatigued; hold the 4:05-4:15 band, do not chase fast reps."}
 
   - week: 9
     start_date: 2026-06-15

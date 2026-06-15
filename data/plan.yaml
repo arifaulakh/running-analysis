@@ -147,13 +147,13 @@ weeks:
     phase: build
     higdon_week: 8
     days:
-      monday:    {date: 2026-06-15, type: cross,    duration_min: 50}
-      tuesday:   {date: 2026-06-16, type: easy,     distance_km: 7.2}
-      wednesday: {date: 2026-06-17, type: tempo,    duration_min: 40,                  notes: "Goal-pace threshold (was generic 40-min tempo): 15 min easy warm-up, then 4 x 1.6 km at 4:30-4:40/km, HR cap 172-176 (NOT max), 90 sec jog between. This is the key new stimulus — sustained time at goal HM pace. Hold the band, do not run it hot."}
-      thursday:  {date: 2026-06-18, type: easy,     distance_km: 4.8}
+      monday:    {date: 2026-06-15, type: cross,    duration_min: 50,                  notes: "PUSH day (weightlifting) — replaces generic 50-min cross. Upper-body, keep legs fresh for Wed threshold. Lift 1 of 4."}
+      tuesday:   {date: 2026-06-16, type: easy,     distance_km: 7.2,                  notes: "easy 7.2 km, HR<150 + PULL day. Lift 2 of 4."}
+      wednesday: {date: 2026-06-17, type: tempo,    duration_min: 40,                  notes: "★ MARQUEE — Goal-pace threshold (was generic 40-min tempo): 15 min easy warm-up, then 4 x 1.6 km at 4:30-4:40/km, HR cap 172-176 (NOT max), 90 sec jog between. This is the key new stimulus — sustained time at goal HM pace, the gap the Jun 7 10K exposed. NO lift. Hold the band, do not run it hot (no drift to 185 like the Jun 12 pace run)."}
+      thursday:  {date: 2026-06-18, type: easy,     distance_km: 4.8,                  notes: "easy 4.8 km recovery, HR<150 + PUSH day. Lift 3 of 4."}
       friday:    {date: 2026-06-19, type: rest}
-      saturday:  {date: 2026-06-20, type: pace,     distance_km: 8.0}
-      sunday:    {date: 2026-06-21, type: long,     distance_km: 16.1,                 notes: "16.1 km long run: first 12 km easy 6:10-6:30/km HR<150, final 4 km at HM pace 4:35-4:45/km. Practice goal pace on tired legs."}
+      saturday:  {date: 2026-06-20, type: pace,     distance_km: 8.0,                  notes: "pace 8.0 km. NO lift — fresh legs for Sun long."}
+      sunday:    {date: 2026-06-21, type: long,     distance_km: 16.1,                 notes: "16.1 km long run: first 12 km easy 6:10-6:30/km HR<150, final 4 km at HM pace 4:35-4:45/km. Practice goal pace on tired legs. + PULL day. Lift 4 of 4."}
 
   - week: 10
     start_date: 2026-06-22

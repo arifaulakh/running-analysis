@@ -148,11 +148,11 @@ weeks:
     higdon_week: 8
     days:
       monday:    {date: 2026-06-15, type: cross,    duration_min: 50,                  notes: "PUSH day (weightlifting) — replaces generic 50-min cross. Upper-body, keep legs fresh for Wed threshold. Lift 1 of 4."}
-      tuesday:   {date: 2026-06-16, type: easy,     distance_km: 7.2,                  notes: "easy 7.2 km, HR<150 + PULL day. Lift 2 of 4."}
-      wednesday: {date: 2026-06-17, type: tempo,    duration_min: 40,                  notes: "★ MARQUEE — Goal-pace threshold (was generic 40-min tempo): 15 min easy warm-up, then 4 x 1.6 km at 4:30-4:40/km, HR cap 172-176 (NOT max), 90 sec jog between. This is the key new stimulus — sustained time at goal HM pace, the gap the Jun 7 10K exposed. NO lift. Hold the band, do not run it hot (no drift to 185 like the Jun 12 pace run)."}
-      thursday:  {date: 2026-06-18, type: easy,     distance_km: 4.8,                  notes: "easy 4.8 km recovery, HR<150 + PUSH day. Lift 3 of 4."}
-      friday:    {date: 2026-06-19, type: rest}
-      saturday:  {date: 2026-06-20, type: pace,     distance_km: 8.0,                  notes: "pace 8.0 km. NO lift — fresh legs for Sun long."}
+      tuesday:   {date: 2026-06-16, type: easy,     distance_km: 7.2,                  notes: "DONE — ran easy 5.0 km @ 5:54/km, HR 143 (in-zone, top km-avg 151). 2.2 km short of the prescribed 7.2 km. No same-day lift (pull moved to Fri Jun 19)."}
+      wednesday: {date: 2026-06-17, type: easy,     distance_km: 7.0,                  notes: "Was the ★ MARQUEE threshold — Arif ran an easy/progression 7.0 km instead (6:05/km, HR 146, negative-split finish to HR 158-159) and DEFERRED the threshold to Thu Jun 18. No lift. Threshold still landed this week (claim_5)."}
+      thursday:  {date: 2026-06-18, type: tempo,    duration_min: 40,                  notes: "★ MARQUEE — Goal-pace threshold (moved from Wed Jun 17): 15 min easy warm-up, then 4 x 1.6 km at 4:30-4:40/km, HR cap 172-176 (NOT max), 90 sec jog between. The key new stimulus — sustained time at goal HM pace, the gap the Jun 7 10K exposed. NO lift. Hold the band, do not run it hot (no drift to 185 like the Jun 12 pace run). Lands on legs that ran easy Tue+Wed — fresher than if it had followed a quality day."}
+      friday:    {date: 2026-06-19, type: cross,                                       notes: "PULL day (weightlifting), no run (was rest). Moved here from Tue. Lift 2 of 4."}
+      saturday:  {date: 2026-06-20, type: pace,     distance_km: 8.0,                  notes: "pace 8.0 km + PUSH day (push moved here from Thu). Lift 3 of 4."}
       sunday:    {date: 2026-06-21, type: long,     distance_km: 16.1,                 notes: "16.1 km long run: first 12 km easy 6:10-6:30/km HR<150, final 4 km at HM pace 4:35-4:45/km. Practice goal pace on tired legs. + PULL day. Lift 4 of 4."}
 
   - week: 10

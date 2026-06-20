@@ -195,7 +195,7 @@ weeks:
       thursday:  {date: 2026-07-09, type: easy,     distance_km: 4.8}
       friday:    {date: 2026-07-10, type: rest}
       saturday:  {date: 2026-07-11, type: pace,     distance_km: 4.8}
-      sunday:    {date: 2026-07-12, type: long,     distance_km: 19.3,                 notes: "longest run of the block — 14 days to race"}
+      sunday:    {date: 2026-07-12, type: long,     distance_km: 19.3,                 notes: "longest run of the block — 14 days to race. ALPHAFLY TEST #3 (dress rehearsal): full race simulation in the race-day shoe — same socks, same fueling, goal-pace work. If clean, Alphafly is confirmed for race day; if not, fall back to the proven Vaporflys."}
 
   - week: 13
     start_date: 2026-07-13

@@ -147,7 +147,7 @@ weeks:
     phase: build
     higdon_week: 8
     days:
-      monday:    {date: 2026-06-15, type: cross,    duration_min: 50,                  notes: "PUSH day (weightlifting) — replaces generic 50-min cross. Upper-body, keep legs fresh for Wed threshold. Lift 1 of 4."}
+      monday:    {date: 2026-06-15, type: cross,    duration_min: 50,                  notes: "DONE — PUSH day (weightlifting). Bench press 3x8 @95; incline DB press 3x8 @50; DB shoulder press 3x12 @22.5 each; tricep pulldown 3x12 @35/30/30; cable rear-delt fly 2x12 @10 each. Volume/higher-rep push day (3x8-12) vs the Jun 14 heavy 3x5. Lift 1 of 3."}
       tuesday:   {date: 2026-06-16, type: easy,     distance_km: 7.2,                  notes: "DONE — ran easy 5.0 km @ 5:54/km, HR 143 (in-zone, top km-avg 151). 2.2 km short of the prescribed 7.2 km. No same-day lift (pull moved to Fri Jun 19)."}
       wednesday: {date: 2026-06-17, type: easy,     distance_km: 7.0,                  notes: "Was the ★ MARQUEE threshold — Arif ran an easy/progression 7.0 km instead (6:05/km, HR 146, negative-split finish to HR 158-159) and DEFERRED the threshold to Thu Jun 18. No lift. Threshold still landed this week (claim_5)."}
       thursday:  {date: 2026-06-18, type: tempo,    duration_min: 40,                  notes: "★ MARQUEE goal-pace tempo was prescribed here — DEFERRED AGAIN (no run Thu Jun 18); slid one more day to Fri Jun 19, where it was executed. Threshold still landed this week (claim_5)."}

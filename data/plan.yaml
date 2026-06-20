@@ -162,10 +162,10 @@ weeks:
     higdon_week: 9
     days:
       monday:    {date: 2026-06-22, type: cross,    duration_min: 60}
-      tuesday:   {date: 2026-06-23, type: easy,     distance_km: 8.0}
-      wednesday: {date: 2026-06-24, type: interval, intervals: "9 x 400m at 5K pace"}
-      thursday:  {date: 2026-06-25, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-06-26, type: easy,     distance_km: 3.2,                  notes: "rest or easy"}
+      tuesday:   {date: 2026-06-23, type: easy,     distance_km: 6.0,                  notes: "trimmed from 8.0 — taper into the Jun 28 15K gate"}
+      wednesday: {date: 2026-06-24, type: interval, intervals: "5 x 400m at 5K pace (race-prep sharpener — wake up turnover, do NOT redline; trimmed from 9x400 to protect legs for the Jun 28 15K gate)"}
+      thursday:  {date: 2026-06-25, type: easy,     distance_km: 3.2,                  notes: "short easy shakeout, very relaxed — taper into the 15K"}
+      friday:    {date: 2026-06-26, type: rest,                                        notes: "true rest — race day -2, legs fresh for the 15K gate"}
       saturday:  {date: 2026-06-27, type: rest}
       sunday:    {date: 2026-06-28, type: race,     race_distance: "15K",              notes: "15K race — calibration gate 2. Pace EVENLY from km1 at ~4:40/km (no conservative opener — that cost the Jun 7 10K). Target a flat 15K, not a negative split. Result sets the SF Half pacing tier (sub-1:38 vs sub-1:40)."}
 

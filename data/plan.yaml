@@ -181,7 +181,7 @@ weeks:
       thursday:  {date: 2026-07-02, type: easy,     distance_km: 4.8}
       friday:    {date: 2026-07-03, type: rest}
       saturday:  {date: 2026-07-04, type: pace,     distance_km: 8.0}
-      sunday:    {date: 2026-07-05, type: long,     distance_km: 17.7,                 notes: "17.7 km long run: first 12 km easy HR<150, final 5-6 km at HM goal pace 4:30-4:45/km from the first of those km (no slow lead-in). Pacing-discipline rep: hit pace immediately and hold flat."}
+      sunday:    {date: 2026-07-05, type: long,     distance_km: 17.7,                 notes: "17.7 km long run: first 12 km easy HR<150, final 5-6 km at HM goal pace 4:30-4:45/km from the first of those km (no slow lead-in). Pacing-discipline rep: hit pace immediately and hold flat. ALPHAFLY TEST #2 (distance + goal pace): first long-run test of the race-day shoe — watch for hot spots/blisters over distance."}
 
   - week: 12
     start_date: 2026-07-06

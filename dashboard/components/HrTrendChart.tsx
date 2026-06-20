@@ -31,7 +31,7 @@ export function HrTrendChart({ points, summary }: { points: HrPoint[]; summary: 
       </div>
       <div className="h-[260px]">
         <ClientChartFrame empty={points.length === 0} emptyLabel="No heart-rate data logged yet">
-          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+          <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 560, height: 260 }}>
             <AreaChart data={points} margin={{ top: 10, right: 16, bottom: 6, left: -16 }}>
               <defs>
                 <linearGradient id="hrFill" x1="0" y1="0" x2="0" y2="1">

@@ -30,7 +30,7 @@ export function LongRunProgressChart({ points, summary }: { points: LongRunPoint
       </div>
       <div className="h-[300px]">
         <ClientChartFrame empty={points.length === 0} emptyLabel="No long runs recorded yet">
-          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+          <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 560, height: 300 }}>
             <AreaChart data={points} margin={{ top: 14, right: 16, bottom: 6, left: -16 }}>
               <defs>
                 <linearGradient id="longRunFill" x1="0" y1="0" x2="0" y2="1">

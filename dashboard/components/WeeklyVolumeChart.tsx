@@ -56,7 +56,7 @@ export function WeeklyVolumeChart({ weeks, summary }: { weeks: WeeklyVolume[]; s
       </div>
       <div className="h-[300px]">
         <ClientChartFrame empty={weeks.length === 0} emptyLabel="No weekly volume yet">
-          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+          <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 560, height: 300 }}>
             <BarChart data={weeks} margin={{ top: 8, right: 8, bottom: 6, left: -16 }} barGap={3}>
               <CartesianGrid stroke={CHART.grid} strokeDasharray="3 5" vertical={false} />
               <XAxis dataKey="label" tickLine={false} axisLine={{ stroke: CHART.grid }} tick={CHART.tick} tickMargin={8} />

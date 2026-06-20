@@ -16,10 +16,13 @@ export default function DashboardPage() {
   const metrics = computeMetrics(data);
 
   return (
-    <main className="mx-auto flex w-full max-w-[78rem] flex-col gap-6 px-4 pb-16 sm:gap-7 sm:px-6 lg:px-8">
+    <main className="mx-auto flex w-full max-w-[82rem] flex-col gap-6 px-4 pb-12 sm:gap-7 sm:px-6 sm:pb-16 lg:px-8">
       <RaceArcHeader metrics={metrics} data={data} />
-      <PhaseTimeline weeks={metrics.weeklyVolume} metrics={metrics} />
-      <CoachWatching watchpoints={metrics.watchpoints} />
+
+      <div className="grid gap-6 xl:grid-cols-[0.92fr_1.38fr] xl:items-stretch">
+        <PhaseTimeline weeks={metrics.weeklyVolume} metrics={metrics} />
+        <CoachWatching watchpoints={metrics.watchpoints} />
+      </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <PaceProgressChart
@@ -35,8 +38,8 @@ export default function DashboardPage() {
 
       <RecentRuns runs={metrics.recentRuns} />
 
-      <footer className="mt-2 flex items-center justify-between border-t border-line/70 pt-6 text-xs text-ink/65">
-        <span className="text-ink/70">{metrics.raceName}</span>
+      <footer className="mt-3 flex items-center justify-between border-t border-line/70 pt-6 text-xs text-ink/65">
+        <span className="font-medium text-ink/75">{metrics.raceName}</span>
         <span>Updated {metrics.today}</span>
       </footer>
     </main>

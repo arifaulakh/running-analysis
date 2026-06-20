@@ -6,7 +6,15 @@ export function useClientReady() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    setReady(true);
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => setReady(true));
+    });
+
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+    };
   }, []);
 
   return ready;

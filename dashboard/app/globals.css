@@ -21,7 +21,11 @@ html {
 body {
   margin: 0;
   color: var(--ink);
-  background: linear-gradient(180deg, #f4f6f4 0%, var(--field) 260px);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 8% -4%, rgba(63, 122, 90, 0.13), transparent 27rem),
+    radial-gradient(circle at 94% 8%, rgba(31, 94, 122, 0.09), transparent 30rem),
+    linear-gradient(180deg, #f3f6f3 0%, var(--field) 34rem);
 }
 
 button,
@@ -33,11 +37,11 @@ select {
 
 @layer components {
   .chart-panel {
-    @apply rounded-lg border border-line/80 bg-paper p-4 shadow-soft sm:p-5;
+    @apply rounded-[1.1rem] border border-line/70 bg-paper/95 p-4 shadow-soft transition duration-300 sm:p-6;
   }
 
   .chart-panel:hover {
-    @apply border-line;
+    @apply -translate-y-0.5 border-line shadow-lift;
   }
 
   .trust-panel {
@@ -45,15 +49,26 @@ select {
   }
 
   .eyebrow {
-    @apply text-[0.7rem] font-semibold uppercase text-moss;
+    @apply text-[0.68rem] font-bold uppercase tracking-[0.16em] text-moss;
   }
 
   .panel-title {
-    @apply mt-1.5 text-lg font-semibold text-ink;
+    @apply mt-1.5 font-display text-xl font-semibold tracking-[-0.015em] text-ink;
   }
 
   .stat-num {
     @apply tabular-nums text-ink;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

@@ -95,7 +95,7 @@ export function PaceProgressChart({
 
       <div className="h-[360px]">
         <ClientChartFrame empty={points.length === 0} emptyLabel="No paced runs recorded yet">
-          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
+          <ResponsiveContainer width="100%" height="100%" initialDimension={{ width: 560, height: 360 }}>
             <ScatterChart margin={{ top: 12, right: 24, bottom: 10, left: 4 }}>
               <CartesianGrid stroke={CHART.grid} strokeDasharray="3 5" vertical={false} />
               <XAxis

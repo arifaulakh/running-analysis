@@ -13,7 +13,7 @@ export function PhaseTimeline({ weeks, metrics }: { weeks: WeeklyVolume[]; metri
   const todayPercent = currentIndex < 0 ? 0 : ((currentIndex + 0.65) / weeks.length) * 100;
 
   return (
-    <section className="chart-panel animate-fade-up">
+    <section className="chart-panel animate-fade-up xl:h-full">
       <div className="mb-5 flex items-end justify-between gap-4">
         <div>
           <p className="eyebrow">Race arc</p>
@@ -22,9 +22,9 @@ export function PhaseTimeline({ weeks, metrics }: { weeks: WeeklyVolume[]; metri
         <p className="text-sm tabular-nums text-ink/65">{metrics.today}</p>
       </div>
 
-      <div className="relative pt-6">
+      <div className="relative pt-7">
         <div
-          className="grid h-3.5 overflow-hidden rounded-full ring-1 ring-inset ring-ink/5"
+          className="grid h-4 overflow-hidden rounded-full ring-1 ring-inset ring-ink/5"
           style={{ gridTemplateColumns: `repeat(${weeks.length}, 1fr)` }}
         >
           {weeks.map((week, index) => {

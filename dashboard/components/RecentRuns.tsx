@@ -27,7 +27,7 @@ export function RecentRuns({ runs }: { runs: RecentRun[] }) {
         </p>
       ) : (
         <>
-          <div className="grid gap-3 md:hidden">
+          <div className="grid max-h-[42rem] gap-3 overflow-y-auto pr-1 md:hidden">
             {runs.map((run) => (
               <article key={run.id} className="rounded-lg border border-line/70 bg-field/35 p-3.5">
                 <div className="flex items-center justify-between gap-3">
@@ -53,23 +53,23 @@ export function RecentRuns({ runs }: { runs: RecentRun[] }) {
             ))}
           </div>
 
-          <div className="hidden overflow-x-auto md:block">
-            <table className="w-full border-collapse text-left text-sm">
+          <div className="hidden max-h-[38rem] overflow-auto md:block">
+            <table className="w-full border-separate border-spacing-0 text-left text-sm">
               <thead>
-                <tr className="border-b border-line text-[0.7rem] uppercase text-ink/65">
-                  <th className="px-3 py-2.5 font-semibold">Date</th>
-                  <th className="px-3 py-2.5 font-semibold">Type</th>
-                  <th className="px-3 py-2.5 text-right font-semibold">Distance</th>
-                  <th className="px-3 py-2.5 text-right font-semibold">Pace</th>
-                  <th className="px-3 py-2.5 text-right font-semibold">HR</th>
-                  <th className="px-3 py-2.5 font-semibold">Note</th>
+                <tr className="text-[0.7rem] uppercase text-ink/65">
+                  <th className="sticky top-0 z-10 border-b border-line bg-paper px-3 py-2.5 font-semibold">Date</th>
+                  <th className="sticky top-0 z-10 border-b border-line bg-paper px-3 py-2.5 font-semibold">Type</th>
+                  <th className="sticky top-0 z-10 border-b border-line bg-paper px-3 py-2.5 text-right font-semibold">Distance</th>
+                  <th className="sticky top-0 z-10 border-b border-line bg-paper px-3 py-2.5 text-right font-semibold">Pace</th>
+                  <th className="sticky top-0 z-10 border-b border-line bg-paper px-3 py-2.5 text-right font-semibold">HR</th>
+                  <th className="sticky top-0 z-10 border-b border-line bg-paper px-3 py-2.5 font-semibold">Note</th>
                 </tr>
               </thead>
               <tbody>
                 {runs.map((run) => (
                   <tr
                     key={run.id}
-                    className="border-b border-line/60 transition-colors last:border-b-0 hover:bg-field/50"
+                    className="transition-colors hover:bg-field/65 [&>td]:border-b [&>td]:border-line/60 last:[&>td]:border-b-0"
                   >
                     <td className="whitespace-nowrap px-3 py-3 font-medium tabular-nums text-ink/85">{run.date}</td>
                     <td className="px-3 py-3">

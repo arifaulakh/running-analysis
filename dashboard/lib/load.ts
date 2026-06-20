@@ -119,17 +119,26 @@ function parseSemantic(text: string): MemoryClaim[] {
       continue;
     }
 
-    const parsed = YAML.parse(trimmed) as Partial<MemoryClaim> | null;
-    if (parsed?.id && parsed.claim) {
-      claims.push({
-        id: String(parsed.id),
-        claim: String(parsed.claim),
-        confidence: parsed.confidence || "low",
-        evidence: Array.isArray(parsed.evidence) ? parsed.evidence.map(String) : [],
-        created_at: parsed.created_at,
-        reinforced_at: parsed.reinforced_at,
-        superseded_by: parsed.superseded_by ?? null
-      });
+    try {
+      const parsed = YAML.parse(trimmed) as Partial<MemoryClaim> | null;
+      if (parsed?.id && parsed.claim) {
+        claims.push({
+          id: String(parsed.id),
+          claim: String(parsed.claim),
+          confidence: parsed.confidence || "low",
+          evidence: Array.isArray(parsed.evidence) ? parsed.evidence.map(String) : [],
+          created_at: parsed.created_at,
+          reinforced_at: parsed.reinforced_at,
+          superseded_by: parsed.superseded_by ?? null
+        });
+      }
+    } catch (error) {
+      // A single malformed claim block (e.g. an observer write that drops a
+      // closing quote) should not take down the whole dashboard — skip it
+      // and keep going. The id, if present, helps locate the bad block.
+      const idMatch = /^id:\s*(.+)$/m.exec(trimmed);
+      const label = idMatch ? idMatch[1].trim() : "unknown";
+      console.warn(`Skipping unparseable semantic claim (${label}): ${(error as Error).message}`);
     }
   }
 

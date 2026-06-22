@@ -161,13 +161,13 @@ weeks:
     phase: peak
     higdon_week: 9
     days:
-      monday:    {date: 2026-06-22, type: cross,    duration_min: 60,                  notes: "PUSH day (weightlifting) + 60 min cross. Only push of the taper week — keep it upper-body, no leg work."}
-      tuesday:   {date: 2026-06-23, type: easy,     distance_km: 6.0,                  notes: "easy 6.0 km (trimmed from 8.0 — taper into the Jun 28 15K gate) + PULL day (upper body, doesn't tax legs). Last lift of the week; nothing Wed-Sun to arrive fresh at the gate."}
-      wednesday: {date: 2026-06-24, type: interval, intervals: "5 x 400m at 5K pace (race-prep sharpener — wake up turnover, do NOT redline; trimmed from 9x400 to protect legs for the Jun 28 15K gate)"}
-      thursday:  {date: 2026-06-25, type: easy,     distance_km: 3.2,                  notes: "short easy shakeout, very relaxed — taper into the 15K"}
-      friday:    {date: 2026-06-26, type: rest,                                        notes: "true rest — race day -2, legs fresh for the 15K gate"}
-      saturday:  {date: 2026-06-27, type: rest}
-      sunday:    {date: 2026-06-28, type: race,     race_distance: "15K",              notes: "15K race — calibration gate 2. Pace EVENLY from km1 at ~4:40/km (no conservative opener — that cost the Jun 7 10K). Target a flat 15K, not a negative split. Result sets the SF Half pacing tier (sub-1:38 vs sub-1:40)."}
+      monday:    {date: 2026-06-22, type: cross,    duration_min: 60,                  notes: "PUSH day (weightlifting) + 60 min cross. Upper-body. Lift 1 of 4."}
+      tuesday:   {date: 2026-06-23, type: easy,     distance_km: 8.0,                  notes: "easy 8.0 km (full Higdon W9, restored from the taper trim) + PULL day. Lift 2 of 4."}
+      wednesday: {date: 2026-06-24, type: interval, intervals: "9 x 400m at 5K pace (full Higdon W9 interval session, restored from the 5x400 sharpener)"}
+      thursday:  {date: 2026-06-25, type: easy,     distance_km: 4.8,                  notes: "easy 4.8 km (full Higdon W9, restored from the 3.2 shakeout)"}
+      friday:    {date: 2026-06-26, type: cross,                                       notes: "PUSH day (weightlifting), upper-body — end-of-week lift 1 of 2 (Arif requested 2 weekend lifts). Training through to the 15K, not tapering. Lift 3 of 4."}
+      saturday:  {date: 2026-06-27, type: cross,                                       notes: "PULL day (weightlifting), upper-body — end-of-week lift 2 of 2. Race day -1; keep it upper-body to spare legs. Lift 4 of 4."}
+      sunday:    {date: 2026-06-28, type: race,     race_distance: "15K",              notes: "15K race — run it hard, but this is now a TRAIN-THROUGH effort (full Higdon W9 volume + 4 lifts incl. Fri/Sat, NO taper), not a clean calibration gate. Still pace EVENLY from km1 at ~4:40/km (no conservative opener — that cost the Jun 7 10K). READ WITH CAUTION: a miss on unrested legs does NOT downgrade the sub-1:35 projection (claim_15). The Jul 12 19.3km is now the decisive gate."}
 
   - week: 11
     start_date: 2026-06-29

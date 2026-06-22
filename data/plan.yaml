@@ -161,8 +161,8 @@ weeks:
     phase: peak
     higdon_week: 9
     days:
-      monday:    {date: 2026-06-22, type: cross,    duration_min: 60,                  notes: "PUSH day (weightlifting) + 60 min cross. Upper-body. Lift 1 of 4."}
-      tuesday:   {date: 2026-06-23, type: easy,     distance_km: 8.0,                  notes: "easy 8.0 km (full Higdon W9, restored from the taper trim) + PULL day. Lift 2 of 4."}
+      monday:    {date: 2026-06-22, type: cross,    duration_min: 60,                  notes: "PUSH day (weightlifting) + biking (cross). Upper-body. Lift 1 of 4."}
+      tuesday:   {date: 2026-06-23, type: easy,     distance_km: 5.0,                  notes: "easy 5.0 km (8 km swapped to Thu Jun 25) + PULL day. Lift 2 of 4."}
       wednesday: {date: 2026-06-24, type: interval, intervals: "9 x 400m at 5K pace (full Higdon W9 interval session, restored from the 5x400 sharpener)"}
       thursday:  {date: 2026-06-25, type: easy,     distance_km: 4.8,                  notes: "easy 4.8 km (full Higdon W9, restored from the 3.2 shakeout)"}
       friday:    {date: 2026-06-26, type: cross,                                       notes: "PUSH day (weightlifting), upper-body — end-of-week lift 1 of 2 (Arif requested 2 weekend lifts). Training through to the 15K, not tapering. Lift 3 of 4."}

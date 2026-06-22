@@ -161,8 +161,8 @@ weeks:
     phase: peak
     higdon_week: 9
     days:
-      monday:    {date: 2026-06-22, type: cross,    duration_min: 60}
-      tuesday:   {date: 2026-06-23, type: easy,     distance_km: 6.0,                  notes: "trimmed from 8.0 — taper into the Jun 28 15K gate"}
+      monday:    {date: 2026-06-22, type: cross,    duration_min: 60,                  notes: "PUSH day (weightlifting) + 60 min cross. Only push of the taper week — keep it upper-body, no leg work."}
+      tuesday:   {date: 2026-06-23, type: easy,     distance_km: 6.0,                  notes: "easy 6.0 km (trimmed from 8.0 — taper into the Jun 28 15K gate) + PULL day (upper body, doesn't tax legs). Last lift of the week; nothing Wed-Sun to arrive fresh at the gate."}
       wednesday: {date: 2026-06-24, type: interval, intervals: "5 x 400m at 5K pace (race-prep sharpener — wake up turnover, do NOT redline; trimmed from 9x400 to protect legs for the Jun 28 15K gate)"}
       thursday:  {date: 2026-06-25, type: easy,     distance_km: 3.2,                  notes: "short easy shakeout, very relaxed — taper into the 15K"}
       friday:    {date: 2026-06-26, type: rest,                                        notes: "true rest — race day -2, legs fresh for the 15K gate"}

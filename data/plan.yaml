@@ -201,17 +201,17 @@ weeks:
   - week: 13
     start_date: 2026-07-13
     end_date:   2026-07-19
-    phase: taper
-    higdon_week: null
-    notes: "Taper week (1 buffer week remaining after W5 illness used the second). Volume drops; rest is the work."
+    phase: peak
+    higdon_week: 11
+    notes: "PEAK / dress-rehearsal week (former Higdon W11 peak content, shifted a week to land AFTER travel). Arif back home Jul 14 WITH the Alphaflys. Purpose: re-sharpen after the travel-maintenance block and run the dress rehearsal — NOT to build new fitness (that's banked). Keep the Wed sharpener and Sun long CONTROLLED so they don't compromise race day, since this peak now sits only 7 days before the race. The Jul 20-26 race week is the single taper."
     days:
-      monday:    {date: 2026-07-13, type: rest}
-      tuesday:   {date: 2026-07-14, type: easy,     distance_km: 4.8}
-      wednesday: {date: 2026-07-15, type: tempo,    duration_min: 25,                  notes: "short tempo for sharpness"}
-      thursday:  {date: 2026-07-16, type: easy,     distance_km: 4.8}
+      monday:    {date: 2026-07-13, type: easy,     distance_km: 5.0,                  notes: "easy/shakeout — still travelling (back Jul 14); run by feel or rest"}
+      tuesday:   {date: 2026-07-14, type: easy,     distance_km: 6.0,                  notes: "return day — easy aerobic to shake out travel"}
+      wednesday: {date: 2026-07-15, type: tempo,    duration_min: 35,                  notes: "goal-pace SHARPENER (Alphafly): ~15 min easy WU, then 3-4 x 1.6 km at 4:30-4:40/km, 90 sec jog between. Re-grooves goal pace after the travel block. ALPHAFLY touch #2 — first run back in the race-day shoe."}
+      thursday:  {date: 2026-07-16, type: easy,     distance_km: 5.0}
       friday:    {date: 2026-07-17, type: rest}
-      saturday:  {date: 2026-07-18, type: easy,     distance_km: 3.2}
-      sunday:    {date: 2026-07-19, type: easy,     distance_km: 9.7,                  notes: "easy 9.7 km; controlled"}
+      saturday:  {date: 2026-07-18, type: easy,     distance_km: 5.0,                  notes: "easy + 4-6 strides; pre-rehearsal primer"}
+      sunday:    {date: 2026-07-19, type: long,     distance_km: 18.0,                 notes: "★ DRESS REHEARSAL + DECISIVE FITNESS GATE (claim_15), 7 days out. ~16-18 km: first ~12 km easy HR<150, final 5-6 km at HM goal pace 4:30-4:45/km from the first of those km (no slow lead-in). CONTROLLED, not all-out — a rehearsal, not a destroyer, since the race is 7 days later. Full race sim: race fueling, same socks, ALPHAFLY decision test. SHOE CALL HINGES HERE: if the Alphaflys are clean over 16-18 km (no hot spots/blisters), they're viable for race day; ANY issue -> race the proven Vaporflys. This is also the read that confirms or softens sub-1:35 — but it comes late (7 days out), so it's confirmation more than a lever."}
 
   - week: 14
     start_date: 2026-07-20

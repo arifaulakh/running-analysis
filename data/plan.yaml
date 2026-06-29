@@ -178,10 +178,10 @@ weeks:
       monday:    {date: 2026-06-29, type: rest}
       tuesday:   {date: 2026-06-30, type: easy,     distance_km: 8.0}
       wednesday: {date: 2026-07-01, type: tempo,    duration_min: 45,                  notes: "Goal-pace threshold (was generic 45-min tempo): 15 min easy warm-up, then 5 x 1.6 km at 4:30-4:38/km, HR cap 174-178, 90 sec jog between. Progression from W9's 4x1.6km. This is the primary HM-specific session of the block. ALPHAFLY TEST #1 (race-day shoe debut): first goal-pace run in the Alphafly — reps let you bail early if anything feels off."}
-      thursday:  {date: 2026-07-02, type: easy,     distance_km: 4.8}
+      thursday:  {date: 2026-07-02, type: rest,                                        notes: "TRAVEL DAY (Arif travelling) — the easy 4.8 km is dropped."}
       friday:    {date: 2026-07-03, type: rest}
-      saturday:  {date: 2026-07-04, type: pace,     distance_km: 8.0}
-      sunday:    {date: 2026-07-05, type: long,     distance_km: 17.7,                 notes: "17.7 km long run: first 12 km easy HR<150, final 5-6 km at HM goal pace 4:30-4:45/km from the first of those km (no slow lead-in). Pacing-discipline rep: hit pace immediately and hold flat. ALPHAFLY TEST #2 (distance + goal pace): first long-run test of the race-day shoe — watch for hot spots/blisters over distance."}
+      saturday:  {date: 2026-07-04, type: long,     distance_km: 26.0,                 notes: "26 km long run — Arif's combination of the week's 8 km pace + 17.7 km long into ONE Saturday effort. Longest run of the block (exceeds the Jul 12 dress rehearsal). Run it predominantly EASY/aerobic (HR<150, ~6:00-6:30/km) given the distance — distance is the stimulus, not pace; optional moderate-aerobic finish only if legs are good. ALPHAFLY TEST #2 (distance, moved here from Sun Jul 5): first long-run test of the race-day shoe over distance — watch for hot spots/blisters; carry a backup plan. Fuel it. Followed by a rest Sunday."}
+      sunday:    {date: 2026-07-05, type: rest,                                        notes: "REST — the long run moved to Sat Jul 4 (combined 26 km), so Sunday is recovery. Optional very-easy shakeout only if legs feel fine."}
 
   - week: 12
     start_date: 2026-07-06

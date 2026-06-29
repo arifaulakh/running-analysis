@@ -20,11 +20,14 @@ plan: hal-higdon-intermediate-2
 
 # Phase mapping — by calendar week
 phases:
-  base:      [1, 2, 3, 4]
-  build:     [5, 6, 7, 8]
-  peak:      [9, 10, 11]
-  taper:     [12, 13]
-  race_week: [14]
+  base:                [1, 2, 3, 4]
+  build:               [5, 6, 7, 8]
+  peak:                [9, 10, 11, 13]
+  travel_maintenance:  [12]
+  race_week:           [14]
+  # NOTE: travel Jul 2-14 shifted the peak — calendar week 12 (Jul 6-12) is a
+  # travel/maintenance deload and week 13 (Jul 13-19) is now the peak/dress-
+  # rehearsal week (Jul 19 long). The race week (14) is the single taper.
 
 weeks:
 

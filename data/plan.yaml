@@ -226,4 +226,4 @@ weeks:
       thursday:  {date: 2026-07-23, type: easy,     distance_km: 3.2}
       friday:    {date: 2026-07-24, type: rest}
       saturday:  {date: 2026-07-25, type: rest,                                        notes: "Race day -1 — coach delivers 14-week recap"}
-      sunday:    {date: 2026-07-26, type: race,     race_distance: "half marathon",    notes: "RACE DAY — SF Half, 8:30 AM, Crissy Field. SHOES: race in the proven VAPORFLYS. The Alphafly debut is shelved for this race — travel Jul 2-14 left zero Alphafly long runs and only the Jul 1 threshold as a single short touch; racing 21.1 km in a shoe never run long is not worth the blister/fit risk. Save the Alphafly break-in for after this race."}
+      sunday:    {date: 2026-07-26, type: race,     race_distance: "half marathon",    notes: "RACE DAY — SF Half, 8:30 AM, Crissy Field. SHOES: decided by the Jul 19 dress rehearsal. DEFAULT = the proven VAPORFLYS. Alphaflys are viable ONLY if the Jul 19 16-18 km run in them is clean (no hot spots/blisters over distance) — touches are Jul 1 threshold + Jul 15 sharpener + Jul 19 long. Any doubt -> Vaporflys; never debut a shoe on race day."}

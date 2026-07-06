@@ -191,15 +191,15 @@ weeks:
     end_date:   2026-07-12
     phase: travel-maintenance
     higdon_week: 11
-    notes: "TRAVEL / HYBRID maintenance week (Arif away Jul 2-14, daily trainers only, no Alphaflys, facilities uncertain). Higdon W11's quality (10x400 intervals) + the 19.3 km long are DEFERRED — the peak long run / dress rehearsal MOVES to Jul 19 (week 13). Goal here is to hold aerobic fitness, not build: easy running by feel, adapt to whatever you can run. No hard structured quality. Fitness is already banked (26 km Jul 4 + the whole block); this week protects it through travel."
+    notes: "TRAVEL week, RESTRUCTURED around a Jul 9-14 BLACKOUT (Arif unavailable / no running Jul 9-14). Only Jul 6-8 are runnable, then 6 full days off. Strategy: Jul 6 recovery from Sat's 26 km, Jul 7 easy aerobic, Jul 8 = one CONTROLLED goal-pace threshold (the last quality touch before the gap; the 6 days off is the recovery), then complete rest Jul 9-12. Endurance is banked (26 km Jul 4); these 3 days add one more sustained goal-pace data point, then the gap acts as a forced mini-taper before the Jul 15-19 re-sharpen. Daily trainers only (Alphaflys home until Jul 14)."
     days:
-      monday:    {date: 2026-07-06, type: easy,     distance_km: 6.0,                  notes: "easy by feel / cross if no run access (travel)"}
-      tuesday:   {date: 2026-07-07, type: easy,     distance_km: 8.0,                  notes: "easy aerobic, HR<150 (travel) — adjust distance to facilities"}
-      wednesday: {date: 2026-07-08, type: easy,     distance_km: 6.0,                  notes: "easy; optional light pace-by-feel pickups if you're itching, but no formal intervals while travelling (the 10x400 is dropped)"}
-      thursday:  {date: 2026-07-09, type: easy,     distance_km: 5.0,                  notes: "easy or rest (travel)"}
-      friday:    {date: 2026-07-10, type: rest}
-      saturday:  {date: 2026-07-11, type: easy,     distance_km: 8.0,                  notes: "easy/steady (travel)"}
-      sunday:    {date: 2026-07-12, type: long,     distance_km: 14.0,                 notes: "medium-long easy ~12-16 km, HR<150 (travel, daily trainers) — keeps the long-run rhythm but NOT the dress rehearsal (moved to Jul 19). The 19.3 km peak long run / decisive fitness gate is now Jul 19. Adjust distance to how travel legs feel."}
+      monday:    {date: 2026-07-06, type: easy,     distance_km: 5.0,                  notes: "RECOVERY flush from Sat's 26 km (2 days ago) — very easy ~5 km, HR<145, or rest if legs are sore. Do NOT push."}
+      tuesday:   {date: 2026-07-07, type: easy,     distance_km: 7.0,                  notes: "easy aerobic ~6-7 km, HR<150 (travel, daily trainers) — relaxed, building back after the recovery day."}
+      wednesday: {date: 2026-07-08, type: tempo,    duration_min: 45,                  notes: "★ GOAL-PACE THRESHOLD — the LAST quality touch before the Jul 9-14 blackout, so make it count. ~9-10 km: 2 km easy WU, then 5-6 km at goal HM pace 4:30-4:40/km (continuous, or 3 x 2 km w/ 60-90s jog), 2 km CD. CONTROLLED-hard, not a redline — the 6 days off IS the recovery. Daily trainers. Banks one more sustained goal-pace data point (claim_15) before the gap."}
+      thursday:  {date: 2026-07-09, type: rest,                                        notes: "NO ACTIVITY Jul 9-14 (Arif unavailable) — full break begins. Was easy 5 km; dropped."}
+      friday:    {date: 2026-07-10, type: rest,                                        notes: "NO ACTIVITY (Jul 9-14 blackout)."}
+      saturday:  {date: 2026-07-11, type: rest,                                        notes: "NO ACTIVITY (Jul 9-14 blackout). Was easy 8 km; dropped."}
+      sunday:    {date: 2026-07-12, type: rest,                                        notes: "NO ACTIVITY (Jul 9-14 blackout). Was medium-long 14 km; dropped — fitness is banked (26 km Jul 4); the 6-day gap is a forced mini-taper before the Jul 15-19 re-sharpen."}
 
   - week: 13
     start_date: 2026-07-13

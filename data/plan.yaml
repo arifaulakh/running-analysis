@@ -191,7 +191,7 @@ weeks:
     end_date:   2026-07-12
     phase: travel-maintenance
     higdon_week: 11
-    notes: "TRAVEL week, RESTRUCTURED around a Jul 9-14 BLACKOUT (Arif unavailable / no running Jul 9-14). Only Jul 6-8 are runnable, then 6 full days off. Strategy: Jul 6 recovery from Sat's 26 km, Jul 7 easy aerobic, Jul 8 = one CONTROLLED goal-pace threshold (the last quality touch before the gap; the 6 days off is the recovery), then complete rest Jul 9-12. Endurance is banked (26 km Jul 4); these 3 days add one more sustained goal-pace data point, then the gap acts as a forced mini-taper before the Jul 15-19 re-sharpen. Daily trainers only (Alphaflys home until Jul 14)."
+    notes: "TRAVEL week, RESTRUCTURED around a Jul 9-14 BLACKOUT (Arif unavailable / no running Jul 9-14). Only Jul 6-8 are runnable, then 6 full days off. Strategy: Jul 6 recovery from Sat's 26 km, Jul 7 easy aerobic, Jul 8 = 12 km with a CONTROLLED goal-pace threshold embedded (the last quality touch before the gap; the 6 days off is the recovery), LIFTS all 3 days (Jul 6-8), then complete rest Jul 9-12. Endurance is banked (26 km Jul 4); these 3 days add one more sustained goal-pace data point, then the gap acts as a forced mini-taper before the Jul 15-19 re-sharpen. Daily trainers only (Alphaflys home until Jul 14)."
     days:
       monday:    {date: 2026-07-06, type: easy,     distance_km: 5.0,                  notes: "RECOVERY flush from Sat's 26 km (2 days ago) — very easy ~5 km, HR<145, or rest if legs are sore. Do NOT push. + LIFT (Arif lifting all 3 days Jul 6-8)."}
       tuesday:   {date: 2026-07-07, type: easy,     distance_km: 7.0,                  notes: "easy aerobic ~6-7 km, HR<150 (travel, daily trainers) — relaxed, building back. + LIFT (day 2 of 3)."}

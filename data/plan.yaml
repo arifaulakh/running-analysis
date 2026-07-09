@@ -221,12 +221,12 @@ weeks:
     end_date:   2026-07-26
     phase: race_week
     higdon_week: 12
-    notes: "Actual race week. Follows Higdon Week 12 (the formal race-week taper)."
+    notes: "Actual race week. Follows Higdon Week 12 (the formal race-week taper). LOGISTICS (user Jul 9): Arif in Toronto to start the week, lands back in SF Jul 23-25 (late). So the early-week runs (Tue Jul 21, Wed Jul 22, and likely Thu Jul 23) are in DAILY TRAINERS in Toronto; the Vaporflys aren't touched until he's back in SF. IMPORTANT: build in at least ONE easy Vaporfly shakeout (Fri Jul 24 or Sat Jul 25) to re-confirm race-day fit before racing 21.1 km in them — they're proven, so this is a check, not a break-in."
     days:
       monday:    {date: 2026-07-20, type: rest}
-      tuesday:   {date: 2026-07-21, type: easy,     distance_km: 6.4}
-      wednesday: {date: 2026-07-22, type: tempo,    duration_min: 30}
-      thursday:  {date: 2026-07-23, type: easy,     distance_km: 3.2}
-      friday:    {date: 2026-07-24, type: rest}
-      saturday:  {date: 2026-07-25, type: rest,                                        notes: "Race day -1 — coach delivers 14-week recap"}
+      tuesday:   {date: 2026-07-21, type: easy,     distance_km: 6.4,                  notes: "easy, Toronto daily trainers"}
+      wednesday: {date: 2026-07-22, type: tempo,    duration_min: 30,                  notes: "final light tune-up: ~10 min WU, 3-4 x 800 m or 2-3 km at goal pace, easy CD — Toronto daily trainers. Sharpness touch, keep it SHORT and controlled (race in 4 days)."}
+      thursday:  {date: 2026-07-23, type: easy,     distance_km: 3.2,                  notes: "short easy shakeout — Toronto or travel day depending on flight; daily trainers."}
+      friday:    {date: 2026-07-24, type: easy,     distance_km: 3.0,                  notes: "SHORT shakeout ~3 km + 3-4 strides in the VAPORFLYS once back in SF (do this whichever of Fri/Sat is your first full day back) — the one pre-race check that the race shoes feel right. If still travelling Fri, do it Sat."}
+      saturday:  {date: 2026-07-25, type: rest,                                        notes: "Race day -1 — legs up, coach delivers 14-week recap. If the Vaporfly shakeout didn't happen Fri (late arrival), do a very short 15-min easy + 2-3 strides in the Vaporflys today instead."}
       sunday:    {date: 2026-07-26, type: race,     race_distance: "half marathon",    notes: "RACE DAY — SF Half, 8:30 AM, Crissy Field. SHOES: race the proven VAPORFLYS. Shoe-plan collapse #2 (user Jul 9) — Arif stayed in Toronto through the peak week, so the Alphaflys never got a break-in beyond the single Jul 1 5km; debuting a super-shoe over 21.1 km on 5 km of break-in is not worth the blister/fit risk. Alphafly debut SHELVED for after this race. (Arif noted he felt comfortable in them on Jul 1 — encouraging, but one 5 km is not enough to race a half; revisit only if he lands in SF with real time for a long run in them, which is unlikely and still not recommended.)"}

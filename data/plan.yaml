@@ -221,7 +221,7 @@ weeks:
     end_date:   2026-07-26
     phase: race_week
     higdon_week: 12
-    notes: "Actual race week. Follows Higdon Week 12 (the formal race-week taper). LOGISTICS (user Jul 9): Arif in Toronto to start the week, lands back in SF Jul 23-25 (late). So the early-week runs (Tue Jul 21, Wed Jul 22, and likely Thu Jul 23) are in DAILY TRAINERS in Toronto; the Vaporflys aren't touched until he's back in SF. IMPORTANT: build in at least ONE easy Vaporfly shakeout (Fri Jul 24 or Sat Jul 25) to re-confirm race-day fit before racing 21.1 km in them — they're proven, so this is a check, not a break-in."
+    notes: "Actual race week — RESTRUCTURED (user, Jul 17): the dress-rehearsal long run moved into MONDAY Jul 20 as a 19 km (from Sun Jul 19), coming off this week's illness, so the week OPENS with the biggest effort 6 days out and DESCENDS into the race. Arif FLIES back to SF on FRIDAY Jul 24, so Tue Jul 21-Thu Jul 23 are in Toronto (daily trainers); the ALPHAFLY break-in shakeouts happen Fri Jul 24 (once landed) + Sat Jul 25. Race = Alphaflys (Arif's call, Jul 9) with Vaporflys in the bag as fallback (de-risk protocol, Jul 26 note). Coming off illness, keep everything CONTROLLED — this whole week is taper; there is no fitness to gain, only freshness to protect."
     days:
       monday:    {date: 2026-07-20, type: rest}
       tuesday:   {date: 2026-07-21, type: easy,     distance_km: 6.4,                  notes: "easy, Toronto daily trainers"}

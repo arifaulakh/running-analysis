@@ -210,11 +210,11 @@ weeks:
     days:
       monday:    {date: 2026-07-13, type: rest,                                        notes: "NO ACTIVITY (Jul 9-14 blackout) — still unavailable."}
       tuesday:   {date: 2026-07-14, type: rest,                                        notes: "RETURN day (back Jul 14) — no run; first run back is the Wed Jul 15 sharpener. Optional very-easy shakeout only if travel legs feel fine and time allows."}
-      wednesday: {date: 2026-07-15, type: tempo,    duration_min: 35,                  notes: "goal-pace SHARPENER (DAILY TRAINERS — Alphaflys unavailable, Arif in Toronto): ~15 min easy WU, then 3-4 x 1.6 km at 4:30-4:40/km, 90 sec jog between. Re-grooves goal pace after the travel block. NO LONGER an Alphafly touch (shoe-plan collapse #2, week-13 note)."}
-      thursday:  {date: 2026-07-16, type: easy,     distance_km: 5.0}
-      friday:    {date: 2026-07-17, type: rest}
-      saturday:  {date: 2026-07-18, type: easy,     distance_km: 5.0,                  notes: "easy + 4-6 strides; pre-rehearsal primer"}
-      sunday:    {date: 2026-07-19, type: long,     distance_km: 18.0,                 notes: "★ DRESS REHEARSAL + DECISIVE FITNESS GATE (claim_15), 7 days out, in DAILY TRAINERS (Alphaflys unavailable — Arif in Toronto). ~16-18 km: first ~12 km easy HR<150, final 5-6 km at HM goal pace 4:30-4:45/km from the first of those km (no slow lead-in). CONTROLLED, not all-out — a rehearsal, not a destroyer, since the race is 7 days later. Race-sim the FUELING + socks, but the ALPHAFLY shoe-test function is OFF (collapse #2) — this run no longer decides the shoe; the shoe is the Vaporflys by default. PRIMARY purpose now = the fitness read: does the final 5-6 km hold goal pace on tired legs? This is the read that confirms or softens sub-1:35 — late (7 days out), so confirmation more than a lever."}
+      wednesday: {date: 2026-07-15, type: rest,                                        notes: "REST — Arif recovering from illness this week (kept it chill). The goal-pace sharpener prescribed here was DROPPED; sustained goal-pace re-groove now falls to the optional finish of the Mon Jul 20 19 km + the Wed Jul 22 tune-up."}
+      thursday:  {date: 2026-07-16, type: rest,                                        notes: "REST — still recovering from illness. Easy 5 km dropped."}
+      friday:    {date: 2026-07-17, type: easy,     distance_km: 5.0,                  notes: "easy 5 km — first run back after the mid-week illness rest. Keep it genuinely easy (HR<150), just open the legs."}
+      saturday:  {date: 2026-07-18, type: easy,     distance_km: 5.0,                  notes: "easy 5 km + WEIGHTLIFTING (same-day lift, claim_1). Keep the run easy + a few strides — primer for the Mon Jul 20 19 km."}
+      sunday:    {date: 2026-07-19, type: cross,                                       notes: "WEIGHTLIFTING only, no run. The 18 km dress rehearsal prescribed here MOVED to Mon Jul 20 and was bumped to 19 km (Arif's call) — see week 14 Monday. Shifted because the mid-week illness compressed the week; the long run needed one more recovery day."}
 
   - week: 14
     start_date: 2026-07-20

@@ -214,7 +214,7 @@ weeks:
       thursday:  {date: 2026-07-16, type: rest,                                        notes: "REST — still recovering from illness. Easy 5 km dropped."}
       friday:    {date: 2026-07-17, type: easy,     distance_km: 5.0,                  notes: "easy 5 km — first run back after the mid-week illness rest. Keep it genuinely easy (HR<150), just open the legs."}
       saturday:  {date: 2026-07-18, type: easy,     distance_km: 5.0,                  notes: "easy 5 km + WEIGHTLIFTING (same-day lift, claim_1). Keep the run easy + a few strides — primer for the Mon Jul 20 19 km."}
-      sunday:    {date: 2026-07-19, type: cross,                                       notes: "WEIGHTLIFTING only, no run. The 18 km dress rehearsal prescribed here MOVED to Mon Jul 20 and was bumped to 19 km (Arif's call) — see week 14 Monday. Shifted because the mid-week illness compressed the week; the long run needed one more recovery day."}
+      sunday:    {date: 2026-07-19, type: easy,     distance_km: 5.0,                  notes: "easy 5 km + 3-4 strides + WEIGHTLIFTING (same-day lift, claim_1). Added at Arif's offer (Jul 17). Keep it GENUINELY easy (HR<150) — it's the day before the Mon 19 km, so this primes the legs without pre-fatiguing; NO quality (coming off illness, don't stack two harder days into the long run). The 18 km dress rehearsal originally here MOVED to Mon Jul 20 and was bumped to 19 km — see week 14 Monday."}
 
   - week: 14
     start_date: 2026-07-20

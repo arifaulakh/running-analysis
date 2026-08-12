@@ -1,0 +1,114 @@
+{
+  "id": "hal-higdon-intermediate-5k",
+  "name": "Hal Higdon Intermediate 5K",
+  "source_url": "https://www.halhigdon.com/training-programs/5k-training/intermediate-5k/",
+  "plan_weeks": 8,
+  "race_default_weekday": "sunday",
+  "unit": "mi",
+  "quality_pace_note": "400m repeats at ~5K goal pace or a touch faster (~1:34-1:38, 200-400m jog recovery). Tempo: build to ~threshold (4:25-4:35/km) in the middle third; easy start/finish. 'fast' runs: comfortably hard, ~4:45-5:00/km. Easy: >5:20/km, HR <150.",
+  "phases": {
+    "base": [1, 2],
+    "build": [3, 4],
+    "sharpen": [5],
+    "peak": [6, 7],
+    "race_week": [8]
+  },
+  "weeks": [
+    {
+      "week": 1,
+      "days": {
+        "monday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "tuesday": { "type": "easy", "distance_mi": 3 },
+        "wednesday": { "type": "interval", "intervals": "5 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery", "notes": "First speed session of the block — ease in, don't overcook the early reps" },
+        "thursday": { "type": "easy", "distance_mi": 3 },
+        "friday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "saturday": { "type": "easy", "distance_mi": 3 },
+        "sunday": { "type": "long", "distance_mi": 5, "notes": "long, easy" }
+      }
+    },
+    {
+      "week": 2,
+      "days": {
+        "monday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "tuesday": { "type": "easy", "distance_mi": 3 },
+        "wednesday": { "type": "tempo", "duration_min": 30, "notes": "30 min tempo — build to ~threshold (4:25-4:35/km) in the middle, easy start/finish" },
+        "thursday": { "type": "easy", "distance_mi": 3 },
+        "friday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "saturday": { "type": "pace", "distance_mi": 3, "notes": "fast — comfortably hard, ~4:45-5:00/km" },
+        "sunday": { "type": "long", "distance_mi": 5, "notes": "long, easy" }
+      }
+    },
+    {
+      "week": 3,
+      "days": {
+        "monday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "tuesday": { "type": "easy", "distance_mi": 3 },
+        "wednesday": { "type": "interval", "intervals": "6 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery" },
+        "thursday": { "type": "easy", "distance_mi": 3 },
+        "friday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "saturday": { "type": "easy", "distance_mi": 4 },
+        "sunday": { "type": "long", "distance_mi": 6, "notes": "long, easy" }
+      }
+    },
+    {
+      "week": 4,
+      "days": {
+        "monday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "tuesday": { "type": "easy", "distance_mi": 3 },
+        "wednesday": { "type": "tempo", "duration_min": 35, "notes": "35 min tempo — build to ~threshold in the middle" },
+        "thursday": { "type": "easy", "distance_mi": 3 },
+        "friday": { "type": "rest", "notes": "Rest — race-test prep" },
+        "saturday": { "type": "rest", "notes": "Rest — day before the 5K test" },
+        "sunday": { "type": "race", "race_distance": "5K", "notes": "★ 5K TEST — race-effort time trial to calibrate goal pace. Run it honestly; this recalibrates the goal band in block.json." }
+      }
+    },
+    {
+      "week": 5,
+      "days": {
+        "monday": { "type": "rest", "notes": "Rest (natural lift slot); easy recovery from the 5K test if legs are heavy" },
+        "tuesday": { "type": "easy", "distance_mi": 3 },
+        "wednesday": { "type": "interval", "intervals": "7 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery" },
+        "thursday": { "type": "easy", "distance_mi": 3 },
+        "friday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "saturday": { "type": "pace", "distance_mi": 4, "notes": "fast — comfortably hard, ~4:45-5:00/km" },
+        "sunday": { "type": "long", "distance_mi": 6, "notes": "long, easy" }
+      }
+    },
+    {
+      "week": 6,
+      "days": {
+        "monday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "tuesday": { "type": "easy", "distance_mi": 3 },
+        "wednesday": { "type": "tempo", "duration_min": 40, "notes": "40 min tempo — longest tempo of the block; build to ~threshold in the middle" },
+        "thursday": { "type": "easy", "distance_mi": 3 },
+        "friday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "saturday": { "type": "easy", "distance_mi": 5 },
+        "sunday": { "type": "long", "distance_mi": 7, "notes": "longest run of the block, easy" }
+      }
+    },
+    {
+      "week": 7,
+      "days": {
+        "monday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "tuesday": { "type": "easy", "distance_mi": 3 },
+        "wednesday": { "type": "interval", "intervals": "8 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery", "notes": "Sharpest VO2 session of the block" },
+        "thursday": { "type": "easy", "distance_mi": 3 },
+        "friday": { "type": "rest", "notes": "Rest (natural lift slot)" },
+        "saturday": { "type": "pace", "distance_mi": 5, "notes": "fast — comfortably hard, ~4:45-5:00/km. Last hard effort before taper." },
+        "sunday": { "type": "long", "distance_mi": 7, "notes": "long, easy" }
+      }
+    },
+    {
+      "week": 8,
+      "days": {
+        "monday": { "type": "rest", "notes": "Rest" },
+        "tuesday": { "type": "easy", "distance_mi": 3 },
+        "wednesday": { "type": "tempo", "duration_min": 30, "notes": "30 min tempo but CONTROLLED — sharpening, not a workout. 3 days out." },
+        "thursday": { "type": "easy", "distance_mi": 2, "notes": "easy shakeout" },
+        "friday": { "type": "rest", "notes": "Rest" },
+        "saturday": { "type": "rest", "notes": "Rest" },
+        "sunday": { "type": "race", "race_distance": "5K", "notes": "GOAL RACE" }
+      }
+    }
+  ]
+}

@@ -13,7 +13,18 @@ import type {
 } from "./types";
 import { formatPace, parsePace } from "./pace";
 
-const RACE_DISTANCE_KM = 21.1;
+// Race distance in km, parsed from the race's distance label
+// (block.race.distance). Long races (HM/marathon) make "long run gap to race
+// distance" meaningful; short races (5K/10K) invert it — your long runs
+// already exceed the race, so the gap concept is reframed downstream.
+function raceDistanceKm(distance?: string): number {
+  const d = String(distance || "").toLowerCase();
+  if (d.includes("half")) return 21.1;
+  if (d.includes("marathon")) return 42.2;
+  const m = /(\d+(?:\.\d+)?)/.exec(d);
+  if (m) return Number(m[1]); // "5K" -> 5, "10K" -> 10
+  return 21.1;
+}
 
 function asDateString(value: string | Date) {
   if (value instanceof Date) {
@@ -65,20 +76,8 @@ function prescribedDistanceKm(week: PlanWeek) {
       return total + day.distance_km;
     }
 
-    if (day.race_distance === "half marathon") {
-      return total + RACE_DISTANCE_KM;
-    }
-
-    if (day.race_distance === "10K") {
-      return total + 10;
-    }
-
-    if (day.race_distance === "15K") {
-      return total + 15;
-    }
-
-    if (day.race_distance === "5K") {
-      return total + 5;
+    if (day.race_distance) {
+      return total + raceDistanceKm(day.race_distance);
     }
 
     return total;
@@ -233,6 +232,8 @@ function buildInsights({
   paceSeries,
   bestLongRunKm,
   longRunGapKm,
+  longRunExceedsRace,
+  raceDistKm,
   hrSeries,
   easyTargetSec
 }: {
@@ -240,6 +241,8 @@ function buildInsights({
   paceSeries: PacePoint[];
   bestLongRunKm: number;
   longRunGapKm: number;
+  longRunExceedsRace: boolean;
+  raceDistKm: number;
   hrSeries: { hr: number }[];
   easyTargetSec: number;
 }) {
@@ -256,9 +259,11 @@ function buildInsights({
         } easy target.`
       : "No paced runs recorded yet.",
     longRun:
-      bestLongRunKm > 0
-        ? `Best long run: ${bestLongRunKm} km, ${longRunGapKm} km short of race distance.`
-        : "No long run distance recorded yet.",
+      bestLongRunKm <= 0
+        ? "No long run distance recorded yet."
+        : longRunExceedsRace
+          ? `Peak long run: ${bestLongRunKm} km — well beyond the ${raceDistKm} km race.`
+          : `Best long run: ${bestLongRunKm} km, ${longRunGapKm} km short of race distance.`,
     hr: latestHr ? `Latest average HR: ${latestHr.hr} bpm.` : "No heart-rate data recorded yet."
   };
 }
@@ -281,8 +286,13 @@ export function computeMetrics(data: DashboardData): DashboardMetrics {
       type: run.type_inferred || "other"
     }));
   const currentWeekVolume = weeklyVolume.find((week) => week.week === currentWeek?.week) ?? null;
+  const raceDistKm = raceDistanceKm(data.profile.race.distance);
   const bestLongRunKm = rounded(Math.max(0, ...longRuns.map((point) => point.longestKm)));
-  const longRunGapKm = rounded(Math.max(0, RACE_DISTANCE_KM - bestLongRunKm));
+  const longRunGapKm = rounded(Math.max(0, raceDistKm - bestLongRunKm));
+  // "Long run gap to race distance" only means something for long races
+  // (HM/marathon). For short races (5K/10K) the race is shorter than any long
+  // run, so we show the peak long run instead of a meaningless gap.
+  const longRunExceedsRace = raceDistKm < 15 || (raceDistKm > 0 && bestLongRunKm >= raceDistKm);
 
   return {
     today,
@@ -299,7 +309,18 @@ export function computeMetrics(data: DashboardData): DashboardMetrics {
     currentWeekSessions: buildWeekSessions(data.runs, currentWeek),
     bestLongRunKm,
     longRunGapKm,
-    insights: buildInsights({ currentWeekVolume, paceSeries, bestLongRunKm, longRunGapKm, hrSeries, easyTargetSec }),
+    longRunExceedsRace,
+    raceDistanceKm: raceDistKm,
+    insights: buildInsights({
+      currentWeekVolume,
+      paceSeries,
+      bestLongRunKm,
+      longRunGapKm,
+      longRunExceedsRace,
+      raceDistKm,
+      hrSeries,
+      easyTargetSec
+    }),
     weeklyVolume,
     paceSeries,
     longRuns,

@@ -77,8 +77,10 @@ export function RaceArcHeader({ metrics, data }: { metrics: DashboardMetrics; da
             )}
           </div>
           <div className="rounded-xl bg-paper/95 p-4">
-            <p className="eyebrow text-ink/55">Long run gap</p>
-            <p className="mt-2 stat-num text-xl font-semibold leading-none">{metrics.longRunGapKm} km</p>
+            <p className="eyebrow text-ink/55">{metrics.longRunExceedsRace ? "Peak long run" : "Long run gap"}</p>
+            <p className="mt-2 stat-num text-xl font-semibold leading-none">
+              {metrics.longRunExceedsRace ? metrics.bestLongRunKm : metrics.longRunGapKm} km
+            </p>
           </div>
         </div>
         <div className="mt-3 grid gap-2 rounded-xl border border-paper/10 bg-ink/25 px-4 py-3 text-sm text-paper/70 sm:grid-cols-2">

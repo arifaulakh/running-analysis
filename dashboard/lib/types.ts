@@ -19,6 +19,39 @@ export type Profile = {
   higdon_weeks: number;
 };
 
+// Durable athlete model (data/athlete.json) — cross-block, not wiped on a switch.
+export type Athlete = {
+  name?: string;
+  timezone?: string;
+  max_hr_observed?: { value?: number; date?: string; source_activity_id?: number; method?: string };
+  vdot_history?: { date: string; value: number; basis?: string; race_ref?: number }[];
+  easy_pace_model?: { per_km?: string; per_mi?: string; hr_ceiling?: number; note?: string };
+  race_history?: Record<string, unknown>[];
+};
+
+export type BlockDeviation = {
+  type: string;
+  after_week?: number;
+  start_date?: string;
+  end_date?: string;
+  note?: string;
+};
+
+// Per-block config (data/block.json) — replaced wholesale at each race transition.
+export type Block = {
+  race?: Profile["race"];
+  goal_time?: string;
+  goal_band?: Record<string, unknown>;
+  goal_pace_per_km?: string;
+  goal_pace_per_mi?: string;
+  plan_template?: string;
+  plan?: string;
+  training_start_date?: string;
+  plan_weeks?: number;
+  race_weekday?: string;
+  deviations?: BlockDeviation[];
+};
+
 export type PlanDay = {
   date?: string | Date;
   type: RunType;
@@ -160,6 +193,8 @@ export type DashboardMetrics = {
   currentWeekSessions: WeekSessions | null;
   bestLongRunKm: number;
   longRunGapKm: number;
+  longRunExceedsRace: boolean;
+  raceDistanceKm: number;
   insights: {
     volume: string;
     pace: string;

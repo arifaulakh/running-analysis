@@ -3,9 +3,11 @@ import type { DashboardMetrics, WeeklyVolume } from "@/lib/types";
 const phaseStyles: Record<string, string> = {
   base: "bg-moss/75",
   build: "bg-marine/80",
+  sharpen: "bg-marine/60",
   peak: "bg-coral/85",
   taper: "bg-sun/85",
-  race_week: "bg-ink"
+  race_week: "bg-ink",
+  travel: "bg-line"
 };
 
 export function PhaseTimeline({ weeks, metrics }: { weeks: WeeklyVolume[]; metrics: DashboardMetrics }) {
@@ -60,9 +62,9 @@ export function PhaseTimeline({ weeks, metrics }: { weeks: WeeklyVolume[]; metri
       </div>
 
       <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-line/70 pt-4 text-xs text-ink/65">
-        {Object.keys(phaseStyles).map((phase) => (
+        {[...new Set(weeks.map((week) => week.phase))].map((phase) => (
           <span key={phase} className="inline-flex items-center gap-2 capitalize">
-            <span className={`h-2.5 w-2.5 rounded-full ${phaseStyles[phase]}`} />
+            <span className={`h-2.5 w-2.5 rounded-full ${phaseStyles[phase] || "bg-line"}`} />
             {phase.replace("_", " ")}
           </span>
         ))}

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import YAML from "yaml";
-import type { DashboardData, MemoryClaim, Plan, Profile, Run } from "./types";
+import type { Athlete, Block, DashboardData, MemoryClaim, Plan, Profile, Run } from "./types";
 
 function fileExists(filePath: string) {
   try {
@@ -37,6 +37,13 @@ function readWithFallback(dataDir: string, relativePath: string, usedFallbacks: 
   return "";
 }
 
+// Reads a file if present, without the .example fallback bookkeeping — used
+// for the split config files (block.json / athlete.json) and legacy shims.
+function readIfExists(dataDir: string, relativePath: string) {
+  const fullPath = path.join(dataDir, relativePath);
+  return fileExists(fullPath) ? fs.readFileSync(fullPath, "utf8") : "";
+}
+
 function dateString(value: unknown) {
   if (value instanceof Date) {
     return value.toISOString().slice(0, 10);
@@ -59,14 +66,25 @@ function optionalConcrete(value: unknown) {
   return isConcrete(value) ? String(value) : undefined;
 }
 
-function normalizeProfile(rawProfile: Partial<Profile>, plan: Plan): Profile {
-  const race: Partial<Profile["race"]> = rawProfile.race || {};
+// Builds the UI's flattened Profile from the split files (block.json +
+// athlete.json), falling back to a legacy profile.json blob for older data
+// snapshots. The split files are the source of truth going forward.
+function normalizeProfile(
+  block: Partial<Block>,
+  athlete: Partial<Athlete>,
+  legacy: Partial<Profile>,
+  plan: Plan
+): Profile {
+  const race: Partial<Profile["race"]> = block.race || legacy.race || {};
   const planRaceDate = dateString(plan.race_date);
   const raceDate = isConcrete(race.date) ? String(race.date) : planRaceDate;
-  const raceName = isConcrete(race.name) ? String(race.name) : plan.race_name || "SF Marathon Second Half";
+  const raceName = isConcrete(race.name) ? String(race.name) : plan.race_name || "Race";
+  const easy = athlete.easy_pace_model || {};
+
+  const pick = (...vals: unknown[]) => vals.find((v) => isConcrete(v));
 
   return {
-    name: isConcrete(rawProfile.name) ? String(rawProfile.name) : "Runner",
+    name: String(pick(athlete.name, legacy.name) ?? "Runner"),
     race: {
       name: raceName,
       date: raceDate,
@@ -75,17 +93,13 @@ function normalizeProfile(rawProfile: Partial<Profile>, plan: Plan): Profile {
       distance: isConcrete(race.distance) ? race.distance : "half marathon",
       url: optionalConcrete(race.url)
     },
-    goal_time: isConcrete(rawProfile.goal_time) ? String(rawProfile.goal_time) : "1:35:00",
-    goal_pace_per_km: isConcrete(rawProfile.goal_pace_per_km) ? String(rawProfile.goal_pace_per_km) : "4:30",
-    goal_pace_per_mi: isConcrete(rawProfile.goal_pace_per_mi) ? String(rawProfile.goal_pace_per_mi) : "7:15",
-    easy_pace_target_per_km: isConcrete(rawProfile.easy_pace_target_per_km)
-      ? String(rawProfile.easy_pace_target_per_km).replace("+", "")
-      : "5:17",
-    easy_pace_target_per_mi: isConcrete(rawProfile.easy_pace_target_per_mi)
-      ? String(rawProfile.easy_pace_target_per_mi)
-      : "8:30+",
-    calendar_weeks: Number(rawProfile.calendar_weeks) || plan.weeks.length,
-    higdon_weeks: Number(rawProfile.higdon_weeks) || 12
+    goal_time: String(pick(block.goal_time, legacy.goal_time) ?? ""),
+    goal_pace_per_km: String(pick(block.goal_pace_per_km, legacy.goal_pace_per_km) ?? "4:30"),
+    goal_pace_per_mi: optionalConcrete(pick(block.goal_pace_per_mi, legacy.goal_pace_per_mi)),
+    easy_pace_target_per_km: String(pick(easy.per_km, legacy.easy_pace_target_per_km) ?? "5:17").replace("+", ""),
+    easy_pace_target_per_mi: String(pick(easy.per_mi, legacy.easy_pace_target_per_mi) ?? "8:30+"),
+    calendar_weeks: Number(block.plan_weeks) || Number(legacy.calendar_weeks) || plan.weeks.length,
+    higdon_weeks: Number(block.plan_weeks) || Number(legacy.higdon_weeks) || plan.weeks.length
   };
 }
 
@@ -149,10 +163,16 @@ export function loadDashboardData(): DashboardData {
   const dataDir = findDataDir();
   const usedFallbacks: string[] = [];
   const plan = YAML.parse(fs.readFileSync(path.join(dataDir, "plan.yaml"), "utf8")) as Plan;
-  const rawProfile = JSON.parse(readWithFallback(dataDir, "profile.json", usedFallbacks) || "{}") as Partial<Profile>;
+  const rawBlock = JSON.parse(readIfExists(dataDir, "block.json") || "{}") as Partial<Block>;
+  const rawAthlete = JSON.parse(readIfExists(dataDir, "athlete.json") || "{}") as Partial<Athlete>;
+  // Legacy fallback: older data snapshots may still carry a single profile.json.
+  const hasSplit = Object.keys(rawBlock).length > 0 || Object.keys(rawAthlete).length > 0;
+  const rawLegacy = hasSplit
+    ? ({} as Partial<Profile>)
+    : (JSON.parse(readWithFallback(dataDir, "profile.json", usedFallbacks) || "{}") as Partial<Profile>);
 
   return {
-    profile: normalizeProfile(rawProfile, plan),
+    profile: normalizeProfile(rawBlock, rawAthlete, rawLegacy, plan),
     plan,
     runs: parseRuns(readWithFallback(dataDir, "runs.jsonl", usedFallbacks)),
     claims: parseSemantic(readWithFallback(dataDir, "memory/semantic.md", usedFallbacks)),

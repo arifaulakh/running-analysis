@@ -1,232 +1,161 @@
-# Hal Higdon Intermediate 2 — Half Marathon
-# 14 calendar weeks: Higdon Weeks 1-11 anchored to 2026-04-20, calendar
-# weeks 12-13 are extended taper / buffer, calendar week 14 is the
-# actual race week using Higdon's Week 12 schedule.
+# Hal Higdon Intermediate 5K — TCS Toronto Waterfront 5K
+# 8 weeks. Week 1 Mon = 2026-08-24, race Sat 2026-10-17.
 #
-# Training started Mon 2026-04-20 (Higdon Week 1 Mon).
-# Race day: Sun 2026-07-26 (SF Marathon Second Half, 8:30 AM, Crissy Field).
+# Higdon's Intermediate 5K puts the race on the SUNDAY of Week 8. TCS
+# Toronto is a SATURDAY (Oct 17), so Week 8 is anchored to place the race
+# on Sat Oct 17 (Week 8, day 6); Sun Oct 18 is season-done (optional easy
+# shakeout only).
 #
-# Today (2026-05-10, Sun) is calendar Week 3 Sunday = Higdon Week 3 Sunday
-# = 5K race day per the plan.
+# Aug 11-23 (before Week 1) is post-HM re-entry: easy aerobic base rebuild
+# after the Jul 26 SF Half. No structured quality yet — see `re_entry` below.
 #
 # Distances are km (per proc_006). Source plan is Higdon mileage,
-# converted at 1 mi = 1.609 km and rounded to 1 decimal.
+# converted at 1 mi = 1.609344 km, rounded to 1 decimal:
+#   2 mi = 3.2 km | 3 mi = 4.8 km | 4 mi = 6.4 km
+#   5 mi = 8.0 km | 6 mi = 9.7 km | 7 mi = 11.3 km
 #
-# Source: https://www.halhigdon.com/training-programs/half-marathon-training/intermediate-2-half-marathon/
+# Higdon's Intermediate 5K prescribes NO cross-training days (Mon/Fri are
+# Rest). Arif reliably lifts and often runs on rest days (semantic memory):
+# Mon and Fri are his natural strength slots. The plan below is the running
+# prescription; lifts are logged separately and don't count as missed runs.
+#
+# Source: https://www.halhigdon.com/training-programs/5k-training/intermediate-5k/
 
-race_date: 2026-07-26
-race_name: SF Marathon Second Half
-plan: hal-higdon-intermediate-2
+race_date: 2026-10-17
+race_name: TCS Toronto Waterfront 5K
+race_distance: "5K"
+plan: hal-higdon-intermediate-5k
+plan_weeks: 8
 
-# Phase mapping — by calendar week
+# Quality-session pace guidance (provisional until the Wk4 5K test):
+#   400m repeats — at ~5K goal pace or a touch faster: ~1:34-1:38 per rep
+#     (≈3:55-4:05/km), with a 200-400m recovery jog between.
+#   Tempo runs   — build to ~threshold in the middle third: ~4:25-4:35/km,
+#     HR ~168-174; start and finish easy.
+#   "fast" runs  — comfortably hard, faster than easy but not tempo:
+#     ~4:45-5:00/km, HR ~155-165.
+#   easy runs    — >5:20/km, HR <150.
+
+# Phase mapping — by plan week (1-8)
 phases:
-  base:                [1, 2, 3, 4]
-  build:               [5, 6, 7, 8]
-  peak:                [9, 10, 11, 13]
-  travel_maintenance:  [12]
-  race_week:           [14]
-  # NOTE: travel Jul 2-14 shifted the peak — calendar week 12 (Jul 6-12) is a
-  # travel/maintenance deload and week 13 (Jul 13-19) is now the peak/dress-
-  # rehearsal week (Jul 19 long). The race week (14) is the single taper.
+  base:       [1, 2]   # re-introduce speed, rebuild after the HM block
+  build:      [3, 4]   # speed + tempo mature; Wk4 5K test calibrates goal
+  peak:       [6, 7]   # sharpest work — 8x400, 5 mi fast
+  sharpen:    [5]      # 7x400 + 6 mi; bridges build→peak
+  race_week:  [8]      # taper; race Sat Oct 17
+
+# Pre-plan re-entry (not a Higdon week; for coach context only)
+re_entry:
+  window: "2026-08-11 to 2026-08-23"
+  emphasis: >
+    Post-HM recovery + easy aerobic base. Rebuild to ~30-40 km/wk of easy
+    running. No structured intervals or tempo yet — one optional strides
+    session (4-6 x 20s) late in this window is fine to wake the legs up.
+    Actual runs so far: Jul 31 5.0km, Aug 2 7.0km, Aug 4 6.0km, Aug 10 11.0km.
 
 weeks:
 
   - week: 1
-    start_date: 2026-04-20
-    end_date:   2026-04-26
+    start_date: 2026-08-24
+    end_date:   2026-08-30
     phase: base
-    higdon_week: 1
     days:
-      monday:    {date: 2026-04-20, type: cross,    duration_min: 30, notes: "30 min cross-training"}
-      tuesday:   {date: 2026-04-21, type: easy,     distance_km: 4.8,                  notes: "4.8 km easy"}
-      wednesday: {date: 2026-04-22, type: interval, intervals: "5 x 400m at 5K pace",  notes: "5K-pace 400s"}
-      thursday:  {date: 2026-04-23, type: easy,     distance_km: 4.8,                  notes: "4.8 km easy"}
-      friday:    {date: 2026-04-24, type: rest}
-      saturday:  {date: 2026-04-25, type: pace,     distance_km: 4.8,                  notes: "4.8 km pace run"}
-      sunday:    {date: 2026-04-26, type: long,     distance_km: 8.0,                  notes: "8 km long run"}
+      monday:    {date: 2026-08-24, type: rest,     notes: "Rest (natural lift slot)"}
+      tuesday:   {date: 2026-08-25, type: easy,     distance_km: 4.8,  notes: "4.8 km easy"}
+      wednesday: {date: 2026-08-26, type: interval, intervals: "5 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery", notes: "First speed session of the block — ease in, don't overcook the early reps"}
+      thursday:  {date: 2026-08-27, type: easy,     distance_km: 4.8,  notes: "4.8 km easy"}
+      friday:    {date: 2026-08-28, type: rest,     notes: "Rest (natural lift slot)"}
+      saturday:  {date: 2026-08-29, type: easy,     distance_km: 4.8,  notes: "4.8 km easy"}
+      sunday:    {date: 2026-08-30, type: long,     distance_km: 8.0,  notes: "8.0 km long, easy"}
 
   - week: 2
-    start_date: 2026-04-27
-    end_date:   2026-05-03
+    start_date: 2026-08-31
+    end_date:   2026-09-06
     phase: base
-    higdon_week: 2
     days:
-      monday:    {date: 2026-04-27, type: cross,    duration_min: 30}
-      tuesday:   {date: 2026-04-28, type: easy,     distance_km: 4.8}
-      wednesday: {date: 2026-04-29, type: tempo,    duration_min: 30,                  notes: "30 min tempo"}
-      thursday:  {date: 2026-04-30, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-05-01, type: rest}
-      saturday:  {date: 2026-05-02, type: pace,     distance_km: 4.8}
-      sunday:    {date: 2026-05-03, type: long,     distance_km: 9.7}
+      monday:    {date: 2026-08-31, type: rest,     notes: "Rest (natural lift slot)"}
+      tuesday:   {date: 2026-09-01, type: easy,     distance_km: 4.8}
+      wednesday: {date: 2026-09-02, type: tempo,    duration_min: 30, notes: "30 min tempo — build to ~threshold (4:25-4:35/km) in the middle, easy start/finish"}
+      thursday:  {date: 2026-09-03, type: easy,     distance_km: 4.8}
+      friday:    {date: 2026-09-04, type: rest,     notes: "Rest (natural lift slot)"}
+      saturday:  {date: 2026-09-05, type: pace,     distance_km: 4.8, notes: "4.8 km fast — comfortably hard, ~4:45-5:00/km"}
+      sunday:    {date: 2026-09-06, type: long,     distance_km: 8.0, notes: "8.0 km long, easy"}
 
   - week: 3
-    start_date: 2026-05-04
-    end_date:   2026-05-10
-    phase: base
-    higdon_week: 3
+    start_date: 2026-09-07
+    end_date:   2026-09-13
+    phase: build
     days:
-      monday:    {date: 2026-05-04, type: cross,    duration_min: 40}
-      tuesday:   {date: 2026-05-05, type: easy,     distance_km: 5.6}
-      wednesday: {date: 2026-05-06, type: interval, intervals: "6 x 400m at 5K pace"}
-      thursday:  {date: 2026-05-07, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-05-08, type: rest}
-      saturday:  {date: 2026-05-09, type: rest}
-      sunday:    {date: 2026-05-10, type: race,     race_distance: "5K",               notes: "5K race — fitness check"}
+      monday:    {date: 2026-09-07, type: rest,     notes: "Rest (natural lift slot)"}
+      tuesday:   {date: 2026-09-08, type: easy,     distance_km: 4.8}
+      wednesday: {date: 2026-09-09, type: interval, intervals: "6 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery"}
+      thursday:  {date: 2026-09-10, type: easy,     distance_km: 4.8}
+      friday:    {date: 2026-09-11, type: rest,     notes: "Rest (natural lift slot)"}
+      saturday:  {date: 2026-09-12, type: easy,     distance_km: 6.4, notes: "6.4 km easy"}
+      sunday:    {date: 2026-09-13, type: long,     distance_km: 9.7, notes: "9.7 km long, easy"}
 
   - week: 4
-    start_date: 2026-05-11
-    end_date:   2026-05-17
-    phase: base
-    higdon_week: 4
+    start_date: 2026-09-14
+    end_date:   2026-09-20
+    phase: build
     days:
-      monday:    {date: 2026-05-11, type: cross,    duration_min: 40}
-      tuesday:   {date: 2026-05-12, type: easy,     distance_km: 5.6}
-      wednesday: {date: 2026-05-13, type: tempo,    duration_min: 35}
-      thursday:  {date: 2026-05-14, type: easy,     distance_km: 4.8}
-      friday:    {date: 2026-05-15, type: rest}
-      saturday:  {date: 2026-05-16, type: easy,     distance_km: 4.8,                  notes: "4.8 km run"}
-      sunday:    {date: 2026-05-17, type: long,     distance_km: 11.3}
+      monday:    {date: 2026-09-14, type: rest,     notes: "Rest (natural lift slot)"}
+      tuesday:   {date: 2026-09-15, type: easy,     distance_km: 4.8}
+      wednesday: {date: 2026-09-16, type: tempo,    duration_min: 35, notes: "35 min tempo — build to ~threshold in the middle"}
+      thursday:  {date: 2026-09-17, type: easy,     distance_km: 4.8}
+      friday:    {date: 2026-09-18, type: rest,     notes: "Rest — race-test prep"}
+      saturday:  {date: 2026-09-19, type: rest,     notes: "Rest — day before the 5K test"}
+      sunday:    {date: 2026-09-20, type: race,     race_distance: "5K", notes: "★ 5K TEST — race-effort time trial to calibrate goal pace. Run it honestly; this recalibrates the goal band in profile.json."}
 
   - week: 5
-    start_date: 2026-05-18
-    end_date:   2026-05-24
-    phase: build
-    higdon_week: 5
+    start_date: 2026-09-21
+    end_date:   2026-09-27
+    phase: sharpen
     days:
-      monday:    {date: 2026-05-18, type: rest,                                            notes: "rest"}
-      tuesday:   {date: 2026-05-19, type: cross,                                           notes: "push day only — bench/incline/OHP/tricep/dead hang. No run."}
-      wednesday: {date: 2026-05-20, type: cross,                                           notes: "basketball only. Easy run moved to Fri."}
-      thursday:  {date: 2026-05-21, type: rest,                                            notes: "rest — sick (cold). Pace run missed."}
-      friday:    {date: 2026-05-22, type: rest,                                            notes: "rest — recovering from cold. Easy run + pull day skipped."}
-      saturday:  {date: 2026-05-23, type: interval, intervals: "7 x 400m at 5K pace",     notes: "target 4:05-4:15/km per rep, 2 min rest. Pull day same day (moved from Fri)."}
-      sunday:    {date: 2026-05-24, type: long,     distance_km: 12.9,                    notes: "6:20-6:35/km, HR 140-155; dial to 6:35-6:45/km if heavy from Sat intervals. Upper body gym same day."}
+      monday:    {date: 2026-09-21, type: rest,     notes: "Rest (natural lift slot); easy recovery from the 5K test if legs are heavy"}
+      tuesday:   {date: 2026-09-22, type: easy,     distance_km: 4.8}
+      wednesday: {date: 2026-09-23, type: interval, intervals: "7 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery"}
+      thursday:  {date: 2026-09-24, type: easy,     distance_km: 4.8}
+      friday:    {date: 2026-09-25, type: rest,     notes: "Rest (natural lift slot)"}
+      saturday:  {date: 2026-09-26, type: pace,     distance_km: 6.4, notes: "6.4 km fast — comfortably hard, ~4:45-5:00/km"}
+      sunday:    {date: 2026-09-27, type: long,     distance_km: 9.7, notes: "9.7 km long, easy"}
 
   - week: 6
-    start_date: 2026-05-25
-    end_date:   2026-05-31
-    phase: build
-    higdon_week: 5
-    notes: "Higdon W5 shifted 1 week — W5 (May 18-24) was lost to illness. One buffer week consumed; W13 (Jul 13-19) is the single remaining buffer."
+    start_date: 2026-09-28
+    end_date:   2026-10-04
+    phase: peak
     days:
-      monday:    {date: 2026-05-25, type: easy,     distance_km: 6.5,                      notes: "6:20-6:35/km, HR<150 — holiday easy run. Push day same session."}
-      tuesday:   {date: 2026-05-26, type: rest,                                             notes: "rest"}
-      wednesday: {date: 2026-05-27, type: easy,     distance_km: 5.0,                      notes: "5km easy + pull day (pull-ups/rows/lat pulldown/curls/face pulls)"}
-      thursday:  {date: 2026-05-28, type: pace,     distance_km: 5.0,                      notes: "5:10-5:25/km, HR 150-165"}
-      friday:    {date: 2026-05-29, type: cross,                                            notes: "indoor cycling — keep easy (zone 2) between Thu pace and Sat intervals"}
-      saturday:  {date: 2026-05-30, type: interval, intervals: "7 x 400m at 5K pace",      notes: "target 4:05-4:15/km per rep, 2 min rest. Push day same day."}
-      sunday:    {date: 2026-05-31, type: long,     distance_km: 12.9,                     notes: "6:20-6:35/km, HR 140-155. Pull day same day."}
+      monday:    {date: 2026-09-28, type: rest,     notes: "Rest (natural lift slot)"}
+      tuesday:   {date: 2026-09-29, type: easy,     distance_km: 4.8}
+      wednesday: {date: 2026-09-30, type: tempo,    duration_min: 40, notes: "40 min tempo — longest tempo of the block; build to ~threshold in the middle"}
+      thursday:  {date: 2026-10-01, type: easy,     distance_km: 4.8}
+      friday:    {date: 2026-10-02, type: rest,     notes: "Rest (natural lift slot)"}
+      saturday:  {date: 2026-10-03, type: easy,     distance_km: 8.0, notes: "8.0 km easy"}
+      sunday:    {date: 2026-10-04, type: long,     distance_km: 11.3, notes: "11.3 km long — longest run of the block, easy"}
 
   - week: 7
-    start_date: 2026-06-01
-    end_date:   2026-06-07
-    phase: build
-    higdon_week: 6
+    start_date: 2026-10-05
+    end_date:   2026-10-11
+    phase: peak
     days:
-      monday:    {date: 2026-06-01, type: cross,    notes: "push day (weightlifting) — replaces 50 min generic cross. Upper body, keeps legs fresh for the week into the Jun 7 10K."}
-      tuesday:   {date: 2026-06-02, type: easy,     distance_km: 5.0,                  notes: "easy run + pull day (was 6.4 km; ran 5.0 km @ 6:29/km, HR 143)"}
-      wednesday: {date: 2026-06-03, type: rest,                                        notes: "rest (was tempo 40 min — tempo moved to Thu Jun 4)"}
-      thursday:  {date: 2026-06-04, type: tempo,    duration_min: 40,                  notes: "40-min tempo + tennis (was cross only). Ran 7.0 km @ 5:43/km avg, HR 160 (max 179), pyramid build peaking km5 4:44/HR179. Tempo shifted from Wed."}
-      friday:    {date: 2026-06-05, type: easy,     distance_km: 6.5,                  notes: "easy 6.5 km + weightlifting (was 3.2 km)"}
-      saturday:  {date: 2026-06-06, type: cross,                                       notes: "weightlifting + tennis (was rest). Race day -1 — keep upper-body/light to protect legs for the Jun 7 10K."}
-      sunday:    {date: 2026-06-07, type: race,     race_distance: "10K",              notes: "10K race — fitness check (calibration gate 1, sub-47:00 target)"}
+      monday:    {date: 2026-10-05, type: rest,     notes: "Rest (natural lift slot)"}
+      tuesday:   {date: 2026-10-06, type: easy,     distance_km: 4.8}
+      wednesday: {date: 2026-10-07, type: interval, intervals: "8 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery", notes: "Sharpest VO2 session of the block"}
+      thursday:  {date: 2026-10-08, type: easy,     distance_km: 4.8}
+      friday:    {date: 2026-10-09, type: rest,     notes: "Rest (natural lift slot)"}
+      saturday:  {date: 2026-10-10, type: pace,     distance_km: 8.0, notes: "8.0 km fast — comfortably hard, ~4:45-5:00/km. Last hard effort before taper."}
+      sunday:    {date: 2026-10-11, type: long,     distance_km: 11.3, notes: "11.3 km long, easy"}
 
   - week: 8
-    start_date: 2026-06-08
-    end_date:   2026-06-14
-    phase: build
-    higdon_week: 7
-    days:
-      monday:    {date: 2026-06-08, type: cross,    notes: "PUSH day (weightlifting) + 20 min cycling — done. Was rest; Arif front-loaded the push here. Lift 1 of 4."}
-      tuesday:   {date: 2026-06-09, type: cross,    notes: "PULL day (weightlifting), no run — done. Easy 7.2 km moved to Wed Jun 10. Lift 2 of 4."}
-      wednesday: {date: 2026-06-10, type: easy,     distance_km: 5.0,                  notes: "easy run done — 5.0 km @ 6:01/km, HR 141 (peak 159). Plan was 7.2 km; ran 5.0, 2.2 km short. No lift, fresh legs. Moved from Tue."}
-      thursday:  {date: 2026-06-11, type: rest,                                        notes: "SKIPPED easy 7 km — under the weather (headache). Lowest-value run of the week; dropped to protect Fri pace / Sat intervals / Sun long. Intervals already moved to Sat Jun 13."}
-      friday:    {date: 2026-06-12, type: pace,     distance_km: 6.4,                  notes: "pace 6.4 km @ ~4:40/km, no lift. Moved from Sat."}
-      saturday:  {date: 2026-06-13, type: long,     distance_km: 14.5,                 notes: "long 14.5 km easy (HR<150) + PULL day (upper). Swapped with Sun intervals at Arif's request. Lift pairs with long run as in prior weeks."}
-      sunday:    {date: 2026-06-14, type: interval, intervals: "8 x 400m at 5K pace",  notes: "8 x 400m @ 5K pace (4:05-4:15/km band, do NOT redline) + PUSH day (upper). Swapped from Sat — these now land the day AFTER the 14.5 km long run, so legs will be pre-fatigued; hold the 4:05-4:15 band, do not chase fast reps."}
-
-  - week: 9
-    start_date: 2026-06-15
-    end_date:   2026-06-21
-    phase: build
-    higdon_week: 8
-    days:
-      monday:    {date: 2026-06-15, type: cross,    duration_min: 50,                  notes: "DONE — PUSH day (weightlifting). Bench press 3x5 @150; incline DB press 3x8 @50; DB shoulder press 3x12 @22.5 each; tricep pulldown 3x12 @35/30/30; cable rear-delt fly 2x12 @10 each. Bench 150 top set matches the Jun 14 high — second heavy 150 push in two sessions (claim_8 push progression). Lift 1 of 3."}
-      tuesday:   {date: 2026-06-16, type: easy,     distance_km: 7.2,                  notes: "DONE — ran easy 5.0 km @ 5:54/km, HR 143 (in-zone, top km-avg 151). 2.2 km short of the prescribed 7.2 km. No same-day lift (pull moved to Fri Jun 19)."}
-      wednesday: {date: 2026-06-17, type: easy,     distance_km: 7.0,                  notes: "Was the ★ MARQUEE threshold — Arif ran an easy/progression 7.0 km instead (6:05/km, HR 146, negative-split finish to HR 158-159) and DEFERRED the threshold to Thu Jun 18. No lift. Threshold still landed this week (claim_5)."}
-      thursday:  {date: 2026-06-18, type: cross,                                       notes: "DONE — TENNIS (cross-training), no run. The ★ MARQUEE goal-pace tempo prescribed here was DEFERRED one more day to Fri Jun 19, where it was executed. Threshold still landed this week (claim_5)."}
-      friday:    {date: 2026-06-19, type: tempo,    duration_min: 40,                  notes: "DONE — ★ MARQUEE 40-min goal-pace tempo, executed here (moved from Thu Jun 18, originally Wed Jun 17). Strava 18991058366: 7.49 km in 40:00, 5:21/km avg, HR 157/179. Structure on-spec: ~12' WU (km1 6:48/HR122 downhill, km2 5:43/HR152), then ~18.5' tempo km3-6 at ~4:37/km (4:41/168, 4:40/170, 4:25/176, 4:44/178) — pace in/around the 4:30-4:40 goal band, km5 dipped under goal pace; ~9.5' CD (6:21/154, 6:31/150). PACE on-spec, but HR ran a touch hot (tempo reps avg 176-178 vs the 172-176 cap), held below the 185 ceiling (max 179). 14 segment PRs. Closest sustained goal-pace work of the block (claim_15). No lift Fri — the PULL day moved to Sat Jun 20."}
-      saturday:  {date: 2026-06-20, type: long,     distance_km: 16.1,                 notes: "16.1 km long run (SWAPPED with Sun's pace run): first 12 km easy 6:10-6:30/km HR<150, final 4 km at HM pace 4:35-4:45/km. Practice goal pace on tired legs. + PULL day. Lift 2 of 3."}
-      sunday:    {date: 2026-06-21, type: pace,     distance_km: 8.0,                  notes: "pace 8.0 km (SWAPPED with Sat's long run) + PUSH day. Lift 3 of 3."}
-
-  - week: 10
-    start_date: 2026-06-22
-    end_date:   2026-06-28
-    phase: peak
-    higdon_week: 9
-    days:
-      monday:    {date: 2026-06-22, type: cross,    duration_min: 60,                  notes: "PUSH day (weightlifting) + biking (cross). Upper-body. Lift 1 of 4."}
-      tuesday:   {date: 2026-06-23, type: rest,                                        notes: "No run logged. The easy 5.0 km + PULL day prescribed here both moved to Wed Jun 24 (run + pull done together)."}
-      wednesday: {date: 2026-06-24, type: easy,     distance_km: 5.0,                  notes: "DONE — ran easy 5.0 km @ 5:56/km, HR 144 (max 176 on the closing Stockton Ramp hill only) + PULL day done beforehand. The prescribed 9x400m intervals were DROPPED this week (not reordered) — no interval day remains before the Sun 15K. Pull: assisted pull-ups 3x5 @25/40/40, seated rows 3x10 @121, lat pulldown 3x8 @104, preacher curls 3x8 @30 ea, bicep curls 3x10 @17.5/15/15 ea, face pulls 1x10 @33. Lift 2 of 4."}
-      thursday:  {date: 2026-06-25, type: rest,                                        notes: "REST — the prescribed easy 8.0 km was DROPPED (not run). Week's running collapsed to Wed 5km + Sat 12km + Sun 15K."}
-      friday:    {date: 2026-06-26, type: rest,                                        notes: "REST — the prescribed PUSH lift was DROPPED; it moved to Sat Jun 27 (paired with the 12km run + basketball)."}
-      saturday:  {date: 2026-06-27, type: long,     distance_km: 12.0,                 notes: "DONE — ran easy 12.0 km @ 6:50/km, avg HR 136 (max 160) in Golden Gate Park w/ Cyrus Gandevia — cleanest in-zone aerobic run in weeks. + PUSH lift (bench 3x5 @150 w/ rep dropoff 4/3/1, incline DB 3x8 @50/45/45, DB shoulder press 3x8 @22.5, tricep pulldown 3x12 @35, rear-delt fly 3x8 @10) + basketball. Plan had an upper-only PULL lift to spare legs; instead a full leg-loading race-1 (12km + basketball). Consistent with train-through framing. Lift 3 of 3 this week (Jun22 push / Jun24 pull / Jun27 push)."}
-      sunday:    {date: 2026-06-28, type: race,     race_distance: "15K",              notes: "DONE — 15K (Strava 19104854921, 'Legs feel bricked', 21 PRs): moving 71:38 (4:46/km), avg HR 164, max 180, rolling Crissy/Marina/Fort Mason loop (120m gain); elapsed 85:47 incl. ~14 min stops, so MOVING pace is the read. Strong negative-split close on bricked legs — km11-12 the two fastest (4:25), held 4:41-4:52 at HR 170-172 to the finish, no fade. Train-through effort (no taper, after Sat 12km+push+basketball) — slower-than-fitness read as predicted; does NOT downgrade sub-1:35 (claim_15). Jul 12 19.3km still the decisive gate. + PULL lift done (assisted pull-ups 2x5 @25 BOTH sets, seated rows 3x10 @121, lat pulldown 3x8 @104, preacher curls 3x8 @30 ea, bicep curls 3x10 @17.5 ea, face pulls 2x10 @33) — week's 4th lift (Jun22 push/Jun24 pull/Jun27 push/Jun28 pull)."}
-
-  - week: 11
-    start_date: 2026-06-29
-    end_date:   2026-07-05
-    phase: peak
-    higdon_week: 10
-    days:
-      monday:    {date: 2026-06-29, type: cross,                                       notes: "PUSH day (weightlifting), no run. Lift 1 — done at home before travel."}
-      tuesday:   {date: 2026-06-30, type: easy,     distance_km: 8.0,                  notes: "easy 8 km + PULL day (weightlifting). Lift 2 — last home gym day before travel."}
-      wednesday: {date: 2026-07-01, type: tempo,    duration_min: 45,                  notes: "Goal-pace threshold (was generic 45-min tempo): 15 min easy warm-up, then 5 x 1.6 km at 4:30-4:38/km, HR cap 174-178, 90 sec jog between. Progression from W9's 4x1.6km. This is the primary HM-specific session of the block. ALPHAFLY TEST #1 — first goal-pace run in the race shoe, before travel. The Alphafly debut is BACK ON the table (the dress rehearsal moved to Jul 19, back home with the Alphaflys), so the shoe decision is deferred to Jul 19. Run this in the Alphaflys; default stays Vaporflys until Jul 19 confirms."}
-      thursday:  {date: 2026-07-02, type: rest,                                        notes: "TRAVEL DAY (Arif travelling) — the easy 4.8 km is dropped."}
-      friday:    {date: 2026-07-03, type: easy,     distance_km: 5.0,                  notes: "easy shakeout ~5 km (Arif can run while travelling — daily trainers). Day BEFORE the 26 km, so keep it short/easy, HR<150 — just open the legs, do not pre-fatigue."}
-      saturday:  {date: 2026-07-04, type: long,     distance_km: 26.0,                 notes: "26 km long run — Arif's combination of the week's 8 km pace + 17.7 km long into ONE Saturday effort. Longest run of the block (exceeds the Jul 12 dress rehearsal). Run it predominantly EASY/aerobic (HR<150, ~6:00-6:30/km) given the distance — distance is the stimulus, not pace; optional moderate-aerobic finish only if legs are good. Fuel it. NOTE: run while TRAVELLING (away Jul 2-14) in DAILY TRAINERS — Alphaflys are at home. Followed by a rest Sunday."}
-      sunday:    {date: 2026-07-05, type: rest,                                        notes: "REST — the long run moved to Sat Jul 4 (combined 26 km), so Sunday is recovery. Optional very-easy shakeout only if legs feel fine."}
-
-  - week: 12
-    start_date: 2026-07-06
-    end_date:   2026-07-12
-    phase: travel-maintenance
-    higdon_week: 11
-    notes: "TRAVEL week, RESTRUCTURED around a Jul 9-14 BLACKOUT (Arif unavailable / no running Jul 9-14). Only Jul 6-8 are runnable, then 6 full days off. Strategy: Higdon W11 content BROKEN across 2 windows around the Jul 9-14 blackout. THIS week (Jul 6-8) absorbs W11's runs, REORDERED by Arif: Jul 6 = 8 km easy (DONE), Jul 7 = 13 km easy (W11's 8.1 + 4.8 combined), Jul 8 = 10x400 @ 5K pace (the week's only speed). W11's 60-min cross is covered by the daily LIFTS (all 3 days). W11's 19.3 km long run maps to the Jul 19 dress-rehearsal/gate (week 13). NOTE: the sustained goal-pace THRESHOLD (5-6 km @ 4:30-4:40) was dropped from this week in the reorder — the 10x400 is faster-than-goal speed, so sustained goal-pace work now falls to the Jul 15 sharpener + Jul 19 gate. Then complete rest Jul 9-12 (the 6 days off is the recovery). Endurance is banked (26 km Jul 4); these 3 days add one more sustained goal-pace data point, then the gap acts as a forced mini-taper before the Jul 15-19 re-sharpen. Daily trainers only (Alphaflys home until Jul 14)."
-    days:
-      monday:    {date: 2026-07-06, type: easy,     distance_km: 8.0,                  notes: "DONE — 8.02 km easy/progression run (Strava 19209513772, Toronto, 'Half Marathon Week 11 Day 1'). 6:03/km avg, avg HR 144 (max 166), NEGATIVE-SPLIT: opened 6:32/km @ HR130, closed ~5:40/km @ HR155-166 — in-zone easy with a moderate finish (claim_13). + ARMS lift (skull crushers 3x12 @25; hammer curls 3x12 @20 ea; bicep curls 3x10 @15 ea; tricep kickback 3x8 @20 ea). Reorder: this took Mon (the 10x400 moved to Wed Jul 8)."}
-      tuesday:   {date: 2026-07-07, type: interval, distance_km: 7.09,                 notes: "DONE — 10x400m INTERVALS (Strava 19221479495, 'Half Marathon Week 11 Day 2', Toronto, daily trainers, 24 PRs). REORDER: Arif swapped this forward from Wed Jul 8; the 13 km easy run moves back to Wed. 7.09 km / 42:03 moving, flat. Rep paces (avg HR): R1 4:45/130 (opener), then R2-10 4:11/4:09/4:08/4:10/4:16/4:15/4:04/4:03/4:13 at HR 159->173, 2:00 rests. CONTROLLED band (4:03-4:16, no sub-3:50 PR chase — clean adherence to the hold-5K-pace brief, claim_16) but HR ran HOT (terminal 173, max 182, claim_11). Fastest R9 4:03. On cumulative travel legs (3rd straight run day) in trainers. The last quality before the Jul 9-14 blackout. + LIFT."}
-      wednesday: {date: 2026-07-08, type: easy,     distance_km: 6.4,                  notes: "DONE — 6.4 km (4 mi) easy SOCIAL run (Strava 19237032099, 'Half Marathon Week 11 Day 3', desc 'With the dawgs Richard Cheng Ojas Bhatia Preston', Toronto). Short of the planned 12 km, but this was the LAST run before the Jul 9-14 blackout so the trim is immaterial (speed banked Jul 7, endurance Jul 4). 6:59/km moving, avg HR ~130, max 162 (in-zone, lone surge at the close). Non-Brennan social run stayed fully in zone (claim_13)."}
-      thursday:  {date: 2026-07-09, type: rest,                                        notes: "NO ACTIVITY Jul 9-14 (Arif unavailable) — full break begins. Was easy 5 km; dropped."}
-      friday:    {date: 2026-07-10, type: rest,                                        notes: "NO ACTIVITY (Jul 9-14 blackout)."}
-      saturday:  {date: 2026-07-11, type: rest,                                        notes: "NO ACTIVITY (Jul 9-14 blackout). Was easy 8 km; dropped."}
-      sunday:    {date: 2026-07-12, type: rest,                                        notes: "NO ACTIVITY (Jul 9-14 blackout). Was medium-long 14 km; dropped — fitness is banked (26 km Jul 4); the 6-day gap is a forced mini-taper before the Jul 15-19 re-sharpen."}
-
-  - week: 13
-    start_date: 2026-07-13
-    end_date:   2026-07-19
-    phase: peak
-    higdon_week: 11
-    notes: "ILLNESS RESTRUCTURE (user, Jul 17): Arif was ill mid-week and rested Jul 15-16 to recover, so the Jul 15 goal-pace sharpener AND the Jul 19 18 km dress rehearsal were DROPPED from this week. Jul 17-18 are easy 5 km run-backs (Jul 18 + weightlifting), Jul 19 is weightlifting only. The dress rehearsal MOVED to Mon Jul 20 as a 19 km (Arif's call) — now inside race week, 6 days out. Endurance/fitness is banked (26 km Jul 4; claim_15, claim_20), so the lost quality this week is a non-event — the illness rest effectively extends the taper. All runs DAILY TRAINERS (Arif still in Toronto; Alphaflys in SF — race defaults noted Jul 26). OPEN: when Arif lands back in SF (Fri Jul 24, see week 14) for the Alphafly break-in shakeouts."
-    days:
-      monday:    {date: 2026-07-13, type: rest,                                        notes: "NO ACTIVITY (Jul 9-14 blackout) — still unavailable."}
-      tuesday:   {date: 2026-07-14, type: rest,                                        notes: "RETURN day (back Jul 14) — no run; first run back is the Wed Jul 15 sharpener. Optional very-easy shakeout only if travel legs feel fine and time allows."}
-      wednesday: {date: 2026-07-15, type: rest,                                        notes: "REST — Arif recovering from illness this week (kept it chill). The goal-pace sharpener prescribed here was DROPPED; sustained goal-pace re-groove now falls to the optional finish of the Mon Jul 20 19 km + the Wed Jul 22 tune-up."}
-      thursday:  {date: 2026-07-16, type: rest,                                        notes: "REST — still recovering from illness. Easy 5 km dropped."}
-      friday:    {date: 2026-07-17, type: easy,     distance_km: 5.0,                  notes: "easy 5 km — first run back after the mid-week illness rest. Keep it genuinely easy (HR<150), just open the legs."}
-      saturday:  {date: 2026-07-18, type: easy,     distance_km: 5.0,                  notes: "easy 5 km + a few strides — primer for the Mon Jul 20 19 km. WEIGHTLIFTING SKIPPED this week (Arif, Jul 19): lifts dropped across the week coming off illness / in taper — no strength upside 7 days out, only fatigue to avoid, so correct to skip."}
-      sunday:    {date: 2026-07-19, type: easy,     distance_km: 5.0,                  notes: "easy 5 km + 3-4 strides. Added at Arif's offer (Jul 17). Keep it GENUINELY easy (HR<150) — it's the day before the Mon 19 km, so this primes the legs without pre-fatiguing; NO quality (coming off illness, don't stack two harder days into the long run). WEIGHTLIFTING SKIPPED (Arif, Jul 19) — see Sat note; fine to drop in the taper. The 18 km dress rehearsal originally here MOVED to Mon Jul 20 and was bumped to 19 km — see week 14 Monday."}
-
-  - week: 14
-    start_date: 2026-07-20
-    end_date:   2026-07-26
+    start_date: 2026-10-12
+    end_date:   2026-10-18
     phase: race_week
-    higdon_week: 12
-    notes: "Actual race week — RESTRUCTURED (user, Jul 17 then Jul 19): the dress-rehearsal 19 km long run now sits TUESDAY Jul 21 (moved Sun Jul 19 -> Mon Jul 20 -> Tue Jul 21), coming off this week's illness — 5 days out. Mon Jul 20 is a rest/pre-long-run day, Wed Jul 22 is recovery, then Arif RESTS Wed-Fri (his call, Jul 23 — dropping the Thu goal-pace tune-up + the Fri break-in run) after the Mon 10 km + Tue 19 km block + the Fri travel. Arif FLIES back to SF on FRIDAY Jul 24; ALL Alphafly break-in now consolidates into the SINGLE Sat Jul 25 shakeout, which MUST carry strides + short goal-pace pickups to prime legs that have had 3 rest days. Race = Alphaflys (Arif's call, Jul 9) with Vaporflys in the bag as fallback (de-risk protocol, Jul 26 note). Coming off illness, keep everything CONTROLLED — this whole week is taper; there is no fitness to gain, only freshness to protect."
+    notes: "Taper. Race is SATURDAY Oct 17 (Higdon's Sunday race moved to Sat to match TCS Toronto). Sun Oct 18 = season done, optional very-easy shakeout only."
     days:
-      monday:    {date: 2026-07-20, type: rest,                                        notes: "REST — the 19 km moved to Tue Jul 21 (Arif, Jul 19). Optional very-easy ~4-5 km shakeout ONLY if legs feel stale after 3 straight easy 5 km days (Fri-Sun); otherwise rest and keep legs fresh for Tuesday's long run. Toronto."}
-      tuesday:   {date: 2026-07-21, type: long,     distance_km: 19.0,                 notes: "★ DRESS REHEARSAL (moved Sun Jul 19 -> Mon Jul 20 -> here at Arif's request; bumped 18 -> 19 km), now 5 days out, DAILY TRAINERS in Toronto. COMING OFF ILLNESS: run it predominantly EASY/aerobic (HR<150, ~6:00-6:30/km) — distance/time-on-feet + fueling is the stimulus. Optional short GOAL-PACE finish (final 3-4 km @ 4:30-4:45/km) ONLY if the illness has fully cleared and legs feel great; otherwise keep it all easy. If still feeling off, cut to 14-16 km easy. LATE confirmation, NOT a fitness lever (banked — claim_15, claim_20); do NOT run it as an all-out gate 5 days before the race. Race-sim the fueling."}
-      wednesday: {date: 2026-07-22, type: rest,                                        notes: "REST (or a very-easy 3-4 km shakeout only if legs feel fine) — recovery the day after the Tue 19 km. Toronto."}
-      thursday:  {date: 2026-07-23, type: rest,                                        notes: "REST (Arif's call, Jul 23) — the short goal-pace tune-up was DROPPED; Arif is resting Wed-Fri after the Mon 10 km + Tue 19 km block. Last Toronto day. TRADE-OFF: no goal-pace touch this week, so the Sat shakeout MUST include strides + a few short goal-pace pickups to prime the legs (avoid a flat, cold race day after 3 rest days)."}
-      friday:    {date: 2026-07-24, type: rest,                                        notes: "REST / TRAVEL DAY — Arif flies back to SF today and is resting (his call, Jul 23). The Fri Alphafly break-in run is dropped, consolidating ALL Alphafly break-in into the Sat Jul 25 shakeout (see Sat). OPTIONAL bonus only: if energy/time allow after landing, a very short leg-opener + a couple strides in the Alphaflys adds break-in — good but not required."}
-      saturday:  {date: 2026-07-25, type: easy,     distance_km: 3.0,                  notes: "Race day -1 — THE single pre-race shakeout AND the only Alphafly break-in (Arif resting Wed-Fri, Jul 23). MAKE IT COUNT: ~3 km easy + 4-6 STRIDES + 2-3 short GOAL-PACE pickups (~20-30s @ 4:30/km) in the ALPHAFLYS, exact race-day socks — this both breaks in the shoe (only ~5 km lifetime before today, from Jul 1) AND primes legs that have had 3 rest days so race morning isn't a cold start. THOROUGH hot-spot/rubbing check over the whole foot. Then legs up. Coach delivers the 14-week recap. NON-NEGOTIABLE de-risk: bring the VAPORFLYS to the start line tomorrow — if any hot spot shows in the warm-up jog, switch at the line (both raceworthy)."}
-      sunday:    {date: 2026-07-26, type: race,     race_distance: "half marathon",    notes: "RACE DAY — SF Half, 8:30 AM, Crissy Field. SHOES: ARIF IS RACING THE ALPHAFLYS (his decision, Jul 9, overriding the coach's Vaporfly recommendation — accepted). RISK NAMED: only ~5 km (Jul 1) + the Jul 24-25 shakeouts of lifetime break-in before racing 21.1 km — blister/hot-spot risk over distance is the real hazard, not the engine. DE-RISK PROTOCOL: (1) max Alphafly time Jul 24 + Jul 25 shakeouts in exact race socks; (2) BRING THE VAPORFLYS TO THE START in the bag — if ANY hot spot/rubbing shows in the warm-up jog, switch to the Vaporflys at the line (a start-line audible is fine, both are raceworthy); (3) glide/tape known hot-spot zones as a precaution. Vaporflys remain the proven fallback. PACING PLAN (coach, Jul 24): sub-1:35 (4:30/km) is a STRETCH/dream target, NOT a confirmed capability — hard evidence tops out at ~6 km of goal pace (Jun 21, 4:28/km @ HR161) + ~4 km tempo at 4:37 near-max HR; the Jun 7 10K (4:44/km) maps to ~1:43-1:45; the Jul 21 19 km was run all-easy (HR141) with a controlled 5:15 finish so goal-pace-over-distance is UNCONFIRMED this block; off an illness-shortened taper. CONTEXT CORRECTION (user, Jul 25): this is Arif's 3rd half marathon with a PR ~1:37 last year (2025, ~4:37/km) — NOT his first, so HM distance is a KNOWN quantity and the coach's earlier 'first HM' framing was wrong. The 1:37 PR (4:37/km over 21.1 km) is FASTER per km than the Jun 7 10K (4:44/km), so the 10K-equivalency (~1:43-1:45) UNDER-predicts him — he is a stronger endurance/HM runner than his short-race speed suggests. With this block's bigger base (claim_20) + goal-pace work he is likely FITTER than the 1:37, making sub-1:35 a REALISTIC REACH (~2.5 min improvement) rather than a stretch/fantasy. STRATEGY = even-to-negative effort, leaning on his universal negative-split tendency (10K: 1st5k 24:41 / 2nd5k 22:44, closed 4:17 no fade): km1-3 CONTROLLED 4:45-4:50/km (HR<170, resist the fast start), km4-9 settle 4:38-4:42, km10-15 assessment window ease to 4:33-4:38 if comfortable, km16-21 his race — hunt 4:30/km and below if strong, let HR climb to 178-185 only here. Run hills by EFFORT not pace (SF rolling). Realistic strong outcome ~4:37/km avg = ~1:37-1:38 (matching last year's ~1:37 PR); sub-1:35 a legitimate reach if healthy + the back third comes to sub-4:30 (he is likely fitter than the 1:37 this year). He can sit the 4:45 END of the opening band confidently — he has raced this distance twice. Do NOT chase 4:30 from the gun. Shoe fit first — Vaporflys at the line if any hot spot in warm-up. SHOE CONFIRMED (user, Jul 25): the Jul 25 SF Embarcadero shakeout in the Alphaflys felt CLEAN — no hot spots/rubbing over 4.6 km on race pavement — so the ALPHAFLYS ARE LOCKED as the race shoe; Vaporflys still ride to the start as bag insurance only. PRE-RACE MEAL: eat ~2.5-3 hrs before the 8:30 gun (familiar carbs), fully settled by the start."}
+      monday:    {date: 2026-10-12, type: rest,     notes: "Rest"}
+      tuesday:   {date: 2026-10-13, type: easy,     distance_km: 4.8, notes: "4.8 km easy"}
+      wednesday: {date: 2026-10-14, type: tempo,    duration_min: 30, notes: "30 min tempo but CONTROLLED — sharpening, not a workout. 3 days out."}
+      thursday:  {date: 2026-10-15, type: easy,     distance_km: 3.2, notes: "3.2 km easy shakeout"}
+      friday:    {date: 2026-10-16, type: rest,     notes: "Rest — race day -1. Optional 2-3 km shakeout w/ 2-3 strides if legs feel flat."}
+      saturday:  {date: 2026-10-17, type: race,     race_distance: "5K", notes: "★★★ GOAL RACE — TCS Toronto Waterfront 5K. Goal band sub-20:00 stretch / 20:00-20:45 target."}
+      sunday:    {date: 2026-10-18, type: rest,     notes: "Season done. Optional very-easy shakeout only."}

@@ -1,66 +1,83 @@
 # Phase guidance
 
 The authoritative phase mapping lives in `data/plan.yaml` under `phases`.
-Read that first. The mapping is by **calendar week number** (1-14), not
-weeks-to-race. As a quick reference for a 14-week block ending 2026-07-26:
+**Always read that first** — the phase names, the week count, and the
+week→date anchoring are defined there, not here. This file is coaching
+*tone* by phase; it must not hardcode a race, a block length, or a goal
+time. Read the current race, distance, and goal from `data/block.json`
+(durable athlete facts come from `data/athlete.json`).
 
-| Calendar weeks | Phase | Coaching emphasis |
+To find today's plan week: scan `plan.yaml.weeks` for the entry where
+`start_date <= today <= end_date`. Its `week:` field is the week number
+and its `phase:` field is the phase. Compute `weeks_to_race` against
+`block.race.date`.
+
+## Current block: 8-week Higdon Intermediate 5K (race 2026-10-17)
+
+| Plan weeks | Phase | Coaching emphasis |
 |---|---|---|
-| 1 — 4 | **base** | Aerobic foundation. Volume up gradually. Easy days *easy*. |
-| 5 — 8 | **build** | Quality work matures. Tempo & pace runs start mattering. |
-| 9 — 11 | **peak** | Most specific work of the block. Race pace, race fueling. |
-| 12 — 13 | **taper** | Volume drops, intensity stays. Rest is the work. (2 buffer/taper weeks built in.) |
-| 14 (race week) | **race-week** | Sleep, hydration, mental rehearsal. No new ideas. |
+| 1 — 2 | **base** | Re-introduce speed after the HM block. Rebuild easy volume, wake up the legs. Don't overcook the first 400s. |
+| 3 — 4 | **build** | Tempo & 400s mature. Wk4 (Sun Sep 20) is a **5K test** — a real time trial that recalibrates the goal band. |
+| 5 | **sharpen** | 7x400 + 6.4 km fast. Bridge from build into peak; absorb the 5K test. |
+| 6 — 7 | **peak** | Sharpest work of the block: 40-min tempo, 8x400, 5-mi fast. Longest long runs (11.3 km). Most race-specific fitness. |
+| 8 | **race-week** | Taper. Volume drops, keep a little sharpness. Race Sat Oct 17. Rest is the work. |
 
-To find today's calendar week: scan `plan.yaml` for the entry where
-`start_date <= today <= end_date`. The `week:` field is the calendar
-week number; the `phase:` field is its phase.
+This table is illustrative for the current block. If `plan.yaml` changes,
+the mapping there wins.
 
 ## Phase-specific tone
 
-**Base.** Reward restraint. Flag easy-day creep aggressively — that's the
-biggest base-phase failure mode. Don't over-react to one fast Tuesday.
+**Base.** Reward restraint. The first speed sessions after a long aerobic
+block feel hard — that's expected, not a red flag. Flag easy-day creep
+(easy runs drifting under ~5:20/km / over HR 150) as speed work ramps.
 
-**Build.** Pay close attention to whether quality sessions are *executed
-to spec*, not just completed. If pace runs are ending faster than they
-started by >10 sec/km, it's progression-running, not pace-running. Flag.
+**Build.** Pay attention to whether quality is *executed to spec*, not
+just completed. For 400s, watch rep consistency — if reps 1-3 are 3:50/km
+and reps 6-8 are 4:15/km, it went out too hard. For tempo, the middle
+third should sit at threshold, not drift into easy. The **5K test** is the
+key event: treat its result as the new anchor for the goal band and update
+`block.json`'s `goal_band` accordingly.
 
-**Peak.** Mention race day more often. Pace runs become race-pace
-rehearsal. Long runs include race-pace finishes (per Higdon plan). User
-should be visualizing the SF Second Half course (Crissy Field start,
-Embarcadero finish).
+**Sharpen / Peak.** This is where 5K-specific speed is made. Reps at 5K
+pace should start to feel repeatable, not maximal. Mention race day more
+often. Long runs are aerobic support only — they should stay easy so the
+quality days land. Watch cumulative fatigue: 5K peak weeks stack VO2 +
+fast runs close together.
 
-**Taper.** Trust the work. Don't add sessions. If the user wants to "test
-fitness," talk them out of it. Maintain sharpness, don't build it.
-
-**Race week.** Almost coachless. Just remind: sleep, hydration, easy
-shakeouts, no new shoes/gels. Race day −1: do the recap (see below).
+**Race week.** Almost coachless. Trust the taper. If Arif wants to "test
+fitness," talk him out of it — maintain sharpness, don't build it. Remind:
+sleep, hydration, easy shakeouts, no new shoes/gels. Race day −1: do the
+recap (see below).
 
 ## Race day −1 (special prompt)
 
-When today == race_date − 1 day (2026-07-25), on a Type B brief
-invocation, produce a 14-week recap:
+When today == `block.race.date` − 1 day, on a Type B brief invocation,
+produce a block recap:
 
-- 3-5 specific facts about how training went, drawn from semantic memory.
-- 1-2 patterns the user demonstrated (good and bad).
-- The pacing call for tomorrow, drawn from procedural memory if the user
-  has set rules about how they like to race.
-- Closing line: short, non-cheesy, race-specific to SF Second Half.
+- 3-5 specific facts about how the block went, drawn from semantic memory
+  and the runs (5K test result, best 400 sessions, tempo progression).
+- 1-2 patterns Arif demonstrated (good and bad — e.g. reorder-not-skip,
+  easy-day creep, same-day lifting).
+- The pacing call for tomorrow, drawn from procedural memory if Arif has
+  set rules about how he likes to race, and from the 5K test pace.
+- Closing line: short, non-cheesy, specific to the current race.
 
 This should feel like a coach who actually watched, because you did.
 
 ## Confidence in goal time
 
-The user's goal is sub-1:35 (≈4:30/km). Don't compute Riegel-style
-predictions. Speak qualitatively, citing semantic memory:
+Read the goal / goal_band from `block.json`. For the current block the
+goal band is sub-20:00 (stretch) / 20:00-20:45 (target), 4:00/km. Don't
+compute Riegel-style predictions inline — speak qualitatively, citing
+evidence:
 
-- "Pace runs at 4:24-4:26/km in week 8 read as solid evidence the goal
-  is in range."
-- "Long runs ending strong (last 5 km faster than first 5) suggest
-  the aerobic base is there."
-- "The km-7 fade pattern is the single biggest risk to negative-splitting
-  the race."
+- "Your 400s came down to ~1:36 with clean recoveries by Wk5 — that reads
+  as real 5K speed, not one-off."
+- "The Wk4 5K test at X:XX recalibrates the band — [tighten / hold / ease]."
+- Name the single biggest risk to the goal (e.g. going out too fast on
+  km 1 — a 5K punishes that harder than a half did).
 
-If the user explicitly asks "am I going to hit sub-1:35?", give a direct
+If Arif explicitly asks "am I going to hit sub-20?", give a direct
 qualitative read: "trending well", "on the edge", "the goal looks
-unrealistic without X." Cite the semantic claims that drove the read.
+unrealistic without X." Cite the semantic claims that drove the read. The
+5K test result is the strongest single piece of evidence — weight it.

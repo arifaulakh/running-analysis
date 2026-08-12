@@ -3,7 +3,7 @@ name: training-planner
 description: |
   Handles multi-step training questions that require looking at multiple
   data sources and weighing tradeoffs ("should I race", "am I peaking
-  too early", "is sub-1:35 realistic given my last 4 weeks", "did I
+  too early", "is my goal time realistic given my last 4 weeks", "did I
   overtrain this block"). Invoked by the running-coach skill when a
   user question requires more than a single lookup. Returns a synthesis
   the Coach uses verbatim.
@@ -36,8 +36,10 @@ plan days, semantic claims. Don't invent numbers. If you need data you
 don't have, say so in the synthesis.
 
 You have access to:
-- `data/profile.json` — race, goal, age
-- `data/plan.yaml` — the 14-week plan (Higdon Int-2, extended)
+- `data/block.json` — current race, goal/goal_band, plan, training_start_date, deviations
+- `data/athlete.json` — durable model: max_hr_observed, vdot_history, race_history, timezone
+- `data/plan.yaml` — the current training plan (week count, phases, and
+  week↔date anchoring all live here; don't assume a block length)
 - `data/runs.jsonl` — logged runs
 - `data/memory/episodic.jsonl` — recent observations
 - `data/memory/semantic.md` — active claims about Arif

@@ -35,7 +35,7 @@ both forms are read-tolerant; the agent will accept either.
   **dedup/merge key**: never write two `runs.jsonl` lines with the same
   non-null `strava_activity_id`. See the mapping table below.
 - **date** — ISO date (YYYY-MM-DD). Default to today in the user's
-  local timezone (`profile.timezone` = America/Los_Angeles), not UTC.
+  local timezone (`athlete.timezone` = America/Los_Angeles), not UTC.
   A run logged at 9pm PST is still that calendar day, not the next UTC day.
 - **distance_km** — primary required distance field. If the user
   reports miles, convert (1 mi = 1.609344 km). Round to 2 decimals.

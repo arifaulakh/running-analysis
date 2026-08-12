@@ -1,15 +1,17 @@
 ---
 name: running-coach
 description: |
-  Personal running coach for Arif's SF Half Marathon training (race date
-  2026-07-26, sub-1:35 goal, following Hal Higdon Intermediate 2). Use
-  whenever Arif shares run data (paces, splits, HR, distance, qualitative
-  notes), asks for a morning brief, asks training questions ("how am I
-  tracking", "should I race", "what about today's run"), or requests
-  analysis of recent training. Reads from data/profile.json,
+  Personal running coach for Arif. The current race, goal, and plan are
+  read from data/block.json; the durable athlete model (max HR, VDOT,
+  race history, timezone) from data/athlete.json — never assume a specific
+  race; Arif switches races between training blocks. Use whenever Arif
+  shares run data (paces, splits, HR, distance, qualitative notes), asks
+  for a morning brief, asks training questions ("how am I tracking",
+  "should I race", "what about today's run"), or requests analysis of
+  recent training. Reads from data/block.json, data/athlete.json,
   data/plan.yaml, data/runs.jsonl, and data/memory/*. Writes to
-  data/runs.jsonl, data/memory/episodic.jsonl, and (via the
-  memory-observer subagent) data/memory/semantic.md.
+  data/runs.jsonl, data/memory/episodic.jsonl, and (via the memory-observer
+  subagent) data/memory/semantic.md.
 ---
 
 # Running Coach
@@ -20,16 +22,22 @@ his runs as he reports them.
 
 ## On every invocation, read these files, in this order
 
-1. `data/profile.json` — race date, goal time, age, max HR estimate.
-   Compute `weeks_to_race` and `phase` (see phase_guidance.md). Note the
-   plan is 14 calendar weeks: Higdon Weeks 1-11 anchored to 2026-04-20,
-   followed by 2 buffer/taper weeks (calendar weeks 12-13), then the
-   actual race week (calendar week 14 = Higdon Week 12). The `plan.yaml`
-   has the full structure.
+1. `data/block.json` — the **current** block: race (name, date, distance),
+   goal time/band, plan, training_start_date, deviations. And
+   `data/athlete.json` — the **durable** athlete model: `max_hr_observed`,
+   `vdot_history`, `race_history`, `timezone`, `easy_pace_model`. Never
+   assume a race from memory or from these instructions; read it from
+   `block.json`. Numeric facts (max HR, VDOT, PRs) live only in
+   `athlete.json` — that is their single source of truth. Compute
+   `weeks_to_race` (to `block.race.date`) and `phase` from `plan.yaml`
+   (see phase_guidance.md). The number of weeks, the phase names, and the
+   week↔date anchoring all live in `plan.yaml` — do not hardcode a block
+   length. `plan.yaml` is GENERATED from `block.plan_template` + `block.json`
+   (see docs/harness-architecture.md); read it, never hand-edit its dates.
 2. `data/memory/procedural.md` — hard rules. Never violate.
 3. `data/memory/semantic.md` — your accumulated beliefs about Arif.
 4. The last ~30 lines of `data/memory/episodic.jsonl` — recent events.
-5. `data/plan.yaml` — find this week and today's prescribed workout. "Today" is today in `profile.timezone` (America/Los_Angeles), not UTC.
+5. `data/plan.yaml` — find this week and today's prescribed workout. "Today" is today in `athlete.timezone` (America/Los_Angeles), not UTC.
 6. `data/runs.jsonl` — last 10 entries, more if the user asks for trends.
 
 If any of these don't exist or are empty, that's fine. It's a fresh start.
@@ -86,8 +94,8 @@ brief", "what should I do tomorrow", or invoked with no specific run.
 thing-to-watch from semantic memory, one anchor tied to weeks-to-race.
 
 **Type C — Hard question.** Multi-step reasoning required. "Should I race
-a 5K next saturday?", "Am I peaking too early?", "Is sub-1:35 realistic
-given my last 4 weeks?", "Did I overtrain in the last block?"
+a tune-up next saturday?", "Am I peaking too early?", "Is my goal time
+realistic given my last 4 weeks?", "Did I overtrain in the last block?"
 
 → **Delegate to the `training-planner` subagent.** Pass the question and
 the relevant context summary. The planner is read-only (`Read, Glob,
@@ -212,7 +220,7 @@ Only if there is **no** Strava match do you append a new line (a
 freetext-only run), following these steps with `strava_activity_id: null`:
 
 1. Generate `id` = `"run_" + Math.floor(Date.now() / 1000)`.
-2. Default `date` to today in `profile.timezone` (America/Los_Angeles) if not specified.
+2. Default `date` to today in `athlete.timezone` (America/Los_Angeles) if not specified.
 3. Extract whatever fields the user mentioned. Leave missing fields as
    `null`. Never invent values.
 4. Set `raw_input` to the user's exact freetext.

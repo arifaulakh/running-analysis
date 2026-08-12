@@ -25,9 +25,12 @@ evals/.baseline.json
 
 # Personal training data — never commit; .example versions are tracked
 data/profile.json
+data/athlete.json
+data/block.json
 data/runs.jsonl
 data/memory/episodic.jsonl
 data/memory/semantic.md
 data/memory/procedural.md
 data/memory/observer_state.json
+data/memory/archive/
 data/strava_state.json

@@ -7,8 +7,9 @@ and Claude Code as the runtime.
 
 Built to train for the SF Marathon Second Half (2026-07-26, sub-1:35
 goal) following the Hal Higdon Intermediate 2 plan, but the architecture
-is plan-agnostic — fork it and swap `data/plan.yaml` and
-`data/profile.json` for your own race.
+is plan-agnostic — fork it and swap `data/block.json` (current race +
+goal + plan) for your own race; `data/plan.yaml` is generated from a
+template (see `docs/harness-architecture.md`).
 
 ## Why this design
 
@@ -44,8 +45,9 @@ and a documented failure-mode log.
 .mcp.json                       # registers the Strava read-only MCP server
 
 data/
-├── profile.json                # race + goal config (gitignored)
-├── plan.yaml                   # Higdon Int-2, anchored to race date
+├── athlete.json                # durable athlete model: max HR, VDOT, race history (gitignored)
+├── block.json                  # current-block config: race + goal + plan template (gitignored)
+├── plan.yaml                   # GENERATED from a template + block.json, anchored to race date
 ├── runs.jsonl                  # run log: Strava-synced + freetext (gitignored)
 ├── strava_state.json           # Strava sync watermark (gitignored)
 └── memory/
@@ -118,7 +120,7 @@ git clone https://github.com/arifaulakh/running-analysis
 cd running-analysis
 
 # Bootstrap your data files from the .example templates
-cp data/profile.json.example data/profile.json
+cp data/profile.json.example data/athlete.json  # then split durable vs per-block (see docs/harness-architecture.md)
 cp data/runs.jsonl.example data/runs.jsonl  # or: touch data/runs.jsonl
 cp data/memory/episodic.jsonl.example data/memory/episodic.jsonl  # or empty
 cp data/memory/semantic.md.example data/memory/semantic.md
@@ -126,9 +128,10 @@ cp data/memory/procedural.md.example data/memory/procedural.md
 cp data/memory/observer_state.json.example data/memory/observer_state.json
 cp data/strava_state.json.example data/strava_state.json  # optional, for Strava sync
 
-# Edit profile.json with your race date, goal time, age, etc.
-# Edit plan.yaml to anchor the Higdon plan dates to your race
-# (or replace it entirely with a different plan structure)
+# Edit block.json with your race date, goal time, and plan template;
+#   put durable facts (max HR, race history) in athlete.json
+# Generate plan.yaml from the template:  node scripts/generate_plan.mjs
+# (see docs/harness-architecture.md for the data model)
 
 # Open Claude Code in this directory
 claude

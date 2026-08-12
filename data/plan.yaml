@@ -49,7 +49,7 @@ phases:
 
 # Pre-plan re-entry (not a Higdon week; for coach context only)
 re_entry:
-  window: "2026-08-11 to 2026-08-23"
+  window: "2026-08-11 to 2026-08-16"
   emphasis: >
     Post-HM recovery + easy aerobic base. Rebuild to ~30-40 km/wk of easy
     running. No structured intervals or tempo yet — one optional strides

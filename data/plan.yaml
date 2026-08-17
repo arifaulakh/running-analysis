@@ -27,28 +27,35 @@ weeks:
       monday:
         date: "2026-08-17"
         type: "rest"
-        notes: "Rest (natural lift slot)"
+        lift: "push"
+        notes: "Rest from running. Lift 1 of 4 — push."
       tuesday:
         date: "2026-08-18"
         type: "easy"
         distance_km: 4.8
+        lift: "pull"
+        notes: "Easy, HR <150, 5:20+/km. Lift 2 of 4 — pull (upper-body only, no run interference into Wed intervals)."
       wednesday:
         date: "2026-08-19"
         type: "interval"
         intervals: "5 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery"
-        notes: "First speed session of the block — ease in, don't overcook the early reps"
+        notes: "First speed session of the block — ease in, don't overcook the early reps. NO LIFT: keep the day clean. Explicit hold-back brief per claim_16: reps 1-2 at the SLOW end (1:38), never faster than 1:34."
       thursday:
         date: "2026-08-20"
         type: "easy"
         distance_km: 4.8
+        lift: "push"
+        notes: "Easy recovery from Wed intervals, HR <150. Lift 3 of 4 — push."
       friday:
         date: "2026-08-21"
         type: "rest"
-        notes: "Rest (natural lift slot)"
+        notes: "True rest — no run, no lift. The one full off-day of the week."
       saturday:
         date: "2026-08-22"
         type: "easy"
         distance_km: 4.8
+        lift: "pull"
+        notes: "Easy, HR <150. Lift 4 of 4 — pull."
       sunday:
         date: "2026-08-23"
         type: "long"

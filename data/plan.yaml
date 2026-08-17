@@ -60,7 +60,7 @@ weeks:
         date: "2026-08-23"
         type: "long"
         distance_km: 8
-        notes: "long, easy"
+        notes: "Long, easy — HR <150, 5:20+/km. NO LIFT. Longest run of the week and the last quality-adjacent session before the Aug 24-30 travel break."
   - week: "travel"
     start_date: "2026-08-24"
     end_date: "2026-08-30"

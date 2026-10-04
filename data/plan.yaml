@@ -347,6 +347,8 @@ weeks:
       friday:
         date: "2026-10-09"
         type: "rest"
+        lift: "push"
+        lift_exercises: "Bench press 3x5; Overhead shoulder press 3x5; Incline dumbbell press 3x8; Lateral raises 3x15; Tricep pulldown 3x12."
         notes: "Rest (natural lift slot)"
       saturday:
         date: "2026-10-10"

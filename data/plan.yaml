@@ -342,6 +342,8 @@ weeks:
         date: "2026-10-08"
         type: "easy"
         distance_km: 4.8
+        lift: "pull"
+        lift_exercises: "Assisted pull-ups 3x5; Seated rows 3x10; Lat pulldown 3x8; Preacher curls 3x8; Face pulls 3x10. Run first, lift after."
       friday:
         date: "2026-10-09"
         type: "rest"

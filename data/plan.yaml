@@ -2,8 +2,11 @@
 # Source: templates/hal-higdon-intermediate-5k.json + data/block.json
 # Regenerate:  node scripts/generate_plan.mjs
 # Generated at: 2026-08-12T05:10:44.519Z
+# HAND-CORRECTED 2026-09-26: race date Sat Oct 17 -> SUN OCT 18 (Arif's report) and Week 8
+# rebuilt around his Oct 14 SF->Toronto flight. NOT regenerated on purpose — generate_plan.mjs
+# rebuilds from the template and never reads this file, so regenerating destroys every day note.
 
-race_date: "2026-10-17"
+race_date: "2026-10-18"
 race_name: "TCS Toronto Waterfront 5K"
 race_distance: "5K"
 plan: "Hal Higdon Intermediate 5K"
@@ -34,7 +37,7 @@ weeks:
         type: "easy"
         distance_km: 4.8
         lift: "pull"
-        notes: "Easy, HR <150, 5:20+/km. Lift 2 of 4 — pull (upper-body only, no run interference into Wed intervals)."
+        notes: "Easy, HR <150, 5:20+/km, THEN 6 x 20s strides (relaxed, fast, full recovery) — neuromuscular work, not a workout. Lift 2 of 4 — pull (upper-body only, no run interference into Wed intervals)."
       wednesday:
         date: "2026-08-19"
         type: "interval"
@@ -75,29 +78,28 @@ weeks:
         date: "2026-08-25"
         type: "easy"
         distance_km: 4.8
-        notes: "Optional easy if convenient while travelling"
+        notes: "Optional easy if convenient while travelling + 6 x 20s strides. Strides need no track and no measurement — do these even if the run is short."
       wednesday:
         date: "2026-08-26"
         type: "rest"
         notes: "Travel — rest or optional easy"
       thursday:
         date: "2026-08-27"
-        type: "easy"
-        distance_km: 4.8
-        notes: "Optional easy if convenient while travelling"
+        type: "rest"
+        notes: "Travel — rest (confirmed by Arif 2026-08-27: no running available this week)."
       friday:
         date: "2026-08-28"
         type: "rest"
-        notes: "Travel — rest or optional easy"
+        notes: "Travel — rest (confirmed)."
       saturday:
         date: "2026-08-29"
-        type: "easy"
-        distance_km: 6.4
-        notes: "Optional easy — a longer one if you get the chance"
+        type: "rest"
+        notes: "Travel — rest (confirmed)."
       sunday:
         date: "2026-08-30"
-        type: "rest"
-        notes: "Travel — rest or optional easy"
+        type: "long"
+        distance_km: 8
+        notes: "The ONE run of the travel week (Arif 2026-08-27). This is the 8 km long carried over from the missed Week 1 Sunday (Aug 23). Easy — HR <150, 5:20+/km. Off ~2 weeks of almost no running, treat it as a re-entry long: start slow, no progression, no closing kick (claim_26). If it feels like work at 5:30/km, walk-jog the last 2 km rather than pushing."
   - week: 2
     start_date: "2026-08-31"
     end_date: "2026-09-06"
@@ -106,35 +108,41 @@ weeks:
     days:
       monday:
         date: "2026-08-31"
-        type: "rest"
-        notes: "Rest (natural lift slot)"
+        type: "easy"
+        distance_km: 5
+        lift: "push"
+        notes: "Easy 5 km, HR <150 — prescribed rather than freelanced (claim_3). Lift 1 of 4 — push (upper body only)."
       tuesday:
         date: "2026-09-01"
         type: "easy"
-        distance_km: 4.8
+        distance_km: 5
+        lift: "pull"
+        notes: "Easy 5 km, HR <150, THEN 6 x 20s strides (relaxed, fast, full recovery). Strides are the re-entry ramp into Wednesday — neuromuscular, not a workout. Lift 2 of 4 — pull."
       wednesday:
         date: "2026-09-02"
         type: "tempo"
         duration_min: 30
-        notes: "30 min tempo — build to ~threshold (4:25-4:35/km) in the middle, easy start/finish"
+        notes: "CORRECTED 2026-09-02 (third revision, and the coach was wrong twice). Arif asked for the tempo to be the stock 30 min; the coach first read that as 30 min OF THRESHOLD plus warm-up/cool-down (~59 min, ~11-12 km) and wrote it as 3 x 10 min. Arif correctly pointed out that is not a 30-minute tempo run. Higdon's '30 min tempo' means a 30-MINUTE RUN TOTAL — easy start, threshold middle, easy finish — which is exactly what the template note said ('build to ~threshold in the middle, easy start/finish'). FINAL SESSION: 8 min easy jog, then 15 MIN CONTINUOUS at 4:45/km, then 7 min easy jog. 30 min total, ~5.8 km. NO LIFT. Band brief per claim_31 (pace bands on structured sessions are the countermeasure that actually works for him): do NOT go under 4:40. 15 honest minutes at threshold is a better first-ever true threshold session than 30 he drifts through — per the Aug 28 audit every tempo he has ever logged came in at 5:21-5:43/km, so the target here is EXECUTION, not volume. HR expectation from the Jun 7 10K (4:44/km at 173) and Jul 26 HM (4:42/km at 179): ~170 drifting up; 185 means too fast."
       thursday:
         date: "2026-09-03"
         type: "easy"
-        distance_km: 4.8
+        distance_km: 5
+        lift: "push"
+        notes: "Easy recovery from Wed, HR <150. Lift 3 of 4 — push. Last real running day before Saturday's 21 km — keep it genuinely easy, this is not a day to top up."
       friday:
         date: "2026-09-04"
         type: "rest"
-        notes: "Rest (natural lift slot)"
+        notes: "TRAVEL DAY — Arif flying (reported 2026-08-31). Already a rest day, so no conflict; this is now the best-placed rest of the week. No run, no lift. Practical note: a flight the day before a 21 km dehydrates and stiffens — drink more than feels necessary and walk the aisle."
       saturday:
         date: "2026-09-05"
-        type: "pace"
-        distance_km: 4.8
-        notes: "fast — comfortably hard, ~4:45-5:00/km"
+        type: "long"
+        distance_km: 14
+        lift: null
+        notes: "CHANGED 2026-08-31 at Arif's request (was: 6 km with the last 2 km at 4:40-4:50). Social 21 km with a friend, the day after a flight. This REPLACES both the Saturday pace session and Sunday's 9 km long — it is the week's long run and then some. COACH'S POSITION, stated once: this is a ~145% jump over his longest run in three weeks (8.64 km on Aug 30) off 13.6 km across the two travel weeks; 12-15 km was recommended instead. Arif is doing 21. THE BRIEF THAT MAKES IT SURVIVABLE: run it GENUINELY easy — 5:40-6:00/km, HR <150, walk the hills if needed. At easy pace this costs ~2 days of recovery; at 5:00/km it costs 5+ and eats the Week 3 5x800, which is the most important session before the Sep 20 test. No progression, no closing kick, no matching the friend if the friend is faster (claim_26 / claim_11 are the risk here). NO LIFT — the 4th lift of the week is dropped, not moved. 5K-SPECIFIC VALUE: near zero. Aerobic base is already his strongest asset. This is a social run being accommodated, not a training session, and it is being logged as such. REVISED 2026-09-03 (21 km -> 14 km) AFTER THURSDAY. The inputs changed: Thursday Sep 3 was prescribed a single easy 5 km at HR<150 with an explicit 'not a day to top up', and came in at 16.65 km across TWO runs (11.65 km run-club at 5:24/km, HR 157.3, then a second 5.00 km at 6:22/km, HR 160.4 closing at HR 177). That makes Week 2 already 31.87 km with three days left, against 13.64 km TOTAL across the two preceding travel weeks. Running 21 km on Saturday would put the week at ~52.9 km — roughly 3.9x the two-week average and 2.5x the highest week since the Jul 26 HM — with the 21 km landing ~48h after a 16.65 km day and immediately after a travel day. That is an injury-risk profile, not a training stimulus. Thursday's 11.65 km ALREADY SERVED as the week's long run (longest of the block), so Saturday no longer needs to carry that role. PRESCRIPTION: 14 km, 5:40-6:00/km, HR <150, no progression, no closing kick, do not match the friend. If Arif wants the full 21 with his friend anyway, that is his call and the brief above still applies — but the cost is the Week 3 5x800 on Sep 9, which is the most valuable session remaining before the Sep 20 5K test."
       sunday:
         date: "2026-09-06"
-        type: "long"
-        distance_km: 8
-        notes: "long, easy"
+        type: "rest"
+        notes: "CHANGED 2026-08-31. Was a 9 km long — which is pointless and counterproductive the day after 21 km. Full REST. If the legs genuinely feel fine, an optional 3-4 km shakeout at 6:00+/km is allowed, but rest is the default and the better choice."
   - week: 3
     start_date: "2026-09-07"
     end_date: "2026-09-13"
@@ -143,20 +151,25 @@ weeks:
     days:
       monday:
         date: "2026-09-07"
-        type: "rest"
-        notes: "Rest (natural lift slot)"
+        type: "easy"
+        distance_km: 5
+        lift: null
+        notes: "RESTORED 2026-09-07 at Arif's request ('chill 5 km today'). Had been downgraded to REST on Aug 31 specifically to absorb a 21 km Saturday — that 21 km never happened (Sep 5 was 8.01 km at HR 140.5, Sep 6 was 3.65 km), so the reason for the rest day is gone and an easy 5 km on Monday is appropriate. Easy means easy: HR <150, 5:20+/km, and the structural target per claim_31/claim_33 is NO KILOMETRE FASTER THAN 5:20 — a pace floor he can fail per km, not an open-ended effort ceiling, because Sunday was a hard rest-day run and Wednesday's 5x800 is the block's most valuable session before the Sep 20 test. NO LIFT today; push moves to Tuesday at Arif's request."
       tuesday:
         date: "2026-09-08"
-        type: "easy"
-        distance_km: 4.8
+        type: "rest"
+        lift: "push"
+        notes: "CHANGED 2026-09-07 (evening) at Arif's request: he is resting Tuesday. The 4.8 km easy run is DROPPED — not moved, not made up. PUSH LIFT RETAINED, because he named Tuesday as a push day earlier the same day and lifting on non-running days is his established pattern (claim_1); upper body only, no legs the day before intervals. If he meant a full day off including the lift, that is fine and needs no compensation. COACHING READ — THIS IS AN IMPROVEMENT, NOT A LOSS: Wednesday's 6x400 is the most valuable session of the week and the first structured speed work of the block (the Aug 19 5x400 was wiped by travel and the Sep 2 session was a continuous tempo). Higdon put an easy run here, but Arif has run 6 of the last 9 days including a hard rest-day effort on Sep 6 and a 4:15 closing km on Sep 7, so arriving at the reps fresh is worth more than 4.8 easy kilometres. Week 3 drops from ~37 km to ~32 km, which is the correct direction in a week whose value is quality, not volume."
       wednesday:
         date: "2026-09-09"
         type: "interval"
-        intervals: "6 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery"
+        intervals: "6 x 400m at 5K effort (1:40-1:44 per rep = 4:10-4:20/km), 400m jog recovery"
+        notes: "REBANDED 2026-09-03 on evidence. Was 3:20-3:24 (4:10-4:15/km) — a band set on Aug 16 from GOAL-pace assumptions, before this block had produced any current speed data. It now has some: on Sep 2 he held 4:32-4:34 for 2 km at HR 179-186, i.e. near-maximal. Asking for 4:10-4:15 x 5 would be 20 sec/km faster than that, and the predictable outcome is reps 1-2 at 4:10 and a collapse — the exact claim_11 failure that has now repeated twice in three days. 3:30-3:34 IS genuine current 5K effort for him and is still faster than the 4:33 he sustained continuously, which is what the 400m jog recovery buys. Longer reps remain the point: 4.0 km of work vs 2.4 km of 400s, targeting the untrained 4:10-4:45 middle (claim_28). Band brief per claim_31 (pace bands on structured sessions are the countermeasure that demonstrably works): rep 1 at 3:34, NEVER faster than 3:30. If reps 4-5 fall off the band, the opener was too fast. CHANGED 2026-09-07 at Arif's request: 5 x 800m -> 6 x 400m. NEW BAND 1:40-1:44 per rep (4:10-4:20/km), 400m jog recovery — rep 1 at 1:44, NEVER faster than 1:40. Derivation, so it is not mistaken for a guess: the 800 band of 4:22-4:27/km was set from the only sustained evidence in the block (Sep 2, 4:32-4:34 held for 2 km at HR 179-186). Half the rep length with full 400m recovery justifies roughly 10-15 sec/km faster, which lands at 4:10-4:20. Independent support: he ran an incidental 400 in 1:40 on Sep 1 inside an easy run, so 1:40 is a real floor, not an aspiration. COACH'S OBJECTION, STATED ONCE AND THEN DROPPED: 400s are the session type this block already has the most of and the least need for. The 5x800 existed specifically to attack the untrained 4:10-4:45 middle (claim_28) — 4.0 km of work vs 2.4 km, and reps long enough that pacing them wrong is felt inside the rep. 6x400 is 40% less work at a distance short enough for his top-end to carry him through, so it trains the end of his range that is already his strongest relative to the gap. That is Arif's call and the session is written as asked. MITIGATION INSIDE THE 400s: keep them HONEST rather than maximal — the value is 6 consistent reps in band, and rep 6 must not be the fastest (claim_7 predicts he closes fast, claim_11 predicts he overcooks). Report per-rep times, not the session average. If this goes well, the Week 4 session should return to 800s or become cruise intervals."
       thursday:
         date: "2026-09-10"
         type: "easy"
         distance_km: 4.8
+        notes: "Easy: HR <150 and no kilometre faster than 5:20. PLUS the last kilometre is now its own prescribed item with its own pass/fail, written this way on 2026-09-07 evidence: THE FINAL KM MUST NOT BE THE FASTEST KM OF THE RUN. Rationale — on Sep 1 (HR ceiling) and Sep 7 (per-km pace floor) he complied for four kilometres and then ran the fifth at 4:19 and 4:15 respectively, so a rule covering 'the run' demonstrably does not cover the finish; the finish needs to be named separately and be failable on its own. Report the per-km splits. Arif agreed on Sep 7 to keep this week's non-interval days genuinely easy."
       friday:
         date: "2026-09-11"
         type: "rest"
@@ -165,11 +178,12 @@ weeks:
         date: "2026-09-12"
         type: "easy"
         distance_km: 6.4
+        notes: "Easy: HR <150 and no kilometre faster than 5:20. PLUS the last kilometre is now its own prescribed item with its own pass/fail, written this way on 2026-09-07 evidence: THE FINAL KM MUST NOT BE THE FASTEST KM OF THE RUN. Rationale — on Sep 1 (HR ceiling) and Sep 7 (per-km pace floor) he complied for four kilometres and then ran the fifth at 4:19 and 4:15 respectively, so a rule covering 'the run' demonstrably does not cover the finish; the finish needs to be named separately and be failable on its own. Report the per-km splits. Arif agreed on Sep 7 to keep this week's non-interval days genuinely easy."
       sunday:
         date: "2026-09-13"
         type: "long"
         distance_km: 9.7
-        notes: "long, easy"
+        notes: "Long, easy — the week's longest run and the last long run before the Sep 20 5K test week. Easy: HR <150 and no kilometre faster than 5:20. PLUS the last kilometre is now its own prescribed item with its own pass/fail, written this way on 2026-09-07 evidence: THE FINAL KM MUST NOT BE THE FASTEST KM OF THE RUN. Rationale — on Sep 1 (HR ceiling) and Sep 7 (per-km pace floor) he complied for four kilometres and then ran the fifth at 4:19 and 4:15 respectively, so a rule covering 'the run' demonstrably does not cover the finish; the finish needs to be named separately and be failable on its own. Report the per-km splits. Arif agreed on Sep 7 to keep this week's non-interval days genuinely easy."
   - week: 4
     start_date: "2026-09-14"
     end_date: "2026-09-20"
@@ -184,28 +198,35 @@ weeks:
         date: "2026-09-15"
         type: "easy"
         distance_km: 4.8
+        lift: "unspecified"
+        notes: "Easy 4.8 km — above 5:20/km, HR <150, last kilometre not the fastest. Plus a lift (Arif's own schedule, Sep 13; he wrote 'Weightlifting' without naming push/pull, so it is recorded unspecified rather than guessed). Upper body only is the standing pattern and is what keeps the legs clean for Thursday."
       wednesday:
         date: "2026-09-16"
-        type: "tempo"
-        duration_min: 35
-        notes: "35 min tempo — build to ~threshold in the middle"
+        type: "easy"
+        distance_km: 2
+        notes: "COMPLETED 2 km (Arif's own updated schedule, Sep 16; Strava 20202690236, 2.01 km @ 6:22/km, HR 134/152, lunch run with Richard Cheng). Prescribed 4.8 km easy; he shortened it deliberately to 2 km rather than cutting it short mid-run, so this is recorded as intent, not attrition. Fine three days out from the test — the week is correctly tapering."
       thursday:
         date: "2026-09-17"
-        type: "easy"
-        distance_km: 4.8
+        type: "tempo"
+        duration_min: 35
+        lift: "unspecified"
+        notes: "35 MIN TEMPO — stock Higdon duration, moved Wed -> Thu at Arif's request. STRUCTURE SET 2026-09-16, using Higdon's own shape (build to threshold in the MIDDLE THIRD): 11 min easy at 6:00+/km, then 13 MIN AT 4:35-4:45/km, then 11 min easy. 35 min total, roughly 7 km. START THE MIDDLE AT 4:45 AND HOLD IT — the whole assignment is the 13 minutes, and the failure mode is documented: on Sep 2 the same session was banded at 4:40-4:50 and he ran 4:32-4:34, i.e. 12 sec/km through the floor, which bought him only ~9 of the prescribed 15 minutes. Duration is the target, pace is the constraint. BAND RATIONALE, and a correction to the record: the band is 4:35-4:45 because that is his CURRENT threshold (Sep 2, 2 km at 4:33 cost HR 179-186, near-maximal). At peak HM fitness he was well beyond this — Jun 21, 8.00 km at 4:33/km at HR 161 avg, and Jul 1, 5.00 km at 4:30/km at HR 168 — so the ceiling is not the issue, current condition is. If 4:45 genuinely feels easy on the day, drifting to 4:40 is fine; going under 4:30 is not. Report per-km splits. No lift interference expected (upper body only)."
       friday:
         date: "2026-09-18"
-        type: "rest"
-        notes: "Rest — race-test prep"
+        type: "easy"
+        distance_km: 3
+        lift: "unspecified"
+        notes: "CHANGED 2026-09-16 at Arif's request: he added a 3 KM RUN to what had been a lift-only day. Higdon puts a plain rest day before the test, but a 3 km shakeout the day before a 5 km is standard and generally helps — it keeps the legs awake without costing anything, PROVIDED it is genuinely a shakeout: 6:00+/km, flat, no strides, no progression, no closing kick. That caveat is the whole point of the session (the Sep 16 2 km ran its second half 52 sec/km faster than its first). LIFT that day is upper body and light-to-moderate (incline DB press 3x8 @ 50/45/45, DB row 3x8 @ 35, lateral raises 3x20 @ 15, tricep pulldown 3x12 @ 33), which is the right shape for test eve and softens the earlier objection to lifting here. Do the lift AFTER the run, or at a different time of day."
       saturday:
         date: "2026-09-19"
         type: "rest"
-        notes: "Rest — day before the 5K test"
+        race_distance: null
+        notes: "NOT RUN — the 5K test MOVED to Sun Sep 20 by Arif, and Saturday became an unplanned full rest day. No Strava activity for Sep 19. This accidentally rescued Friday: the Sep 18 shakeout was run as 2.00 km continuous at 4:38/4:37 at HR 162.8/171.8 (83 sec/km through its 6:00+ floor), which on the original calendar would have sat ~16 hours in front of a maximal test. The extra rest day absorbed it. Record as a near-miss the calendar covered, not a cost paid."
       sunday:
         date: "2026-09-20"
         type: "race"
         race_distance: "5K"
-        notes: "★ 5K TEST — race-effort time trial to calibrate goal pace. Run it honestly; this recalibrates the goal band in block.json."
+        notes: "COMPLETED — ★ THE 5K TEST, moved here from Sat Sep 19 and run in SF, not Toronto (Strava 20258074116, Embarcadero, flat, 0 m gain, 09:17). RESULT: 22:12 elapsed / 20:54 moving for 5.00 km, avg HR 178.3, max 195 (equals the observed max — a second confirmation, not a new ceiling). Splits elapsed (moving): 4:22 (4:04) / 4:16 (4:02) / 4:23 / 4:15 / 4:56 (4:09); km3 and km4 carried ZERO stopped time. PRs: 1K 3:58, mile 6:43, 2-mile 13:44 (25 s better than Sep 17), 400 1:33. FOUR CROSSWALK INTERRUPTIONS totalling ~78 s stopped plus a ~23 s walk, the worst a 55 s halt at 4.20 km that handed back 41 bpm with 800 m to run — which is why 20:54 flatters more than 22:12 penalises. HONEST CLEAN-5K ESTIMATE ~21:15-21:45, the RESET branch of the pre-registered decision rule. GOAL RESET APPLIED to block.json this date: 20:00 -> 21:15 target, band 21:00-21:30, stretch 20:45; goal pace 4:00 -> 4:15/km. Beat the Sep 13 stated expectation of 21:30-22:30. Recovery now lands Mon Sep 21."
   - week: 5
     start_date: "2026-09-21"
     end_date: "2026-09-27"
@@ -215,33 +236,41 @@ weeks:
       monday:
         date: "2026-09-21"
         type: "rest"
-        notes: "Rest (natural lift slot); easy recovery from the 5K test if legs are heavy"
+        lift: null
+        notes: "COMPLETED — full rest, no lift (Arif's own updated schedule, Sep 23). The day after the maximal 5 km test, and the lift slot I had pencilled in here moved to Tuesday. Correct call: nothing was needed."
       tuesday:
         date: "2026-09-22"
-        type: "easy"
-        distance_km: 4.8
+        type: "rest"
+        lift: "push"
+        notes: "COMPLETED AS A LIFT-ONLY DAY (Arif's own updated schedule, Sep 23). The prescribed easy 4.8 km did NOT happen and is not being made up — the week now carries four runs instead of five, which is his call and a legitimate deviation. LIFT (push, actual weights): Incline dumbbell press 3x8 @ 50, 50(6), 45(5) each arm; Dumbbell row 3x8 @ 45; Lateral raises 3x20 @ 15 each arm; Seated dumbbell curls 3x8 @ 25(6) each arm. Two days after the test, upper body only, so no interference."
       wednesday:
         date: "2026-09-23"
-        type: "interval"
-        intervals: "7 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery"
+        type: "easy"
+        distance_km: 5.0
+        notes: "COMPLETED 5.00 km, NOT the prescribed 7 x 400m (Strava 20305635851; moving 26:55 = 5:23/km, elapsed 28:33, avg HR 152.1, max 171). Splits 6:04 / 5:20 / 5:11 / 5:05 / 5:15, HR 120 -> 152 -> 162 -> 167 -> 163, kms 2-4 with zero stopped time. Best 400 of the day 1:58 against a 1:41-1:45 band, and max HR 171 versus 195 on the test — no reps were attempted. Finish rule passed for the FOURTH consecutive run (km5 slower than km4, peak HR in km4). Pace floor and HR ceiling both went: three kms under 5:20, avg HR 152.1 over the <150 ceiling. Lands in the moderate middle. THE 7 x 400 WAS MOVED TO THU SEP 24 at Arif's choice (offered Thursday-or-drop on Sep 23; he took Thursday). Arif also tracks a 'Time to bed:' field on this day in his own schedule — his metric, not derivable here, leave blank."
       thursday:
         date: "2026-09-24"
-        type: "easy"
-        distance_km: 4.8
+        type: "pace"
+        distance_km: 6.5
+        lift: "push"
+        notes: "COMPLETED AS SATURDAY'S 6.5 km PACE RUN, TWO DAYS EARLY (Strava 20318849762). The prescribed 7 x 400m in 1:41-1:45 did NOT happen and was not attempted \u2014 fifth consecutive quality session of the block to miss its rep structure (Aug 19 travel, Sep 2 continuous tempo, Sep 9 not attempted, Sep 23 steady 5 km, Sep 24 pace run instead); the block has never completed a structured interval session. Graded against the Saturday brief instead, which is the fairer read. DELIVERED 6.50 km, moving 29:23 (4:31/km), elapsed 30:07 with only 44 s stopped. Avg HR 177.0, max 188, watts 326.4, cadence 81.0, 21 segment PRs. Splits MOVING 4:25 / 4:14 / 4:29 / 4:31 / 4:45 / 4:43 + closing 500 m at 4:32; HR 149 -> 177 -> 180 -> 184 -> 183 -> 185, peak 188 in the last 500 m. Kms 2-6 all carried ZERO stopped time. Best efforts 400 1:38, 1K 4:10, mile 6:43, 2-mile 14:04, 5K 22:31. THE RESULT THAT MATTERS IS DURATION: the block's longest unbroken hard effort was ~2.00 km before this, and this is ~29 minutes of continuous quality \u2014 exactly the gap the Sep 20 test diagnosed. The documented go-out-hot-and-buy-two-thirds failure mode (Sep 2, Sep 17) did NOT repeat: km2 at 4:14 was still 31 sec/km through the slow end of the band, but he got the whole distance, and kms 5-6 at 4:45/4:43 sat ON the prescribed slow end. HONEST COST: avg HR 177.0 versus 178.3 on the Sep 20 maximal test, i.e. test-day heart rate held for 29 minutes, four days after the test, with a heavy push lift after it. This was a race effort, not a threshold session. Comparison that carries forward: Sep 17 held 4:17-4:20 for 2 km at HR 178-181; this held 4:31 for 6.5 km at HR 177 \u2014 14 sec/km slower for 3.25x the duration at the same heart rate. LIFT (push, as planned): Bench press 3x5 @ 150; Overhead shoulder press 3x5 @ 65; Incline dumbbell press 2x8 @ 45; Tricep pulldown 3x12 @ 35; Lateral raises 3x15 @ 15 each arm \u2014 completion not confirmed; ask."
       friday:
         date: "2026-09-25"
         type: "rest"
-        notes: "Rest (natural lift slot)"
+        lift: null
+        notes: "Full rest, no lift (Arif's own updated schedule — the pull lift I had here moved to Saturday). Genuinely a rest day: Saturday's 6.5 km at threshold is the most useful session left in the block and should be run on fresh legs. NOTE THE SEP 18 PRECEDENT — the last time a rest-or-shakeout day sat in front of a hard session he ran 2 km at 4:37-4:38 at HR 172, and only a calendar slip saved what followed."
       saturday:
         date: "2026-09-26"
-        type: "pace"
-        distance_km: 6.4
-        notes: "fast — comfortably hard, ~4:45-5:00/km"
+        type: "long"
+        distance_km: 10.0
+        lift: "pull"
+        notes: "COMPLETED AS SUNDAY'S LONG 10 km, A DAY EARLY, IN VICTORIA BC (Strava 20341053284, desc 'Victoria is beautiful'). The prescribed 6.5 km pace run had already been run on Thu Sep 24, so this slot took the long run instead. TRAVELLING AGAIN \u2014 SF on Sep 24, Victoria BC on Sep 26; trip duration UNKNOWN and load-bearing for Week 6 (peak week, 40-min tempo Wed Sep 30). ASK HIM. DELIVERED 10.00 km, moving 53:28 (5:21/km), elapsed 58:43 (315 s stopped at harbour-path crossings), 53 m gain on a rolling seaside route. Avg HR 160.0, max 178, watts 280.0, cadence 78.6, zero PRs. Splits MOVING 5:47 / 5:16 / 5:18 / 5:33 / 5:13 / 5:11 / 5:04 / 5:28 / 5:16 / 5:22; HR 136 / 156 / 159 / 158 / 160 / 167 / 173 / 164 / 165 / 165. THE FINISH RULE PASSED AND THE SHAPE IS THE BEST OF THE BLOCK, BUT THE STREAK COUNT IS CORRECTED — an earlier draft of this note claimed a fifth consecutive pass and that count SKIPPED Sep 18, which failed on every term (5:19 -> 4:38 -> 4:37, HR 129 -> 172). A consecutive streak cannot be counted across an intervening failure, so the honest ledger is TWO clean passes since a decisive failure (Sep 23, Sep 26; Sep 24 is back-half evidence only). Details of this pass: fastest km was km7 (5:04) in the middle, km10 was the second-slowest of the ten, peak HR 178 came in km7, and HR FELL over the last three kilometres. Against five prior weeks in which every run ended with its fastest running this remains a real change, but it is improving rather than resolved — do not close it out on this evidence. THE EASY-DAY FLOOR AND CEILING BOTH WENT AGAIN and this is now the only unsolved execution problem in the block: six of ten kms under the 5:20 floor, avg HR 160.0 against a 150 ceiling. Mitigating: 53 m of gain, and it ran the morning after a 29-minute effort at HR 177, so part of the HR is residual fatigue. But the shape is NOT cardiac drift \u2014 pace held or quickened through the middle while HR rose, then HR came down in the last 3 km, which makes it cost-of-running-too-quick rather than heat. STRUCTURAL NOTE: Thu at HR 177 and Sat at HR 160 with only Friday between, three weeks out. LIFT (pull, as planned): Assisted pull-ups 3x5 @ 25; Seated rows 3x10 @ 110-121; Lat pulldown 3x8 @ 99-104; Preacher curls 3x8 @ 30 each arm; Face pulls 3x10 @ 33 \u2014 completion not confirmed while travelling; ask."
       sunday:
         date: "2026-09-27"
-        type: "long"
-        distance_km: 9.7
-        notes: "long, easy"
+        type: "interval"
+        intervals: "7 x 400m in 1:41-1:45 (4:12-4:22/km), 400m jog recovery"
+        lift: "push"
+        notes: "SET BY ARIF Sep 26, and it OVERRIDES the rest day I had converted this slot to earlier the same day (the long run having been delivered Sat Sep 26). He is in VICTORIA BC until Monday Sep 28, so this runs on the road; Week 6 resumes in SF and needs no change. Band unchanged and still derived from his own Sep 20 test rather than the template (proc_013c): 7 x 400m in 1:41-1:45, 400m jog recovery. Target 1:45, floor 1:41, ANY REP UNDER 1:40 MEANS IT IS BEING RUN WRONG — the assignment is seven EVEN reps with rep 7 no faster than rep 1. Reference points for whether the band is honest: best 400 on the Sep 20 test was 1:33 and on Sep 24's 6.5 km it was 1:38, both incidental rather than targeted, so 1:41-1:45 is well inside his current top end; on Sep 23, when no reps were attempted, the best 400 of the day was 1:58. STANDING DROP RULE, CARRIED OVER UNCHANGED FROM THE Sep 24 PRESCRIPTION: if the legs are heavy, DROP A REP rather than slow the band — and given the week behind it, stopping at five honest reps is a pass, not a failure. THE OBJECTION, STATED ONCE AND THEN LEFT ALONE per proc_013: this is the third hard day in four (Thu Sep 24 = 29 min at avg HR 177, the hardest sustained effort of the block; Sat Sep 26 = 10 km at avg HR 160 with six kms under the easy floor; now 400s at 4:12-4:22/km), it lands the day after the long run rather than on fresh legs, and it is 21 days out from Toronto. Arif set it, so it stands as written. WHAT MAKES IT WORTH RUNNING ANYWAY: five consecutive quality sessions this block have missed their rep structure (Aug 19 travel, Sep 2 continuous tempo, Sep 9 not attempted, Sep 23 steady 5 km, Sep 24 pace run instead) and the block has NEVER completed a structured interval session, so there is real value in banking one before the taper. Report all seven splits. LIFT (push, weights Arif supplied Sep 26 — identical to the Tue Sep 22 push session): Incline dumbbell press 3x8 @ 50 each arm; Dumbbell row 3x8 @ 45; Lateral raises 3x20 @ 15 each arm; Seated dumbbell curls 3x8 @ 25 each arm. Upper body only, so no leg interference with the reps. Run FIRST, lift after."
   - week: 6
     start_date: "2026-09-28"
     end_date: "2026-10-04"
@@ -251,33 +280,43 @@ weeks:
       monday:
         date: "2026-09-28"
         type: "rest"
-        notes: "Rest (natural lift slot)"
+        lift: null
+        notes: "Rest, NO LIFT \u2014 Arif flies back from Victoria BC today (in Victoria Sep 26-28, confirmed Sep 26). The template marks this a natural lift slot and I am deliberately leaving it empty because it is a travel day; the four lifts he asked for fit Tue/Thu/Fri/Sat without it."
       tuesday:
         date: "2026-09-29"
         type: "easy"
         distance_km: 4.8
+        lift: "push"
+        notes: "Stock Higdon (3 mi = 4.8 km). EASY: above 5:20/km, HR under 150, last km not the fastest. First run back in SF after Victoria and the day before the block's longest tempo, so this one is genuinely a filler run \u2014 slow is the assignment. THE STANDING PROBLEM THIS RUN IS AGAINST: Sep 26's 10 km ran six of ten kms under the 5:20 floor at avg HR 160, and easy-day pace is now the only unsolved execution issue in the block. LIFT (push) \u2014 weights are his, do not prescribe. Run FIRST, lift after."
       wednesday:
         date: "2026-09-30"
         type: "tempo"
         duration_min: 40
-        notes: "40 min tempo — longest tempo of the block; build to ~threshold in the middle"
+        lift: null
+        notes: "RESTORED TO STOCK HIGDON 2026-09-13 at Arif's request and unchanged since: a 40-min tempo, the longest of the block. STRUCTURE per the template's 'build to ~threshold in the middle third': ~13 min easy / ~14 min at 4:35-4:45 / ~13 min easy. BAND derived from Arif's own Sep 20 test, not the template (proc_013c \u2014 the template's generic 4:25-4:35 was written for the retired sub-20 goal). Same band as Sep 24, from the same test, deliberately: 4:35-4:45, AND START THE MIDDLE AT 4:45 AND HOLD IT. NO LIFT TODAY \u2014 this is the most important session of Week 6 and the last big aerobic session before the taper; it gets a clean day. THE RECORD IT IS AGAINST: he has broken the low end of this band on three consecutive tempo-type sessions (Sep 2 prescribed 4:45 ran 4:33; Sep 17 prescribed 4:35-4:45 ran 4:17-4:20; Sep 24 prescribed 4:35-4:45 ran 4:14 on km2 and 4:31 overall). Sep 24 is the reason the band is NOT being loosened: 6.5 km at 4:31 came in at avg HR 177 against 178.3 on the maximal test, i.e. that pace is race effort for him right now, not threshold. A 14-minute threshold middle should feel repeatable, not like the middle of a 5K. If the middle comes out at 4:30 or quicker again, the session has been run as a time trial and the durability benefit is lost."
       thursday:
         date: "2026-10-01"
         type: "easy"
         distance_km: 4.8
+        lift: "pull"
+        notes: "Stock Higdon (3 mi = 4.8 km). EASY recovery the day after the 40-min tempo: above 5:20/km, HR under 150, last km not the fastest. Expect this to be the slowest run of the week and do not fight it. LIFT (pull) \u2014 weights are his. Run FIRST, lift after."
       friday:
         date: "2026-10-02"
         type: "rest"
-        notes: "Rest (natural lift slot)"
+        lift: "push"
+        notes: "No run \u2014 stock Higdon rest day, and the template's second natural lift slot. LIFT-ONLY (push), weights are his. Upper body, so it costs Saturday's 8 km and Sunday's 11.3 km nothing."
       saturday:
         date: "2026-10-03"
         type: "easy"
-        distance_km: 8
+        distance_km: 8.0
+        lift: "pull"
+        notes: "Stock Higdon (5 mi = 8.0 km), EASY: above 5:20/km, HR under 150, last km not the fastest. Second-longest run of the week and it sits the day before the longest run of the block, so the pace floor matters more here than usual \u2014 running this at 5:10/km would compromise Sunday. LIFT (pull) \u2014 weights are his. Run FIRST, lift after."
       sunday:
         date: "2026-10-04"
         type: "long"
         distance_km: 11.3
-        notes: "longest run of the block, easy"
+        lift: null
+        notes: "LONGEST RUN OF THE BLOCK (stock Higdon, 7 mi = 11.3 km), EASY throughout \u2014 above 5:20/km, HR under 150, last km not the fastest. NO LIFT. Aerobic volume, not a session; the week's quality is spent by Wednesday. BENCHMARK: Sep 26's 10 km passed the final-km rule cleanly (km10 second-slowest of ten, peak HR in km7, HR falling over the last 3 km) but missed the pace floor on six of ten kms at avg HR 160. Repeat the finish shape AND hold the floor and the easy-day problem is closed out before the taper. Grade on pace spread and the finish, not on average HR."
   - week: 7
     start_date: "2026-10-05"
     end_date: "2026-10-11"
@@ -292,11 +331,13 @@ weeks:
         date: "2026-10-06"
         type: "easy"
         distance_km: 4.8
+        lift: "push"
+        lift_exercises: "Bench press 3x5; Overhead shoulder press 3x5; Incline dumbbell press 3x8; Lateral raises 3x15; Tricep pulldown 3x12. Run first, lift after."
       wednesday:
         date: "2026-10-07"
         type: "interval"
-        intervals: "8 x 400m at ~5K pace (~1:34-1:38), 200-400m jog recovery"
-        notes: "Sharpest VO2 session of the block"
+        intervals: "8 x 400m at 5K effort (1:41-1:45 per rep = 4:12-4:22/km), 200-400m jog recovery"
+        notes: "Sharpest VO2 session of the block. REBANDED 2026-09-26 off his own Sep 20 test per proc_013c \u2014 the template's ~1:34-1:38 was written for the retired sub-20 goal and would prescribe another runner's physiology. FORMAT UNCHANGED: still 8 x 400m with 200-400m jog recovery, because he asked for Higdon to the letter. THE OBJECTION, STATED ONCE AND THEN LEFT ALONE per proc_013: rep sessions are 0 for 4 this block while continuous sessions are 5 for 5, so if this one also does not happen as reps, the format is the problem rather than the athlete. Target 1:45, floor 1:41, any rep under 1:40 means it is being run wrong; rep 8 no faster than rep 1. Report all eight splits."
       thursday:
         date: "2026-10-08"
         type: "easy"
@@ -309,7 +350,7 @@ weeks:
         date: "2026-10-10"
         type: "pace"
         distance_km: 8
-        notes: "fast — comfortably hard, ~4:45-5:00/km. Last hard effort before taper."
+        notes: "REBANDED 2026-09-26 off his own measured data per proc_013c \u2014 the 4:20-4:30 here was written for the retired sub-20 goal. 8.0 km at 4:30-4:40/km, START AT 4:40 AND HOLD IT. Last hard effort before the taper, 7 days out, so this is a rehearsal of race rhythm and NOT a time trial. BASIS: Sep 24's 6.50 km at 4:31/km came in at avg HR 177.0 against 178.3 on the Sep 20 maximal test, with km6 at 185 (95% of the observed 195 max) \u2014 so 4:31 is currently RACE effort for him, not threshold, and asking for 4:20-4:30 over 8 km a week out prescribes a second time trial. The stimulus actually moving is TIME AT PACE (2.00 km unbroken Sep 17 -> 6.50 km Sep 24), so the target here is 8 km UNBROKEN at ~4:35, not 8 km fast. PER-KM OBLIGATION, REPORTED BACK (a pace target he must read and report is the only kind that holds): every kilometre must read 4:30 or SLOWER, send the eight splits. He has broken the low end of every tempo/pace band in this block (Sep 2, Sep 17, Sep 24), so expect km2 to be the one that goes."
       sunday:
         date: "2026-10-11"
         type: "long"
@@ -320,35 +361,36 @@ weeks:
     end_date: "2026-10-18"
     phase: "race_week"
     higdon_week: 8
+    note: "RACE WEEK, REBUILT 2026-09-26. Two facts from Arif changed it: the race is the MORNING OF SUN OCT 18, not Sat Oct 17, and he flies SF -> Toronto on WED OCT 14. The Sunday date restores the template's own race slot, so this week is now stock Higdon with NO weekday shift (Mon rest / Tue easy / Wed tempo / Thu easy shakeout / Fri rest / Sat rest / Sun race). The ONE deviation is the flight, which displaces the Wednesday calibration tempo to TUESDAY OCT 13 — a calendar constraint he reported, legitimate under proc_013a, and it moves the session FURTHER from the race (5 days out instead of 4), which is the safe direction. Tuesday's stock easy 4.8 km is dropped rather than relocated: it is the least valuable run of the week and the tempo takes its slot."
     days:
       monday:
         date: "2026-10-12"
         type: "rest"
-        notes: "Rest"
+        notes: "Rest (stock Higdon)."
       tuesday:
         date: "2026-10-13"
-        type: "easy"
-        distance_km: 4.8
-      wednesday:
-        date: "2026-10-14"
         type: "tempo"
         duration_min: 30
-        notes: "30 min tempo but CONTROLLED — sharpening, not a workout. 3 days out."
+        notes: "MOVED HERE FROM WED OCT 14 on 2026-09-26, because Arif flies SF -> Toronto that day. 5 days out from the Sun Oct 18 race. Stock Higdon's Tuesday easy 4.8 km is DROPPED, not relocated — the tempo takes the slot. TYPE AND DURATION UNCHANGED from the template: a 30-min tempo, CONTROLLED — sharpening, not a workout. STRUCTURE + BAND per proc_013c, because the template gave this session no pace target at all and an unbanded quality session defaults to whatever feels moderate: ~11 min easy at 6:00+/km, then ~8 MIN AT 4:15-4:20/km = GOAL RACE PACE, then ~11 min easy. THE PURPOSE IS CALIBRATION, NOT FITNESS. 4:15/km is the goal pace and he has never once run a kilometre at it as a deliberately paced segment — every 4:04-4:15 in this block is either a maximal fragment or stop-assisted. 8 minutes is ~1.9 km: short enough to cost nothing 5 days out, long enough to be informative, and being on Tuesday rather than Wednesday there is now MORE room to act on what it says. THIS IS THE BLOCK'S LAST CHANCE TO COLLECT THE MISSING EVIDENCE — an unbroken 3 km at 4:15-4:20 on rested legs has never been run, and its absence is the whole width of the 21:15-21:45 band. DECISION RULE, pre-registered: if 8 min at 4:15-4:20 feels like racing (HR at or above 185, or pace slipping past 4:22 unprompted), open the race at 4:20-4:22 and run for 21:45 rather than 21:15. Report the splits. Run it in SF, before the flight."
+      wednesday:
+        date: "2026-10-14"
+        type: "rest"
+        notes: "TRAVEL DAY — SF -> Toronto (Arif, reported 2026-09-26). FULL REST, no run, no lift. The 30-min calibration tempo that sat here has moved to Tue Oct 13. Three time zones EAST, which is the FAVOURABLE direction for a Sunday morning gun: his body clock will want to wake early in Eastern time, so a 07:00-09:00 start will feel like 04:00-06:00 Pacific in the wrong direction only for sleep, not for alertness at the line. Four nights in Toronto before the race is ample adjustment — no special protocol needed beyond getting to bed early Wed and Thu. Return date not reported."
       thursday:
         date: "2026-10-15"
         type: "easy"
         distance_km: 3.2
-        notes: "easy shakeout"
+        notes: "Easy shakeout, stock Higdon (2 mi = 3.2 km). FIRST RUN IN TORONTO, day after the flight. Above 5:20/km, HR under 150, and the point is to move the legs after a travel day — not to test the course. THE SEP 18 PRECEDENT IS THE WHOLE REASON THIS NOTE EXISTS: the last time a shakeout sat near a maximal 5 km he ran 2 km at 4:37-4:38 at HR 172, breaking every term of the brief, and only a calendar slip saved the test that followed. No strides, no progression, no closing kick. If he wants to see the waterfront course, jog it — do not run it."
       friday:
         date: "2026-10-16"
         type: "rest"
-        notes: "Rest"
+        notes: "Rest (stock Higdon). Two days out."
       saturday:
         date: "2026-10-17"
-        type: "race"
-        race_distance: "5K"
-        notes: "★★★ GOAL RACE — TCS Toronto Waterfront 5K. Goal band sub-20:00 stretch / 20:00-20:45 target."
+        type: "rest"
+        notes: "Rest (stock Higdon). Day before the race. OPTIONAL AND NOT PRESCRIBED: 10-15 min very easy jog plus 3-4 strides if he feels stiff or flat — that is a preference, not a session, and doing nothing is equally correct. Nothing on this day can add fitness and a fast day here is the one way to spend the race in advance. Lay out the Alphaflys, confirm the gun time and the start corral."
       sunday:
         date: "2026-10-18"
-        type: "rest"
-        notes: "Season done. Optional very-easy shakeout only."
+        type: "race"
+        race_distance: "5K"
+        notes: "★★★ GOAL RACE — TCS Toronto Waterfront 5K, SUNDAY MORNING OCT 18 (date corrected 2026-09-26 on Arif's report; exact gun time still TBD — GET IT). BAND REVISED 2026-09-26 off Sep 24's 6.50 km and Sep 26's 10 km: TARGET 21:15 STANDS, BAND 21:00-21:30 -> 21:15-21:45, STRETCH 20:45 -> 21:00, median expectation 21:30. Applied to block.json the same day. WHY THE 21:00 END WENT: it requires 4:12/km averaged over five kilometres, and his fastest CONTINUOUS kilometre on record is 4:14 (Sep 24 km2), with 4:15 next (Sep 20 test km4, at HR 188 with a kilometre still to run) — the floor was asking for an average faster than his single best unbroken km. WHY THE TARGET DID NOT MOVE SLOWER: Sep 24 extended unbroken quality from ~2.00 km to 6.50 km / ~29 min, the exact limiter the test diagnosed. WHY IT DID NOT MOVE FASTER: 4:31 for 29 min cost avg HR 177.0 against 178.3 on the maximal test, so that is race effort, not threshold — the usual 15-25 sec/km of race-pace headroom above a 29-minute pace is NOT available here, and the textbook conversion (which would imply ~4:10/km and a sub-21) must not be applied. RACE PLAN. (1) 15-20 min warm-up plus strides before the gun, non-negotiable — on Sep 24 km1 ran 4:25 at HR 149 and HR did not reach 177 until km2, i.e. a kilometre spent starting the engine, which in a 5 km is 10-15 s. (2) KM1 AT 4:18-4:20, NOT 4:05. Km1 on Sep 20 went 4:04 against a brief of 4:35, and the only thing that saved the back half was a 55 s crosswalk halt at 4.20 km that handed back 41 bpm. Toronto is a flat CLOSED course — there is no halt coming. (3) Then 4:15 / 4:15 / 4:15 and spend whatever is left in km5. His closing kick is a genuine asset (2 clean finish-rule passes since the Sep 18 failure) and it only converts if km1 is not gifted away. (4) Alphaflys (raced the Jul 2026 SF Half in them). TRAVEL CONTEXT: flew in Wed Oct 14, four nights in Eastern time before a morning gun, which is enough. AFTER THE RACE: this result supersedes the VDOT 44 estimate in athlete.json with a real race number, and moves into race_history; then close the block per scripts/close_block."

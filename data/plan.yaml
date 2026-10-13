@@ -6,7 +6,7 @@
 # rebuilt around his Oct 14 SF->Toronto flight. NOT regenerated on purpose — generate_plan.mjs
 # rebuilds from the template and never reads this file, so regenerating destroys every day note.
 
-race_date: "2026-10-18"
+race_date: "2026-10-17"
 race_name: "TCS Toronto Waterfront 5K"
 race_distance: "5K"
 plan: "Hal Higdon Intermediate 5K"

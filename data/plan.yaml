@@ -365,7 +365,7 @@ weeks:
     end_date: "2026-10-18"
     phase: "race_week"
     higdon_week: 8
-    note: "RACE WEEK, REBUILT 2026-09-26. Two facts from Arif changed it: the race is the MORNING OF SUN OCT 18, not Sat Oct 17, and he flies SF -> Toronto on WED OCT 14. The Sunday date restores the template's own race slot, so this week is now stock Higdon with NO weekday shift (Mon rest / Tue easy / Wed tempo / Thu easy shakeout / Fri rest / Sat rest / Sun race). The ONE deviation is the flight, which displaces the Wednesday calibration tempo to TUESDAY OCT 13 — a calendar constraint he reported, legitimate under proc_013a, and it moves the session FURTHER from the race (5 days out instead of 4), which is the safe direction. Tuesday's stock easy 4.8 km is dropped rather than relocated: it is the least valuable run of the week and the tempo takes its slot."
+    note: "RACE WEEK, REBUILT 2026-09-26, CORRECTED BACK 2026-10-12: the race is SAT OCT 17, not Sun Oct 18 — Arif's own words, 'the race is on saturday (i messed that up lol)', reversing his Sep 26 report that had moved it to Sunday. He still flies SF -> Toronto on WED OCT 14. With the race on Saturday, the week compresses a day versus the Sep 26 version and no longer maps onto the template's stock Sunday-race shape: Mon rest / Tue calibration tempo (before the flight) / Wed travel rest / Thu easy shakeout in Toronto / Fri rest, day before the race / SAT RACE / Sun Oct 18 free, post-race, no prescription. The flight still displaces the calibration tempo off its original weekday to TUESDAY OCT 13, but that is now 4 days out from the race, not 5."
     days:
       monday:
         date: "2026-10-12"
